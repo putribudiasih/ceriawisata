@@ -9,40 +9,39 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Buat Akun Baru</h1>
                             </div>
-                            <form class="user">
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                            placeholder="First Name">
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" id="exampleLastName"
-                                            placeholder="Last Name">
-                                    </div>
+                            <form class="user" method="post" action="<?= base_url('Login_controller/registration'); ?>">
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-user" id="nama" name="nama" 
+                                        placeholder="Nama Lengkap" value="<?= set_value('nama'); ?>">
+                                        <?= form_error('nama', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                                        placeholder="Email Address">
+                                    <input type="text" class="form-control form-control-user" id="email" name="email" 
+                                        placeholder="Email" value="<?= set_value('email'); ?>">
+                                        <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-user" id="notelp" name="notelp" placeholder="Nomor Telepon / Handphone" value="<?= set_value('notelp'); ?>">
+                                    <?= form_error('notelp', '<small class="text-danger pl-3">', '</small>'); ?>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-user" id="username" name="username" placeholder="Username" value="<?= set_value('username'); ?>">
+                                    <?= form_error('username', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="password" class="form-control form-control-user"
-                                            id="exampleInputPassword" placeholder="Password">
+                                        id="password1" name="password1" placeholder="Password">
+                                        <?= form_error('password1', '<small class="text-danger pl-3">', '</small>'); ?>
                                     </div>
                                     <div class="col-sm-6">
                                         <input type="password" class="form-control form-control-user"
-                                            id="exampleRepeatPassword" placeholder="Repeat Password">
+                                            id="password2" name="password2" placeholder="Ulang Password">
                                     </div>
                                 </div>
-                                <a href="login.html" class="btn btn-primary btn-user btn-block">
-                                    Register Account
-                                </a>
-                                <hr>
-                                <a href="index.html" class="btn btn-google btn-user btn-block">
-                                    <i class="fab fa-google fa-fw"></i> Register with Google
-                                </a>
-                                <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                                    <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
+                                <button type="submit" class="btn btn-primary btn-user btn-block">
+                                    Daftar
+                                </button>
                                 </a>
                             </form>
                             <hr>
@@ -50,7 +49,7 @@
                                 <a class="small" href="forgot-password.html">Forgot Password?</a>
                             </div>
                             <div class="text-center">
-                                <a class="small" href="login.html">Already have an account? Login!</a>
+                                <a class="small" href="<?= base_url(); ?>Login_controller">Sudah Punya Akun? Login!</a>
                             </div>
                         </div>
                     </div>
