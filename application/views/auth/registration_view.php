@@ -24,10 +24,10 @@
                                     <input type="text" class="form-control form-control-user" id="notelp" name="notelp" placeholder="Nomor Telepon / Handphone" value="<?= set_value('notelp'); ?>">
                                     <?= form_error('notelp', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>
-                                <div class="form-group">
+                              <!--  <div class="form-group">
                                     <input type="text" class="form-control form-control-user" id="username" name="username" placeholder="Username" value="<?= set_value('username'); ?>">
                                     <?= form_error('username', '<small class="text-danger pl-3">', '</small>'); ?>
-                                </div>
+                                </div> -->
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="password" class="form-control form-control-user"
