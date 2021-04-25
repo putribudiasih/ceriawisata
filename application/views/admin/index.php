@@ -4,7 +4,7 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Beranda</h1>
+                    <h1 class="h3 mb-4 text-gray-800">Pesanan Paket Wisata</h1>
 
                     
 
@@ -27,14 +27,7 @@
                   </div>
                 </div>
 
-                <div class="card" style="width: 18rem;">
-                  <img src="<?= base_url('assets/img/study.png'); ?>" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">Study Tour</h5>
-                    <p class="card-text">Paket ini kami kemas khusus bagi sekolah / perguruan tinggi yang hendak melakukan study ke instansi/perusahaan/lembaga riset di daerah tertentu yang kami kemas bersama paket wisata.</p>
-                    <a href="#" class="btn btn-primary">Lihat</a>
-                  </div>
-                </div>
+                
 
                 </div>
             
