@@ -6,7 +6,7 @@ class Admin extends CI_Controller
 
 	public function index()
 	{
-		$data['title'] = 'Dashboard | Ceria Wisata';
+		$data['title'] = 'Pesanan Paket Wisata';
 		$data['user'] = $this->db->get_where('tb_user', ['email' => $this->session->userdata('email')])->row_array();
 		
 		$this->load->view('templates/header', $data);
