@@ -111,4 +111,9 @@ class Login_controller extends CI_Controller
 			redirect('Login_controller');
 	}
 
+	public function blocked()
+	{
+		$this->load->view('auth/blocked');
+	}
+
 }
