@@ -77,7 +77,7 @@ class Admin extends CI_Controller
 	{
 		$data['title'] = 'Paket Wisata';
 		$data['user'] = $this->db->get_where('tb_user', ['email' => $this->session->userdata('email')])->row_array();
-		$data['tb_trayek'] = $this->db->get('tb_trayek')->result_array();
+		$data['trayek'] = $this->db->get_where('tb_trayek')->result_array();
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
