@@ -86,4 +86,18 @@ class Admin extends CI_Controller
 		$this->load->view('templates/footer');
 	}
 
+	public function tempatWisata()
+	{
+		$data['title'] = 'Paket Wisata';
+		$data['user'] = $this->db->get_where('tb_user', ['email' => $this->session->userdata('email')])->row_array();
+		$data['trayek'] = $this->db->get_where('tb_trayek')->result_array();
+		$data['tempat'] = $this->db->get_where('tb_tempat')->result_array();
+
+		$this->load->view('templates/header', $data);
+		$this->load->view('templates/sidebar', $data);
+		$this->load->view('templates/topbar', $data);
+		$this->load->view('admin/tempatwisata', $data);
+		$this->load->view('templates/footer');
+	}
+
 }

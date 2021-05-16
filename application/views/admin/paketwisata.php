@@ -33,7 +33,7 @@
         				<td>
                 <h5 class="card-title"><?= $ty['lokasi']; ?></h5>
               </td>
-        				<a href="#" class="btn btn-primary">Lihat</a>
+        				<a href="<?= base_url('admin/tempatwisata/') . $ty['kode']; ?>" class="btn btn-primary">Lihat</a>
       				  </div>  
     				</div>
   					</div>
@@ -44,6 +44,12 @@
           ?>
 
               </div>
+
+              <left>
+              <div class="form-group">
+                <input name="input" id="input" type="submit" value="tambah baru" class="btn btn-secondary py-2 px-4">
+              </div>
+              </left>
 
           <?php
         $countrow++;
@@ -56,7 +62,7 @@
             </div>
           </section>                  
           
-                
+
 
                 </div>
             
