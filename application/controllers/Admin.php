@@ -7,6 +7,7 @@ class Admin extends CI_Controller
 	{
 		parent::__construct();
 		is_logged_in();
+		
 	}
 
 	public function index()
@@ -88,10 +89,13 @@ class Admin extends CI_Controller
 
 	public function tempatWisata()
 	{
-		$data['title'] = 'Paket Wisata';
+		$this->load->model('Ceriawisata_model');
+		$this->Ceriawisata_model->add_record($data);
+		$data['title'] = 'Tempat Wisata';
 		$data['user'] = $this->db->get_where('tb_user', ['email' => $this->session->userdata('email')])->row_array();
-		$data['trayek'] = $this->db->get_where('tb_trayek', ['lokasi'])->row_array();
+		$data['trayek'] = $this->Ceriawisata_model->gettempatwisata($id)->row_array();
 		$data['tempat'] = $this->db->get_where('tb_tempat')->row_array();
+		
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);

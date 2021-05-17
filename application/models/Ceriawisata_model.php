@@ -3,12 +3,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Ceriawisata_model extends CI_Model
 {
-	public function getTempatWisata()
+	
 	{
-		$query = "SELECT `user_sub_menu`.*, `user_menu`.`menu`
-				  FROM `user_sub_menu` JOIN `user_menu`
-				  ON `user_sub_menu`.`menu_id` = `user_menu`.`id`
-				 ";
-		return $this->db->query($query)->result_array();
+		$this->load->database();
 	}
+	
+	public function gettempatwisata($id)
+	{
+		$this->db->select('*');
+		$this->db->from('tb_trayek');
+		$this->db->where('kode', $id);
+		$query = $this->db->get();
+			return $query;
+	}
+
 }
+?>
