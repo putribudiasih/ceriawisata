@@ -14,7 +14,7 @@
                   <div class="card-body">
                     <h5 class="card-title">Paket Wisata Domestik dan Luar Negeri</h5>
                     <p class="card-text">Paket wisata ke berbagai destinasi wisata Nusantara dan Luar Negeri. Pada paket wisata ini kami melayani grup besar maupun kecil dengan fasilitas yang istimewa ataupun by request sesuai dengan keinginan customer.</p>
-                    <a href="#" class="btn btn-primary">Lihat</a>
+                    <a href="<?= base_url('user/paketwisata/') ?>" class="btn btn-primary">Lihat</a>
                   </div>
                 </div>
 
