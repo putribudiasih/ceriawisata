@@ -11,7 +11,7 @@ class User extends CI_Controller
 
 	public function index()
 	{
-		$data['title'] = 'Beranda | Ceria Wisata';
+		$data['title'] = 'Beranda';
 		$data['user'] = $this->db->get_where('tb_user', ['email' => $this->session->userdata('email')])->row_array();
 		
 		$this->load->view('templates/header', $data);
@@ -45,6 +45,18 @@ class User extends CI_Controller
 		$this->load->view('templates/sidebar', $data);
 		$this->load->view('templates/topbar', $data);
 		$this->load->view('user/tempatwisata', $data);
+		$this->load->view('templates/footer');
+	}
+
+	public function pesanan()
+	{
+		$data['title'] = 'Form Pesanan';
+		$data['user'] = $this->db->get_where('tb_user', ['email' => $this->session->userdata('email')])->row_array();
+		
+		$this->load->view('templates/header', $data);
+		$this->load->view('templates/sidebar', $data);
+		$this->load->view('templates/topbar', $data);
+		$this->load->view('user/formpesanan', $data);
 		$this->load->view('templates/footer');
 	}
 

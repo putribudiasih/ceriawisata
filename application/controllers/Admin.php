@@ -12,7 +12,7 @@ class Admin extends CI_Controller
 
 	public function index()
 	{
-		$data['title'] = 'Pesanan Paket Wisata';
+		$data['title'] = 'Daftar Pesanan';
 		$data['user'] = $this->db->get_where('tb_user', ['email' => $this->session->userdata('email')])->row_array();
 		
 		$this->load->view('templates/header', $data);
@@ -76,7 +76,7 @@ class Admin extends CI_Controller
 
 	public function paketWisata()
 	{
-		$data['title'] = 'Paket Wisata';
+		$data['title'] = 'Paket Wisata Admin';
 		$data['user'] = $this->db->get_where('tb_user', ['email' => $this->session->userdata('email')])->row_array();
 		$data['trayek'] = $this->db->get_where('tb_trayek')->result_array();
 
