@@ -5,7 +5,7 @@ class Ceriawisata_model extends CI_Model
 {
 	
 	{
-		$this->load->database();
+		$this->load->database('ceriawisata');
 	}
 	
 	public function gettempatwisata($id)
@@ -17,5 +17,9 @@ class Ceriawisata_model extends CI_Model
 			return $query;
 	}
 
+	function input_data($data,$table){
+		$this->db->insert($table,$data);
+		return $this->db->get('tb_pesanan');
+	}
+
 }
-?>
