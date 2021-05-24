@@ -4,9 +4,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Ceriawisata_model extends CI_Model
 {
 	
-	{
-		$this->load->database('ceriawisata');
-	}
 	
 	public function gettempatwisata($id)
 	{

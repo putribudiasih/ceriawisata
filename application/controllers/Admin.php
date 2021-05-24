@@ -90,7 +90,7 @@ class Admin extends CI_Controller
 	public function tempatWisata()
 	{
 		$this->load->model('Ceriawisata_model');
-		$this->Ceriawisata_model->add_record($data);
+	//	$this->Ceriawisata_model->add_record($data);
 		$data['title'] = 'Tempat Wisata';
 		$data['user'] = $this->db->get_where('tb_user', ['email' => $this->session->userdata('email')])->row_array();
 		$data['trayek'] = $this->Ceriawisata_model->gettempatwisata($id)->row_array();
