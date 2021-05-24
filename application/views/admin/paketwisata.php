@@ -47,7 +47,7 @@
 
               <left>
               <div class="form-group">
-                <input name="input" id="input" type="submit" value="tambah baru" class="btn btn-secondary py-2 px-4">
+                <a href="<?= base_url('admin/tambahwisata/') ?>" class="btn btn-secondary py-2 px-4">Tambah Baru</a>
               </div>
               </left>
 

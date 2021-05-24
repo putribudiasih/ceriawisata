@@ -61,6 +61,7 @@
                              <div class="error">
                         </div>
                         
+                        
                         <div class="mb-md-5">
                        <center><button type="reset" class= "btn btn-danger">Reset</button>
                         <button type="submit" class= "btn btn-primary">Simpan</button></center> 
