@@ -48,6 +48,7 @@ class User extends CI_Controller
 		$this->load->view('templates/footer');
 	}
 
+	//FORM INPUT PESANAN PAKET WISATA USER
 	public function pesanan()
 	{
 		$data['title'] = 'Pemesanan Paket';
@@ -60,32 +61,15 @@ class User extends CI_Controller
 		$this->load->view('templates/footer');
 	}
 
-	function pesananUser(){
-		$this->form_validation->set_rules('nama', 'nama', 'required', 
-				array('required' 		=> '%s harus diisi'));
-		$this->form_validation->set_rules('email','email', 'required|max_length[20]',
-				array('required' 		=> '%s harus diisi'));
-					//  'max_length[20]' 	=> '%s tidak boleh lebih dari 20 karakter'));
-		$this->form_validation->set_rules('no_telp', 'no_telp', 'required',
-				array('required'		=> '%s harus diisi'));
-		$this->form_validation->set_rules('lokasi_berangkat', 'lokasi_berangkat', 'required',
-				array('required'		=> '%s harus diisi'));
-		$this->form_validation->set_rules('jml_pax', 'jml_pax', 'required',
-				array('required'		=> '%s harus diisi'));
-		$this->form_validation->set_rules('tgl_mulai', 'tgl_mulai', 'required',
-				array('required'		=> '%s harus diisi'));
-		$this->form_validation->set_rules('tgl_selesai', 'tgl_selesai', 'required',
-				array('required'		=> '%s harus diisi'));
-		$this->form_validation->set_rules('trayek', 'trayek', 'required',
-				array('required'		=> '%s harus diisi'));
-		$this->form_validation->set_rules('catatan', 'catatan', 'required',
-				array('required'		=> '%s harus diisi'));
+	//INPUT DATA PESANAN PAKET WISATA USER
+	public function inputpesanan()
+	{
+		
 
-
-		if($this->form_validation->run()==false){
-			$this->load->view('user/formpesanan');
+	//	if($this->form_validation->run()==false){
+	//		$this->load->view('user/formpesanan');
 			// redirect(base_url('user/formpesanan'));
-		}else{
+	//	}else{
 		$nama = $this->input->post('nama');
         $email = $this->input->post('email');
         $no_telp = $this->input->post('no_telp');
@@ -97,19 +81,20 @@ class User extends CI_Controller
         $catatan = $this->input->post('catatan');
 
 			$data = array(
-			'nama' => $nama,
-            'email' => $email,
-            'no_telp' => $no_telp,
-            'lokasi_berangkat' => $lokasi_berangkat,
-            'jml_pax' => $jml_pax,
-            'tgl_mulai' => $tgl_mulai,
-            'tgl_selesai' => $tgl_selesai,
-            'trayek' => $trayek,
-            'catatan' => $catatan,
+				'nama' => $nama,
+	            'email' => $email,
+	            'no_telp' => $no_telp,
+	            'lokasi_berangkat' => $lokasi_berangkat,
+	            'jml_pax' => $jml_pax,
+	            'tgl_mulai' => $tgl_mulai,
+	            'tgl_selesai' => $tgl_selesai,
+	            'trayek' => $trayek,
+	            'catatan' => $catatan
 			);
-		$this->Ceriawisata_model->input_data($data,'tb_pesanan');
+
+		$this->Ceriawisata_model->input_datapesanan($data,'tb_pesanan');
 		redirect('user/index');
-	}
+
 	}
 
 }

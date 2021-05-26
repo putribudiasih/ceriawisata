@@ -14,9 +14,9 @@ class Ceriawisata_model extends CI_Model
 			return $query;
 	}
 
-	function input_data($data,$table){
+	function input_datapesanan($data,$table){
 		$this->db->insert($table,$data);
-		return $this->db->get('tb_pesanan');
+		return $query;
 	}
 
 }

@@ -62,9 +62,9 @@
                         </div>
                         
                         
-                        <div class="mb-md-5">
-                       <center><button type="reset" class= "btn btn-danger">Reset</button>
-                        <button type="submit" class= "btn btn-primary">Simpan</button></center> 
+                        <div class="form-group">
+                       <center>
+                        <input name="input" type="submit" value="simpan" class= "btn btn-primary"></button></center> 
                         </div>
                       
                     </form>
