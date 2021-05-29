@@ -10,15 +10,15 @@
                 
 
                     <div class="col-md-6 mb-md-1">
-                    <form action="<?= base_url('User/pesanan'); ?>"method="post">
+                    <form action="<?= base_url('Admin/inputpakekode'); ?>"method="post">
                         <div class="form-group">
                             <label>Daerah / trayek</label>
-                            <input type="text" name="nama" class="form-control" value="<?= set_value('nama')?>">
+                            <input type="text" name="lokasi" class="form-control" value="<?= set_value('lokasi')?>">
                              <div class="error"><?= form_error('Daerah / trayek', '<small class="text-danger pl-3">','</small>');?></div> 
                         </div>
                         <div class="form-group">
                             <label>Kode</label>
-                            <input type="text" name="email" class="form-control" value="<?= set_value('email')?>"> 
+                            <input type="text" name="kode" class="form-control" value="<?= set_value('kode')?>"> 
                              <div class="error"><?= form_error('Kode', '<small class="text-danger pl-3">','</small>');?></div> 
                         </div>
                         <div class="form-group">
@@ -28,18 +28,24 @@
                         </div>
                         <div class="form-group">
                             <label>Destinasi 1</label>
-                            <input type="text" name="lokasi_berangkat" class="form-control" value="<?= set_value('lokasi_berangkat')?>">
-                             <div class="error"><?= form_error('Lokasi Berangkat', '<small class="text-danger pl-3">','</small>');?></div> 
+                            <input type="text" name="tujuan" class="form-control" value="<?= set_value('tujuan')?>">
+                             <div class="error"><?= form_error('Destinasi 1', '<small class="text-danger pl-3">','</small>');?></div> 
                         </div>
                         <div class="form-group">
                             <label>Destinasi 2</label>
-                            <input type="text" name="jml_pax" class="form-control" value="<?= set_value('jml_pax')?>">
-                             <div class="error"><?= form_error('Jumlah rombongan', '<small class="text-danger pl-3">','</small>');?></div> 
+                            <input type="text" name="tujuan" class="form-control" value="<?= set_value('tujuan')?>">
                         </div>
                         <div class="form-group">
                             <label>Destinasi 3</label>
-                            <input type="text" name="trayek" class="form-control" value="<?= set_value('trayek')?>">
-                             <div class="error"><?= form_error('Trayek/Daerah Tujuan', '<small class="text-danger pl-3">','</small>');?></div>
+                            <input type="text" name="tujuan" class="form-control" value="<?= set_value('tujuan')?>">
+                        </div>
+                        <div class="form-group">
+                            <label>Destinasi 4</label>
+                            <input type="text" name="tujuan" class="form-control" value="<?= set_value('tujuan')?>">
+                        </div>
+                        <div class="form-group">
+                            <label>Destinasi 5</label>
+                            <input type="text" name="tujuan" class="form-control" value="<?= set_value('tujuan')?>">
                         </div>
                         
                         

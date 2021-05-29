@@ -106,6 +106,7 @@ class Admin extends CI_Controller
 		$this->load->view('templates/footer');
 	}
 
+	//FORM INPUT TAMBAH PAKET WISATA ADMIN
 	public function tambahWisata()
 	{
 		$data['title'] = 'Tujuan Wisata Baru';
@@ -119,9 +120,46 @@ class Admin extends CI_Controller
 		$this->load->view('templates/footer');
 	}
 
+	//INPUT DATA PESANAN PAKET WISATA USER
+	public function inputpaketbaru()
+	{
+		
+		$lokasi = $this->input->post('lokasi');
+		$kode = $this->input->post('kode');
+		$gambar = $this->input->post('gambar');
+		$tujuan = $this->input->post('tujuan');
+
+		$data = array(
+			'lokasi' => $lokasi,
+			'kode' => $kode,
+			'gambar' => $gambar,
+			'tujuan' => $tujuan
+		);
+
+		$this->Ceriawisata_model->input_datapaketbaru($data, 'tb_trayek');
+		redirect('admin/paketwisata');
+	}
+
+
 	public function hapusPesanan()
 	{
 		$where = $this->uri->segment(3);
 		$this->Ceriawisata_model->delDataPesanan($where, 'tb_pesanan');
+		//redirect ('admin/index/');
+	}
+
+	public function detailpesanan()
+	{
+		$this->load->model('Ceriawisata_model');
+		//	$this->Ceriawisata_model->add_record($data);
+		$data['title'] = 'Daftar Pesanan';
+		$data['user'] = $this->db->get_where('tb_user', ['email' => $this->session->userdata('email')])->row_array();
+		
+
+		$this->load->view('templates/header', $data);
+		$this->load->view('templates/sidebar', $data);
+		$this->load->view('templates/topbar', $data);
+		$this->load->view('admin/detailpesanan', $data);
+		$this->load->view('templates/footer');
 	}
 }

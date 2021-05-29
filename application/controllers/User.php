@@ -65,12 +65,7 @@ class User extends CI_Controller
 	//INPUT DATA PESANAN PAKET WISATA USER
 	public function inputpesanan()
 	{
-
-
-		//	if($this->form_validation->run()==false){
-		//		$this->load->view('user/formpesanan');
-		// redirect(base_url('user/formpesanan'));
-		//	}else{
+		
 		$nama = $this->input->post('nama');
 		$email = $this->input->post('email');
 		$no_telp = $this->input->post('no_telp');
@@ -93,7 +88,15 @@ class User extends CI_Controller
 			'catatan' => $catatan
 		);
 
+		$data['datalokasi'] = $this->Ceriawisata_model->getdatapesanan();
 		$this->Ceriawisata_model->input_datapesanan($data, 'tb_pesanan');
 		redirect('user/index');
+
+		$this->form_validation->set_rules('nama', 'nama', 'required',
+			['required' => '%s harap diisi']
+		);
+		$this->form_validation->set_rules('Email', 'Email', 'required',
+			['required' => '%s harap dipilih']
+		);
 	}
 }

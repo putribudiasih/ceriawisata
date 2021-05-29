@@ -25,10 +25,15 @@
 					<td><?= $d['trayek'] ?></td>
 					<td><?= $d['tgl_mulai'] ?></td>
 					<td>
-						<a href="<?= base_url('Admin/hapusPesanan/' . $d['id_pesanan']); ?>">Hapos</a>
-						<div class="btn">Edit</div>
+						<a href="<?= base_url('admin/detailpesanan/') . $d['id_pesanan'] ?>" class="badge badge-warning">Detail</a>
+						<a href="<?= base_url('Admin/hapusPesanan/' . $d['id_pesanan']); ?>" class="badge badge-danger">Hapus</a>
+						<a href="" class="badge badge-success">Edit</a>
 					</td>
-					<td><?= $d['catatan'] ?></td>
+					<td>
+						<div class="form-check">
+  						<input class="form-check-input" type="checkbox" data-data_pesanan="id_pesanan">
+						</div>
+					</td>
 				</tr>
 			<?php } ?>
 		</tbody>

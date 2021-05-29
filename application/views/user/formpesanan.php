@@ -2,7 +2,7 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">Form Pesanan Paket Wisata</h1>
+    <h1 class="h3 mb-4 text-gray-800">Form Pemesanan Paket Wisata</h1>
 
 
 
@@ -50,19 +50,23 @@
             </div>
             <div class="form-group">
                 <label>Trayek/Daerah Tujuan</label>
-                <input type="text" name="trayek" class="form-control">
+                <select name="lokasi" id="lokasi" class="form-control">
+                        <option selected disabled>Pilih Daerah Tujuan</option>
+                        <?php foreach ($datalokasi as $key): ?>
+                        <option value="<?= $key['id']; ?><?= $key['lokasi']; ?>"></option>
+                <?php endforeach; ?>
+                    </select>
                 <div class="error"><?= form_error('Trayek/Daerah Tujuan', '<small class="text-danger pl-3">', '</small>'); ?></div>
             </div>
             <div class="form-group">
                 <label>Catatan... (bisa menambah atau mengurangi destinasi tempat wisata)</label>
                 <input type="text" name="catatan" class="form-control">
-                <div class="error">
-                </div>
+            </div>
 
 
                 <div class="form-group">
-                    <center>
-                        <input name="input" type="submit" value="simpan" class="btn btn-primary">
+                    <center><button type="reset" class= "btn btn-danger">Reset</button>
+                        <button type="submit" class= "btn btn-primary">Simpan</button>
                     </center>
                 </div>
 
