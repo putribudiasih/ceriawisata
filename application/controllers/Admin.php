@@ -123,7 +123,7 @@ class Admin extends CI_Controller
 	//INPUT DATA PESANAN PAKET WISATA USER
 	public function inputpaketbaru()
 	{
-		
+
 		$lokasi = $this->input->post('lokasi');
 		$kode = $this->input->post('kode');
 		$gambar = $this->input->post('gambar');
@@ -141,11 +141,12 @@ class Admin extends CI_Controller
 	}
 
 
-	public function hapusPesanan()
+	public function hapusPesanan($id)
 	{
-		$where = $this->uri->segment(3);
-		$this->Ceriawisata_model->delDataPesanan($where, 'tb_pesanan');
-		//redirect ('admin/index/');
+		// $news = new 
+		$where = array('id_pesanan' => $id);
+		$result = $this->Ceriawisata_model->delDataPesanan($where, 'tb_pesanan');
+		redirect('admin/index/');
 	}
 
 	public function detailpesanan()
@@ -154,12 +155,28 @@ class Admin extends CI_Controller
 		//	$this->Ceriawisata_model->add_record($data);
 		$data['title'] = 'Daftar Pesanan';
 		$data['user'] = $this->db->get_where('tb_user', ['email' => $this->session->userdata('email')])->row_array();
-		
+
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
 		$this->load->view('templates/topbar', $data);
 		$this->load->view('admin/detailpesanan', $data);
 		$this->load->view('templates/footer');
+	}
+
+	public function updateStatus()
+	{
+		$status = $_POST['status'];
+		$id_pesanan = $_POST['id_pesanan'];
+
+		$data = array(
+			'keterangan' => $status
+		);
+
+		$where = array(
+			'id_pesanan' => $id_pesanan
+		);
+
+		$this->Ceriawisata_model->update_status($where, $data);
 	}
 }

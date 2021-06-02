@@ -31,7 +31,7 @@
 					</td>
 					<td>
 						<div class="form-check">
-  						<input class="form-check-input" type="checkbox" data-data_pesanan="id_pesanan">
+							<input class="form-check-input" type="checkbox" id="status" name="status" <?= $d['keterangan'] == '1' ? 'checked' : '' ?> onchange="if(this.checked){setStatusDatPesanan(1,'<?= $d['id_pesanan'] ?>')}else{setStatusDatPesanan(0,'<?= $d['id_pesanan'] ?>')}">
 						</div>
 					</td>
 				</tr>
@@ -47,3 +47,22 @@
 
 </div>
 <!-- End of Main Content -->
+<!-- <script src="<?= base_url('vendor_temp/sbadmin2/js/sb-admin-2.min.js') ?>"></script> -->
+<script src="<?= base_url('vendor_temp/jquery/jquery.min.js') ?>"></script>
+<script type="text/javascript">
+	function setStatusDatPesanan(status, id) {
+		$.ajax({
+			url: 'admin/updateStatus',
+			method: 'POST',
+			data: {
+				id_pesanan: id,
+				status: status
+			},
+			cache: false,
+			dataType: 'html',
+			success: function(data) {
+
+			},
+		});
+	}
+</script>

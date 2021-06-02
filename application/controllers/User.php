@@ -54,6 +54,7 @@ class User extends CI_Controller
 	{
 		$data['title'] = 'Pemesanan Paket';
 		$data['user'] = $this->db->get_where('tb_user', ['email' => $this->session->userdata('email')])->row_array();
+		$data['trayek'] = $this->db->get_where('tb_trayek')->result_array();
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
@@ -65,7 +66,7 @@ class User extends CI_Controller
 	//INPUT DATA PESANAN PAKET WISATA USER
 	public function inputpesanan()
 	{
-		
+
 		$nama = $this->input->post('nama');
 		$email = $this->input->post('email');
 		$no_telp = $this->input->post('no_telp');
@@ -88,14 +89,20 @@ class User extends CI_Controller
 			'catatan' => $catatan
 		);
 
-		$data['datalokasi'] = $this->Ceriawisata_model->getdatapesanan();
+		// $data['datalokasi'] = $this->Ceriawisata_model->getdatapesanan();
 		$this->Ceriawisata_model->input_datapesanan($data, 'tb_pesanan');
 		redirect('user/index');
 
-		$this->form_validation->set_rules('nama', 'nama', 'required',
+		$this->form_validation->set_rules(
+			'nama',
+			'nama',
+			'required',
 			['required' => '%s harap diisi']
 		);
-		$this->form_validation->set_rules('Email', 'Email', 'required',
+		$this->form_validation->set_rules(
+			'Email',
+			'Email',
+			'required',
 			['required' => '%s harap dipilih']
 		);
 	}

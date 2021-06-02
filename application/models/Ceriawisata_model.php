@@ -30,6 +30,11 @@ class Ceriawisata_model extends CI_Model
 	function delDataPesanan($where, $table)
 	{
 		$this->db->where($where);
-		$this->db->from('tb_pesanan');
+		$this->db->delete($table);
+	}
+
+	function update_status($where, $update)
+	{
+		return $this->db->update('tb_pesanan', $update, $where);
 	}
 }
