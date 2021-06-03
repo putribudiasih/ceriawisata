@@ -37,4 +37,14 @@ class Ceriawisata_model extends CI_Model
 	{
 		return $this->db->update('tb_pesanan', $update, $where);
 	}
+
+	function detailPesanan($id)
+	{
+		$this->db->select('*');
+		$this->db->from('tb_pesanan');
+		$this->db->join('tb_trayek', 'tb_trayek.id = tb_pesanan.trayek');
+		$this->db->where('id_pesanan', $id);
+		$query = $this->db->get();
+		return $query->row_array();
+	}
 }

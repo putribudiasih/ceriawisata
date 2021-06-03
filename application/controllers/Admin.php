@@ -149,13 +149,13 @@ class Admin extends CI_Controller
 		redirect('admin/index/');
 	}
 
-	public function detailpesanan()
+	public function detailpesanan($id)
 	{
 		$this->load->model('Ceriawisata_model');
 		//	$this->Ceriawisata_model->add_record($data);
 		$data['title'] = 'Daftar Pesanan';
 		$data['user'] = $this->db->get_where('tb_user', ['email' => $this->session->userdata('email')])->row_array();
-
+		$data['detail_pesanan'] = $this->Ceriawisata_model->detailPesanan($id);
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
