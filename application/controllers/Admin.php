@@ -89,14 +89,14 @@ class Admin extends CI_Controller
 		$this->load->view('templates/footer');
 	}
 
-	public function tempatWisata()
+	public function tempatWisata($id)
 	{
-		$this->load->model('Ceriawisata_model');
+		// $this->load->model('Ceriawisata_model');
 		//	$this->Ceriawisata_model->add_record($data);
 		$data['title'] = 'Tempat Wisata';
 		$data['user'] = $this->db->get_where('tb_user', ['email' => $this->session->userdata('email')])->row_array();
-		$data['trayek'] = $this->Ceriawisata_model->gettempatwisata()->row_array();
-		$data['tempat'] = $this->db->get_where('tb_tempat')->row_array();
+		$data['trayek'] = $this->Ceriawisata_model->gettempatwisata($id);
+		$data['tempat'] = $this->Ceriawisata_model->getTempat($id);
 
 
 		$this->load->view('templates/header', $data);
@@ -118,6 +118,49 @@ class Admin extends CI_Controller
 		$this->load->view('templates/topbar', $data);
 		$this->load->view('admin/tambahwisata', $data);
 		$this->load->view('templates/footer');
+	}
+
+	public function prosesTambahWisata()
+	{
+
+		$nomer = 0;
+		$data_destinasi = [];
+		$tujuan = $this->input->post('tujuan[]');
+
+		$config['upload_path']          = 'assets/img/';  // folder upload 
+		$config['allowed_types']        = 'gif|jpg|png'; // jenis file
+		$config['max_size']             = 3000;
+		$config['max_width']            = 1024;
+		$config['max_height']           = 768;
+
+		$this->load->library('upload', $config);
+		$this->upload->initialize($config);
+		if (!$this->upload->do_upload('gambar')) //sesuai dengan name pada form 
+		{
+			echo $this->upload->display_errors();
+		}
+		$file = $this->upload->data();
+		$image = $file['file_name'];
+
+		$data = array(
+			'lokasi' => htmlspecialchars($this->input->post('lokasi')),
+			'kode' => htmlspecialchars($this->input->post('kode')),
+			'gambar' => $image
+		);
+
+		foreach ($tujuan as $key => $value) {
+			$data_destinasi[$nomer] = [
+				'tujuan' => $_POST['tujuan'][$nomer],
+				'kode' => htmlspecialchars($this->input->post('kode'))
+			];
+			$nomer++;
+		}
+
+
+		$this->db->insert_batch('tb_tempat', $data_destinasi);
+		$this->db->insert('tb_trayek', $data);
+
+		redirect('admin/paketwisata');
 	}
 
 	//INPUT DATA PESANAN PAKET WISATA USER

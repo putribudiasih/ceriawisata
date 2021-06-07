@@ -11,7 +11,7 @@ class Ceriawisata_model extends CI_Model
 		$this->db->from('tb_trayek');
 		$this->db->where('kode', $id);
 		$query = $this->db->get();
-		return $query;
+		return $query->row_array();
 	}
 
 	function input_datapesanan($data, $table)
@@ -46,5 +46,19 @@ class Ceriawisata_model extends CI_Model
 		$this->db->where('id_pesanan', $id);
 		$query = $this->db->get();
 		return $query->row_array();
+	}
+
+	function inputPaketBaru($data)
+	{
+		return $this->db->insert('tb_trayek', $data);
+	}
+
+	function getTempat($id)
+	{
+		$this->db->select('*');
+		$this->db->from('tb_tempat');
+		$this->db->where('kode', $id);
+		$query = $this->db->get();
+		return $query->result_array();
 	}
 }
