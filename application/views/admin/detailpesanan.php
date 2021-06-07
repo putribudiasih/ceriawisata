@@ -110,7 +110,7 @@
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <label>Jumlah Tumpangan</label>
+                        <label>Jumlah Pax</label>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
                             <input type="text" class="form-control" aria-describedby="basic-addon1" value="<?= $detail_pesanan['jml_pax'] ?>" disabled>
@@ -138,6 +138,13 @@
             </div>
         </div>
     </div>
+
+              <div class="mb-md-5">
+              <center>
+                <a href="<?= base_url('admin/tambahjadwal/') ?>" class="btn btn-primary py-2 px-4">Tambah Jadwal</a>
+              </div>
+              </center>
+            
 
 
     <!-- </div>

@@ -93,7 +93,7 @@ class Admin extends CI_Controller
 	{
 		// $this->load->model('Ceriawisata_model');
 		//	$this->Ceriawisata_model->add_record($data);
-		$data['title'] = 'Tempat Wisata';
+		$data['title'] = 'Paket Wisata Admin';
 		$data['user'] = $this->db->get_where('tb_user', ['email' => $this->session->userdata('email')])->row_array();
 		$data['trayek'] = $this->Ceriawisata_model->gettempatwisata($id);
 		$data['tempat'] = $this->Ceriawisata_model->getTempat($id);
@@ -221,5 +221,18 @@ class Admin extends CI_Controller
 		);
 
 		$this->Ceriawisata_model->update_status($where, $data);
+	}
+
+	public function tambahJadwal()
+	{
+		$data['title'] = 'Daftar Pesanan';
+		$data['user'] = $this->db->get_where('tb_user', ['email' => $this->session->userdata('email')])->row_array();
+		$data['tb_trayek'] = $this->db->get_where('tb_trayek')->result_array();
+
+		$this->load->view('templates/header', $data);
+		$this->load->view('templates/sidebar', $data);
+		$this->load->view('templates/topbar', $data);
+		$this->load->view('admin/tambahjadwal', $data);
+		$this->load->view('templates/footer');
 	}
 }

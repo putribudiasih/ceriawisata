@@ -45,6 +45,7 @@
 
               </div>
 
+              
               <left>
               <div class="form-group">
                 <a href="<?= base_url('admin/tambahwisata/') ?>" class="btn btn-secondary py-2 px-4">Tambah Baru</a>
