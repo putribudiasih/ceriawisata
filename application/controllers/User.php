@@ -35,12 +35,12 @@ class User extends CI_Controller
 		$this->load->view('templates/footer');
 	}
 
-	public function tempatWisata()
+	public function tempatWisata($id)
 	{
 		$data['title'] = 'Paket Wisata';
 		$data['user'] = $this->db->get_where('tb_user', ['email' => $this->session->userdata('email')])->row_array();
-		$data['trayek'] = $this->db->get_where('tb_trayek')->result_array();
-		$data['tempat'] = $this->db->get_where('tb_tempat')->result_array();
+		$data['trayek'] = $this->Ceriawisata_model->gettempatwisata($id);
+		$data['tempat'] = $this->Ceriawisata_model->getTempat($id);
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
