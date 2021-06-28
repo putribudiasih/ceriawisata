@@ -112,11 +112,34 @@ class User extends CI_Controller
 		$data['title'] = 'Jadwal Kegiatan';
 		$data['user'] = $this->db->get_where('tb_user', ['email' => $this->session->userdata('email')])->row_array();
 		$data['trayek'] = $this->db->get_where('tb_trayek')->result_array();
+		$data['data_pesanan'] =  $this->Ceriawisata_model->getDataPesanan();
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
 		$this->load->view('templates/topbar', $data);
 		$this->load->view('user/jadwal', $data);
 		$this->load->view('templates/footer');
+	}
+
+	public function detailJadwal($id)
+	{
+		$data['title'] = 'Jadwal Kegiatan';
+		$data['user'] = $this->db->get_where('tb_user', ['email' => $this->session->userdata('email')])->row_array();
+		$data['trayek'] = $this->db->get_where('tb_trayek')->result_array();
+		$data['data_jadwal'] = $this->Ceriawisata_model->data_jadwal($id);
+		$data['detail_pesanan'] = $this->Ceriawisata_model->detailPesanan($id);
+
+		$this->load->view('templates/header', $data);
+		$this->load->view('templates/sidebar', $data);
+		$this->load->view('templates/topbar', $data);
+		$this->load->view('user/detailjadwal', $data);
+		$this->load->view('templates/footer');
+	}
+
+	public function hapusJadwal($id)
+	{
+		$where = array('id_jadwal' => $id);
+		$result = $this->Ceriawisata_model->hapusJadwal($where, 'tb_jadwal');
+		redirect('user/jadwal');
 	}
 }

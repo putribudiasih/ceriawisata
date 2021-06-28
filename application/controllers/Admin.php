@@ -129,7 +129,7 @@ class Admin extends CI_Controller
 
 		$config['upload_path']          = 'assets/img/';  // folder upload 
 		$config['allowed_types']        = 'gif|jpg|png'; // jenis file
-		$config['max_size']             = 10000;
+		$config['max_size']             = 10000; //ukuran upload maksimal 10mb
 		$config['max_width']            = 6000; //gambar ukuran kesamping(horizontal) maksimal 6000px
 		$config['max_height']           = 6000; ////gambar ukuran keatas(vertical) maksimal 6000px
 
@@ -223,16 +223,54 @@ class Admin extends CI_Controller
 		$this->Ceriawisata_model->update_status($where, $data);
 	}
 
-	public function tambahJadwal()
+	public function tambahJadwal($id)
 	{
 		$data['title'] = 'Daftar Pesanan';
 		$data['user'] = $this->db->get_where('tb_user', ['email' => $this->session->userdata('email')])->row_array();
 		$data['tb_trayek'] = $this->db->get_where('tb_trayek')->result_array();
+		$data['detail_pesanan'] = $this->Ceriawisata_model->detailPesanan($id);
+		$data['jumlah_wisata'] = $this->Ceriawisata_model->jumlah_wisata($id);
+		$data['daftarWisata'] = $this->Ceriawisata_model->daftarWisata($id);
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
 		$this->load->view('templates/topbar', $data);
 		$this->load->view('admin/tambahjadwal', $data);
 		$this->load->view('templates/footer');
+	}
+
+	public function getWisata($id)
+	{
+		$data = $this->Ceriawisata_model->daftarWisata($id);
+		// foreach ($data as $row)
+		// 	$arr_result = array(
+		// 		'id' => $row->id,
+		// 		'tujuan' => $row->tujuan
+		// 	);
+		echo json_encode($data);
+	}
+
+	public function submitJadwal()
+	{
+		$data_jadwal = [];
+		$nomer = 0;
+		$id_pesanan = $this->input->post('id_pesanan');
+		$id_tempat = $this->input->post('wisata[]');
+
+		foreach ($id_tempat as $key) {
+			$data_jadwal[$nomer] = [
+				'id_pesanan' => htmlspecialchars($id_pesanan),
+				'id_tempat' => $_POST['wisata'][$nomer],
+				'waktu_berangkat' => $_POST['berangkat'][$nomer],
+				'waktu_pulang' => $_POST['pulang'][$nomer]
+			];
+			$nomer++;
+		}
+		$result = $this->db->insert_batch('tb_jadwal', $data_jadwal);
+		if ($result == true) {
+			redirect('Admin/detailpesanan/' . $this->input->post('id_pesanan'));
+		} else {
+			redirect('Admin/tambahJadwal/' . $this->input->post('id_pesanan'));
+		}
 	}
 }

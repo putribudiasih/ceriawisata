@@ -139,12 +139,12 @@
         </div>
     </div>
 
-              <div class="mb-md-5">
-              <center>
-                <a href="<?= base_url('admin/tambahjadwal/') ?>" class="btn btn-primary py-2 px-4">Tambah Jadwal</a>
-              </div>
-              </center>
-            
+    <div class="mb-md-5">
+        <center>
+            <a href="<?= base_url('admin/tambahjadwal/') . $detail_pesanan['id_pesanan'] ?>" class="btn btn-primary py-2 px-4">Tambah Jadwal</a>
+    </div>
+    </center>
+
 
 
     <!-- </div>

@@ -53,7 +53,7 @@
                 <select name="trayek" id="trayek" class="form-control" required="">
                     <option selected disabled>Pilih Daerah Tujuan</option>
                     <?php foreach ($trayek as $key) : ?>
-                        <option value="<?= $key['id']; ?>"><?= $key['lokasi']; ?></option>
+                        <option value="<?= $key['kode']; ?>"><?= $key['lokasi']; ?></option>
                     <?php endforeach; ?>
                 </select>
                 <div class="error"><?= form_error('Trayek/Daerah Tujuan', '<small class="text-danger pl-3">', '</small>'); ?></div>
