@@ -97,4 +97,14 @@ class Ceriawisata_model extends CI_Model
 		$this->db->where($where);
 		$this->db->delete($table);
 	}
+
+	public function ambilJadwal()
+	{
+		$this->db->select('*');
+		$this->db->from('tb_jadwal');
+		// $this->db->join('tb_pesanan', 'tb_pesanan.id_pesanan = tb_jadwal.id_pesanan');
+		// $this->db->where('tb_jadwal.id_pesanan', $id);
+		$query = $this->db->get();
+		return $query->result_array();
+	}
 }

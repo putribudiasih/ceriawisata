@@ -48,7 +48,7 @@
             <!-- Custom scripts for all pages-->
             <script src="<?= base_url('assets/'); ?>js/sb-admin-2.min.js"></script>
 
-            <script>
+            <script type="text/javascript">
                 $('.form-check-input').on('click', function() {
                     const menuId = $(this).data('menu');
                     const roleId = $(this).data('role');
@@ -65,8 +65,41 @@
                         }
                     });
                 });
-            </script>
 
+                // var modal = document.getElementById("staticBackdrop");
+                var tujuan;
+                const sekarang = new Date().getTime();
+                // console.log(sekarang);
+                // console.log(tujuan);
+
+                $.ajax({
+                    url: "<?= site_url('User/ambilJadwal') ?>",
+                    type: "GET",
+                    dataType: "JSON",
+                    success: function(data) {
+                        // console.log(data);
+                        var i;
+                        for (i = 0; i < data.length; i++) {
+                            const cobawaktu = new Date(data[i].tanggal + ',' + data[i].waktu_berangkat).getTime();
+                            tujuan = cobawaktu;
+
+                            const selisih = tujuan - sekarang;
+                            const menit = Math.floor(selisih / (1000 * 60));
+                            if (menit > 0 && menit < 10) {
+                                set = setInterval(function() {
+                                    alert("Waktu anda untuk berkumpul kurang dari 10 menit");
+                                }, 10000);
+
+                            }
+                            if (menit < 0 && menit > -5) {
+                                // clearInterval(set);
+                                alert("Anda Dipersilahkan Untuk Berkumpul Dengan Rombongan Sekarang");
+                            }
+                            // console.log(menit);
+                        }
+                    }
+                });
+            </script>
             </body>
 
             </html>

@@ -142,4 +142,10 @@ class User extends CI_Controller
 		$result = $this->Ceriawisata_model->hapusJadwal($where, 'tb_jadwal');
 		redirect('user/jadwal');
 	}
+
+	public function ambilJadwal()
+	{
+		$data = $this->Ceriawisata_model->ambilJadwal();
+		echo json_encode($data);
+	}
 }

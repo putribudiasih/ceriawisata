@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 28, 2021 at 03:52 PM
+-- Generation Time: Jul 01, 2021 at 11:30 AM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -32,9 +32,17 @@ CREATE TABLE `tb_jadwal` (
   `id_jadwal` int(11) NOT NULL,
   `id_pesanan` int(11) NOT NULL,
   `id_tempat` int(11) NOT NULL,
+  `tanggal` date NOT NULL,
   `waktu_berangkat` time NOT NULL,
   `waktu_pulang` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_jadwal`
+--
+
+INSERT INTO `tb_jadwal` (`id_jadwal`, `id_pesanan`, `id_tempat`, `tanggal`, `waktu_berangkat`, `waktu_pulang`) VALUES
+(1, 4, 1, '2021-07-01', '16:25:00', '15:00:00');
 
 -- --------------------------------------------------------
 
@@ -61,7 +69,7 @@ CREATE TABLE `tb_pesanan` (
 --
 
 INSERT INTO `tb_pesanan` (`id_pesanan`, `nama`, `no_telp`, `email`, `lokasi_berangkat`, `jml_pax`, `tgl_mulai`, `tgl_selesai`, `trayek`, `catatan`, `keterangan`) VALUES
-(4, 'Tester', '083831832833', 'tester@gmail.com', 'Surabaya', 10, '2021-06-01', '2021-06-05', 'jtm', 'Catatan Penting', 1);
+(4, 'Tester', '083831832833', 'tester@gmail.com', 'Surabaya', 10, '2021-07-02', '2021-07-05', 'jtm', 'Catatan Penting', 1);
 
 -- --------------------------------------------------------
 
@@ -365,7 +373,7 @@ ALTER TABLE `user_sub_menu`
 -- AUTO_INCREMENT for table `tb_jadwal`
 --
 ALTER TABLE `tb_jadwal`
-  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tb_pesanan`

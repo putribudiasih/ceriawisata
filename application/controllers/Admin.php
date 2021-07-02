@@ -250,6 +250,12 @@ class Admin extends CI_Controller
 		echo json_encode($data);
 	}
 
+	public function getPesanan($id)
+	{
+		$data = $this->Ceriawisata_model->detailPesanan($id);
+		echo json_encode($data);
+	}
+
 	public function submitJadwal()
 	{
 		$data_jadwal = [];
@@ -261,6 +267,7 @@ class Admin extends CI_Controller
 			$data_jadwal[$nomer] = [
 				'id_pesanan' => htmlspecialchars($id_pesanan),
 				'id_tempat' => $_POST['wisata'][$nomer],
+				'tanggal' => $_POST['tanggal'][$nomer],
 				'waktu_berangkat' => $_POST['berangkat'][$nomer],
 				'waktu_pulang' => $_POST['pulang'][$nomer]
 			];

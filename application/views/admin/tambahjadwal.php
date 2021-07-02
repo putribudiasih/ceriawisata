@@ -23,10 +23,14 @@
                     </select>
                 </div>
                 <div class="col-md-3">
+                    <label>Pilih Tanggal</label>
+                    <input type="date" name="tanggal[]" class="form-control" min="<?= $detail_pesanan['tgl_mulai'] ?>" max="<?= $detail_pesanan['tgl_selesai'] ?>">
+                </div>
+                <div class="col-md-2">
                     <label>Waktu Berangkat</label>
                     <input type="time" name="berangkat[]" class="form-control">
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <label>Waktu Pulang</label>
                     <input type="time" name="pulang[]" class="form-control">
                 </div>
@@ -69,27 +73,42 @@
             e.preventDefault();
             if (x < max_fields) { //max input box allowed
                 x++; //text box incrementno
-                $(wrapper).append('<div class="row mt-5">' + '<div class = "col-md-3">' +
-                    '<select name="wisata[]" class="form-control" required="" id="wisata' + x + '">' + '<option selected disabled>Pilih Wisata ' + x + '</option>' + '' + '</select>' + '</div>' + '<div class = "col-md-3">' + '<input type="time" name="berangkat[]" class="form-control">' + '</div>' + '<div class = "col-md-3">' + '<input type="time" name="pulang[]" class="form-control">' + '</div>' +
-                    '<a href="#" class="remove_field">Hapus</a>' + '</div>'); //add input box
-
-                var html = '';
+                // var html = '';
                 $.ajax({
-                    url: "<?= site_url('Admin/getWisata/') ?>/" + id_pesanan,
+                    url: "<?= site_url('Admin/getPesanan/') ?>/" + id_pesanan,
                     type: "GET",
                     dataType: "JSON",
                     success: function(data) {
-                        // $.each(data, function(index, value) {
+                        // console.log(data);
+                        $(wrapper).append('<div class="row mt-5">' + '<div class = "col-md-3">' +
+                            '<select name="wisata[]" class="form-control" required="" id="wisata' + x + '">' + '<option selected disabled>Pilih Wisata ' + x + '</option>' + '' + '</select>' + '</div>' + '<div class="col-md-3">' + '<input type="date" name="tanggal[]" class="form-control" min="' + data.tgl_mulai + '" max= "' + data.tgl_selesai + '">' + '</div>' + '<div class = "col-md-2">' + '<input type="time" name="berangkat[]" class="form-control">' + '</div>' + '<div class = "col-md-2">' + '<input type="time" name="pulang[]" class="form-control">' + '</div>' +
+                            '<a href="#" class="remove_field">Hapus</a>' + '</div>'); //add input box
+
                         var html = '';
-                        var i;
-                        html += '<option value="" selected>Pilih Wisata ' + x + '</option>';
-                        for (i = 0; i < data.length; i++) {
-                            html += "<option value=" + data[i].id_tempat + '>' + data[i].tujuan + "</option>'+'";
-                        }
-                        console.log(html);
-                        $('#wisata' + x).html(html);
-                        // console.log('wisata' + x);
-                        // });
+                        $.ajax({
+                            url: "<?= site_url('Admin/getWisata/') ?>/" + id_pesanan,
+                            type: "GET",
+                            dataType: "JSON",
+                            success: function(data) {
+                                // $.each(data, function(index, value) {
+                                var html = '';
+                                // var tgl = '';
+                                var i;
+                                html += '<option value="" selected>Pilih Wisata ' + x + '</option>';
+                                for (i = 0; i < data.length; i++) {
+                                    html += "<option value=" + data[i].id_tempat + '>' + data[i].tujuan + "</option>'+'";
+                                    // tgl += "<input type='date' name='tanggal[]' class='form-control' min=" + data[i].tgl_mulai + " max=" + data[i].tgl_selesai + ">"
+                                }
+                                // console.log(html);
+                                $('#wisata' + x).html(html);
+                                // $('.input_tanggal').html(tgl);
+                                // console.log('wisata' + x);
+                                // });
+                            },
+                            error: function(jqXHR, textStatus, errorThrown) {
+                                alert('Error get data from ajax');
+                            }
+                        });
                     },
                     error: function(jqXHR, textStatus, errorThrown) {
                         alert('Error get data from ajax');
