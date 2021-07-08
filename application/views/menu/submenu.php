@@ -40,7 +40,7 @@
           <td><?= $sm['icon']; ?></td>
           <td><?= $sm['is_active']; ?></td>
 				  <td>
-					<a href="" class="badge badge-danger">Delete</a>
+					<a href="<?= base_url('Admin/hapusSubmenu/' . $sm['id']); ?>" class="badge badge-danger"><i class="fas fa-trash"></i></a>
 				  </td>
 				</tr>
 				<?php $i++; ?>

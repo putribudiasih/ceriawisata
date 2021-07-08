@@ -11,7 +11,7 @@
 
         	<?= $this->session->flashdata('message'); ?>
                     		
-            <a href="" class="btn btn-primary mb-4" data-toggle="modal" data-target="#newRoleModal">Tambah Role Baru</a>
+           
 
             <table class="table table-hover">
 			  <thead>
@@ -30,7 +30,7 @@
 				  <td>
           <a href="<?= base_url('admin/roleaccess/') . $r['id']; ?>" class="badge badge-warning">Access</a>
           
-					<a href="" class="badge badge-danger">Delete</a>
+					
 				  </td>
 				</tr>
 				<?php $i++; ?>

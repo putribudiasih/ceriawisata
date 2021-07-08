@@ -28,7 +28,7 @@
 				  <th scope="row"><?= $i; ?></th>
 				  <td><?= $m['menu']; ?></td>
 				  <td>
-					<a href="" class="badge badge-danger">Delete</a>
+					<a href="<?= base_url('Admin/hapusMenu/' . $m['id']); ?>" class="badge badge-danger"><i class="fas fa-trash"></i></a>
 				  </td>
 				</tr>
 				<?php $i++; ?>

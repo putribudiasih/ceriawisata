@@ -69,11 +69,11 @@
                 </div>
             </div>
         </div>
-        <div class="card shadow mb-4">
-            <!-- <div class="card-header py-3">
+    <!--    <div class="card shadow mb-4">
+             <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-primary text-center">Detail Pesanan</h6>
                 </div> -->
-            <div class="card-body">
+    <!--        <div class="card-body">
                 <div class="card-block">
                     <div class="row">
                         <div class="col-md-6 text-left">
@@ -85,7 +85,7 @@
                     <textarea class="form-control" name="catatan" placeholder="Masukkan Catatan Yang Mungkin Ingin Anda Masukkan"></textarea>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div id="destinasi_wrapper" class="row">
 
         </div>

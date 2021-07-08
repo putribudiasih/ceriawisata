@@ -25,9 +25,9 @@
 					<td><?= $d['trayek'] ?></td>
 					<td><?= $d['tgl_mulai'] ?></td>
 					<td>
-						<a href="<?= base_url('admin/detailpesanan/') . $d['id_pesanan'] ?>" class="badge badge-warning">Detail</a>
-						<a href="<?= base_url('Admin/hapusPesanan/' . $d['id_pesanan']); ?>" class="badge badge-danger">Hapus</a>
-						<a href="" class="badge badge-success">Edit</a>
+						<a href="<?= base_url('admin/detailpesanan/') . $d['id_pesanan'] ?>" class="badge badge-warning"><i class="fas fa-search-plus"></i></a>
+						<a href="<?= base_url('Admin/hapusPesanan/' . $d['id_pesanan']); ?>" class="badge badge-danger"><i class="fa fa-trash"></i></a>
+						<a href="" class="badge badge-success"><i class="fas fa-edit"></i></a>
 					</td>
 					<td>
 						<div class="form-check">

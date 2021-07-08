@@ -8,6 +8,7 @@
                         <div class="p-5">
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Buat Akun Baru</h1>
+                                <h1 class="h4 text-gray-900 mb-4">CV. Ceria Wisata Tour & Travel</h1>
                             </div>
                             <form class="user" method="post" action="<?= base_url('Login_controller/registration'); ?>">
                                 <div class="form-group">
@@ -45,9 +46,6 @@
                                 </a>
                             </form>
                             <hr>
-                            <div class="text-center">
-                                <a class="small" href="forgot-password.html">Forgot Password?</a>
-                            </div>
                             <div class="text-center">
                                 <a class="small" href="<?= base_url(); ?>Login_controller">Sudah Punya Akun? Login!</a>
                             </div>
