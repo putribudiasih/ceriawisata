@@ -23,6 +23,7 @@ class Ceriawisata_model extends CI_Model
 	{
 		$this->db->select('*');
 		$this->db->from('tb_pesanan');
+		$this->db->join('tb_user', 'tb_user.id_user = tb_pesanan.id_user');
 		$query = $this->db->get();
 		return $query->result_array();
 	}
@@ -42,6 +43,7 @@ class Ceriawisata_model extends CI_Model
 	{
 		$this->db->select('*');
 		$this->db->from('tb_pesanan');
+		$this->db->join('tb_user', 'tb_user.id_user = tb_pesanan.id_user');
 		$this->db->join('tb_trayek', 'tb_trayek.kode = tb_pesanan.trayek');
 		$this->db->where('id_pesanan', $id);
 		$query = $this->db->get();
@@ -75,8 +77,8 @@ class Ceriawisata_model extends CI_Model
 	function daftarWisata($id)
 	{
 		$this->db->select('*');
-		$this->db->from('tb_tempat');
-		$this->db->join('tb_pesanan', 'tb_pesanan.trayek = tb_tempat.kode');
+		$this->db->from('tb_jadwal');
+		$this->db->join('tb_tempat', 'tb_tempat.id_tempat = tb_jadwal.id_tempat');
 		$this->db->where('id_pesanan', $id);
 		$query = $this->db->get();
 		return $query->result_array();
@@ -106,5 +108,19 @@ class Ceriawisata_model extends CI_Model
 		// $this->db->where('tb_jadwal.id_pesanan', $id);
 		$query = $this->db->get();
 		return $query->result_array();
+	}
+
+	public function getDestinasi($id)
+	{
+		$this->db->select('*');
+		$this->db->from('tb_tempat');
+		$this->db->where('tb_tempat.kode', $id);
+		$query = $this->db->get();
+		return $query->result_array();
+	}
+
+	public function tambahJadwal($data)
+	{
+		return $this->db->insert('tb_jadwal', $data);
 	}
 }

@@ -229,7 +229,6 @@ class Admin extends CI_Controller
 		$data['user'] = $this->db->get_where('tb_user', ['email' => $this->session->userdata('email')])->row_array();
 		$data['tb_trayek'] = $this->db->get_where('tb_trayek')->result_array();
 		$data['detail_pesanan'] = $this->Ceriawisata_model->detailPesanan($id);
-		$data['jumlah_wisata'] = $this->Ceriawisata_model->jumlah_wisata($id);
 		$data['daftarWisata'] = $this->Ceriawisata_model->daftarWisata($id);
 
 		$this->load->view('templates/header', $data);
@@ -273,7 +272,10 @@ class Admin extends CI_Controller
 			];
 			$nomer++;
 		}
-		$result = $this->db->insert_batch('tb_jadwal', $data_jadwal);
+		// echo json_encode($data_jadwal);
+		// die;
+		$this->db->where('id_pesanan', $id_pesanan);
+		$result = $this->db->update_batch('tb_jadwal', $data_jadwal, 'id_tempat');
 		if ($result == true) {
 			redirect('Admin/detailpesanan/' . $this->input->post('id_pesanan'));
 		} else {

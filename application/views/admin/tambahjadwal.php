@@ -9,7 +9,7 @@
     <br />
 
     <form method="POST" action="<?= base_url('Admin/submitJadwal') ?>">
-        <input type="hidden" id="#jumlah" value="<?= $jumlah_wisata ?>">
+        <input type="hidden" id="#jumlah" value="<?= count($daftarWisata) ?>">
         <input type="hidden" id="#id_pesanan" name="id_pesanan" value="<?= $detail_pesanan['id_pesanan'] ?>">
         <div class="input_jam">
             <div class="row">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 01, 2021 at 11:30 AM
+-- Generation Time: Jul 07, 2021 at 12:35 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -32,9 +32,9 @@ CREATE TABLE `tb_jadwal` (
   `id_jadwal` int(11) NOT NULL,
   `id_pesanan` int(11) NOT NULL,
   `id_tempat` int(11) NOT NULL,
-  `tanggal` date NOT NULL,
-  `waktu_berangkat` time NOT NULL,
-  `waktu_pulang` time NOT NULL
+  `tanggal` date DEFAULT NULL,
+  `waktu_berangkat` time DEFAULT NULL,
+  `waktu_pulang` time DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -42,7 +42,9 @@ CREATE TABLE `tb_jadwal` (
 --
 
 INSERT INTO `tb_jadwal` (`id_jadwal`, `id_pesanan`, `id_tempat`, `tanggal`, `waktu_berangkat`, `waktu_pulang`) VALUES
-(1, 4, 1, '2021-07-01', '16:25:00', '15:00:00');
+(1, 4, 10, '2021-07-01', '16:25:00', '15:00:00'),
+(2, 7, 10, '2021-07-08', '19:34:00', '20:34:00'),
+(3, 7, 14, '2021-07-09', '22:35:00', '23:35:00');
 
 -- --------------------------------------------------------
 
@@ -52,14 +54,13 @@ INSERT INTO `tb_jadwal` (`id_jadwal`, `id_pesanan`, `id_tempat`, `tanggal`, `wak
 
 CREATE TABLE `tb_pesanan` (
   `id_pesanan` int(11) NOT NULL,
-  `nama` varchar(255) NOT NULL,
-  `no_telp` varchar(13) NOT NULL,
-  `email` varchar(255) NOT NULL,
+  `id_user` int(11) NOT NULL,
   `lokasi_berangkat` varchar(255) NOT NULL,
   `jml_pax` int(11) NOT NULL,
   `tgl_mulai` date NOT NULL,
   `tgl_selesai` date NOT NULL,
   `trayek` varchar(50) NOT NULL,
+  `total_harga` varchar(100) NOT NULL,
   `catatan` varchar(255) NOT NULL,
   `keterangan` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -68,8 +69,10 @@ CREATE TABLE `tb_pesanan` (
 -- Dumping data for table `tb_pesanan`
 --
 
-INSERT INTO `tb_pesanan` (`id_pesanan`, `nama`, `no_telp`, `email`, `lokasi_berangkat`, `jml_pax`, `tgl_mulai`, `tgl_selesai`, `trayek`, `catatan`, `keterangan`) VALUES
-(4, 'Tester', '083831832833', 'tester@gmail.com', 'Surabaya', 10, '2021-07-02', '2021-07-05', 'jtm', 'Catatan Penting', 1);
+INSERT INTO `tb_pesanan` (`id_pesanan`, `id_user`, `lokasi_berangkat`, `jml_pax`, `tgl_mulai`, `tgl_selesai`, `trayek`, `total_harga`, `catatan`, `keterangan`) VALUES
+(4, 7, 'Surabaya', 10, '2021-07-02', '2021-07-05', 'jtm', '', 'Catatan Penting', 1),
+(5, 7, 'Banyuwangi', 5, '2021-07-07', '2021-07-10', 'jtm', '', 'Banyuwangi, kecamatan kalibaru', 0),
+(7, 7, 'Bandung', 5, '2021-07-07', '2021-07-10', 'jtg', '200000', 'coba gais', 0);
 
 -- --------------------------------------------------------
 
@@ -80,6 +83,7 @@ INSERT INTO `tb_pesanan` (`id_pesanan`, `nama`, `no_telp`, `email`, `lokasi_bera
 CREATE TABLE `tb_tempat` (
   `id_tempat` int(11) NOT NULL,
   `tujuan` varchar(255) NOT NULL,
+  `harga` varchar(50) NOT NULL,
   `kode` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -87,78 +91,78 @@ CREATE TABLE `tb_tempat` (
 -- Dumping data for table `tb_tempat`
 --
 
-INSERT INTO `tb_tempat` (`id_tempat`, `tujuan`, `kode`) VALUES
-(1, 'Gunung Bromo', 'jtm'),
-(2, 'Gunung Ijen', 'jtm'),
-(3, 'Jawa Timur Park 1,2,3', 'jtm'),
-(4, 'Wisata Bahari Lamongan', 'jtm'),
-(5, 'Taman safari Indonesia 2', 'jtm'),
-(6, 'Telaga Sarangan', 'jtm'),
-(7, 'Waduk Selorejo', 'jtm'),
-(8, 'Kota Wisata Batu', 'jtm'),
-(9, 'Makam Bung Karno', 'jtm'),
-(10, 'Candi Borobudur', 'jtg'),
-(11, 'Candi Prambanan', 'jtg'),
-(12, 'Wisata Merapi', 'jtg'),
-(13, 'Ketep Pas', 'jtg'),
-(14, 'Lawang Sewu', 'jtg'),
-(15, 'Telaga Warna', 'jtg'),
-(16, 'Jati Jajar', 'jtg'),
-(17, 'Batu Raden', 'jtg'),
-(18, 'Parangtritis', 'jtg'),
-(19, 'Kukup', 'jtg'),
-(20, 'Krakal', 'jtg'),
-(21, 'Indrayanti', 'jtg'),
-(22, 'Goa Pindul', 'jtg'),
-(23, 'Keraton Yogyakarta', 'jtg'),
-(24, 'Malioboro', 'jtg'),
-(25, 'Monas', 'jbr'),
-(26, 'TMII', 'jbr'),
-(27, 'Ancol', 'jbr'),
-(28, 'Dufan', 'jbr'),
-(29, 'Sea World Indonesia', 'jbr'),
-(30, 'Pulau Seribu', 'jbr'),
-(31, 'Taman Buah Mekarsari', 'jbr'),
-(32, 'Istana Negara', 'jbr'),
-(33, 'Pangandaran', 'jbr'),
-(34, 'Puncak Pas', 'jbr'),
-(35, 'Green Canyon Indonesia', 'jbr'),
-(36, 'Tangkuban Perahu', 'jbr'),
-(37, 'Ciater', 'jbr'),
-(38, 'Cibaduyut', 'jbr'),
-(39, 'Ciampelas', 'jbr'),
-(40, 'Danau Toba', 'smt'),
-(41, 'Bangka', 'smt'),
-(42, 'Belitong', 'smt'),
-(43, 'Tanjung Pinang', 'smt'),
-(44, 'Tanah Lot', 'bl'),
-(45, 'Danau Bedugul', 'bl'),
-(46, 'Kintamani', 'bl'),
-(47, 'GWK', 'bl'),
-(48, 'Tanjung Benoa Water Sport', 'bl'),
-(49, 'Ulu Watu', 'bl'),
-(50, 'Pantai Pandawa', 'bl'),
-(51, 'Rambitan Sade', 'lmb'),
-(52, 'Gugusan Gili Gili', 'lmb'),
-(53, 'Tanjung An', 'lmb'),
-(54, 'Getap', 'lmb'),
-(55, 'Banyumulek', 'lmb'),
-(56, 'Sukerare', 'lmb'),
-(57, 'Bukit Malimbu', 'lmb'),
-(58, 'Sendang Gile', 'lmb'),
-(59, 'Sembalun Bumbung/Sembalun Lawang', 'lmb'),
-(60, 'Desa Tetebaru', 'lmb'),
-(61, 'Desa Kota Raja', 'lmb'),
-(62, 'Pantai Bunaken', 'slw'),
-(63, 'Tanah Toraja', 'slw'),
-(64, 'Bantimurung', 'slw'),
-(65, 'Ramang Ramang', 'slw'),
-(66, 'Makassar', 'slw'),
-(67, 'Puncak Waringin', 'pkm'),
-(68, 'Pulau Komodo', 'pkm'),
-(69, 'Pulau Rinca', 'pkm'),
-(70, 'Pantai Pink', 'pkm'),
-(71, 'Desa Cara', 'pkm');
+INSERT INTO `tb_tempat` (`id_tempat`, `tujuan`, `harga`, `kode`) VALUES
+(1, 'Gunung Bromo', '100000', 'jtm'),
+(2, 'Gunung Ijen', '100000', 'jtm'),
+(3, 'Jawa Timur Park 1,2,3', '100000', 'jtm'),
+(4, 'Wisata Bahari Lamongan', '100000', 'jtm'),
+(5, 'Taman safari Indonesia 2', '100000', 'jtm'),
+(6, 'Telaga Sarangan', '100000', 'jtm'),
+(7, 'Waduk Selorejo', '100000', 'jtm'),
+(8, 'Kota Wisata Batu', '100000', 'jtm'),
+(9, 'Makam Bung Karno', '100000', 'jtm'),
+(10, 'Candi Borobudur', '100000', 'jtg'),
+(11, 'Candi Prambanan', '100000', 'jtg'),
+(12, 'Wisata Merapi', '100000', 'jtg'),
+(13, 'Ketep Pas', '100000', 'jtg'),
+(14, 'Lawang Sewu', '100000', 'jtg'),
+(15, 'Telaga Warna', '100000', 'jtg'),
+(16, 'Jati Jajar', '100000', 'jtg'),
+(17, 'Batu Raden', '100000', 'jtg'),
+(18, 'Parangtritis', '100000', 'jtg'),
+(19, 'Kukup', '100000', 'jtg'),
+(20, 'Krakal', '100000', 'jtg'),
+(21, 'Indrayanti', '100000', 'jtg'),
+(22, 'Goa Pindul', '100000', 'jtg'),
+(23, 'Keraton Yogyakarta', '100000', 'jtg'),
+(24, 'Malioboro', '100000', 'jtg'),
+(25, 'Monas', '100000', 'jbr'),
+(26, 'TMII', '100000', 'jbr'),
+(27, 'Ancol', '100000', 'jbr'),
+(28, 'Dufan', '100000', 'jbr'),
+(29, 'Sea World Indonesia', '100000', 'jbr'),
+(30, 'Pulau Seribu', '100000', 'jbr'),
+(31, 'Taman Buah Mekarsari', '100000', 'jbr'),
+(32, 'Istana Negara', '100000', 'jbr'),
+(33, 'Pangandaran', '100000', 'jbr'),
+(34, 'Puncak Pas', '100000', 'jbr'),
+(35, 'Green Canyon Indonesia', '100000', 'jbr'),
+(36, 'Tangkuban Perahu', '100000', 'jbr'),
+(37, 'Ciater', '100000', 'jbr'),
+(38, 'Cibaduyut', '100000', 'jbr'),
+(39, 'Ciampelas', '100000', 'jbr'),
+(40, 'Danau Toba', '100000', 'smt'),
+(41, 'Bangka', '100000', 'smt'),
+(42, 'Belitong', '100000', 'smt'),
+(43, 'Tanjung Pinang', '100000', 'smt'),
+(44, 'Tanah Lot', '100000', 'bl'),
+(45, 'Danau Bedugul', '100000', 'bl'),
+(46, 'Kintamani', '100000', 'bl'),
+(47, 'GWK', '100000', 'bl'),
+(48, 'Tanjung Benoa Water Sport', '100000', 'bl'),
+(49, 'Kuta', '100000', 'bl'),
+(50, 'Pantai Pandawa', '100000', 'bl'),
+(51, 'Rambitan Sade', '100000', 'lmb'),
+(52, 'Gugusan Gili Gili', '100000', 'lmb'),
+(53, 'Tanjung An', '100000', 'lmb'),
+(54, 'Getap', '100000', 'lmb'),
+(55, 'Banyumulek', '100000', 'lmb'),
+(56, 'Sukerare', '100000', 'lmb'),
+(57, 'Bukit Malimbu', '100000', 'lmb'),
+(58, 'Sendang Gile', '100000', 'lmb'),
+(59, 'Sembalun Bumbung/Sembalun Lawang', '100000', 'lmb'),
+(60, 'Desa Tetebaru', '100000', 'lmb'),
+(61, 'Desa Kota Raja', '100000', 'lmb'),
+(62, 'Pantai Bunaken', '100000', 'slw'),
+(63, 'Tanah Toraja', '100000', 'slw'),
+(64, 'Bantimurung', '100000', 'slw'),
+(65, 'Ramang Ramang', '100000', 'slw'),
+(66, 'Makassar', '100000', 'slw'),
+(67, 'Puncak Waringin', '100000', 'pkm'),
+(68, 'Pulau Komodo', '100000', 'pkm'),
+(69, 'Pulau Rinca', '100000', 'pkm'),
+(70, 'Pantai Pink', '100000', 'pkm'),
+(71, 'Desa Cara', '100000', 'pkm');
 
 -- --------------------------------------------------------
 
@@ -373,13 +377,13 @@ ALTER TABLE `user_sub_menu`
 -- AUTO_INCREMENT for table `tb_jadwal`
 --
 ALTER TABLE `tb_jadwal`
-  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tb_pesanan`
 --
 ALTER TABLE `tb_pesanan`
-  MODIFY `id_pesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_pesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tb_tempat`
