@@ -298,4 +298,12 @@ class Admin extends CI_Controller
 		$result = $this->Ceriawisata_model->delMenu($where, 'user_menu');
 		redirect('Menu/index/');
 	}
+
+	public function hapusPaket($id)
+	{
+		// $news = new 
+		$where = array('id' => $id);
+		$result = $this->Ceriawisata_model->delPaket($where, 'tb_trayek');
+		redirect('Admin/paketWisata/');
+	}
 }

@@ -34,7 +34,7 @@
                 <h5 class="card-title"><?= $ty['lokasi']; ?></h5>
               </td>
         				<a href="<?= base_url('admin/tempatwisata/') . $ty['kode']; ?>" class="btn btn-primary">Lihat</a>
-                <a href="<?= base_url('admin/tempatwisata/') . $ty['kode']; ?>" class="btn btn-danger">Hapus</a>
+                <a href="<?= base_url('Admin/hapusPaket/' . $ty['id']); ?>" class="btn btn-danger">Hapus</a>
       				  </div>  
     				</div>
   					</div>

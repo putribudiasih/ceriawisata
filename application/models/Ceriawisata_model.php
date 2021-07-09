@@ -135,4 +135,10 @@ class Ceriawisata_model extends CI_Model
 		$this->db->where($where);
 		$this->db->delete($table);
 	}
+
+	function delPaket($where, $table)
+	{
+		$this->db->where($where);
+		$this->db->delete($table);
+	}
 }
