@@ -23,6 +23,38 @@
                     <input type="hidden" name="id_user" value="<?= $user['id_user'] ?>">
                     <div class="row">
                         <div class="col-md-6">
+                            <label for="nama">Nama</label>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"><i class="far fa-id-card"></i></span>
+                                <input type="text" name="nama" class="form-control" aria-describedby="basic-addon1" placeholder="Masukkan Nama" required>
+                                <?= form_error('Nama', '<small class="text-danger pl-3">', '</small>'); ?>
+                            </div>
+
+
+                        </div>
+                        <div class="col-md-6">
+                            <label for="email">Email</label>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"><i class="fas fa-at"></i></span>
+                                <input type="email" name="email" class="form-control" aria-describedby="basic-addon1" placeholder="Masukkan email" required>
+                                <?= form_error('Email', '<small class="text-danger pl-3">', '</small>'); ?>
+                            </div>
+
+
+                        </div>
+                        <div class="col-md-6">
+                            <label for="no_telp">No Telp.</label>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"><i class="fas fa-address-book"></i></span>
+                                <input type="text" name="no_telp" class="form-control" aria-describedby="basic-addon1" placeholder="Masukkan No Telp." required>
+                                <?= form_error('Nomor Telepon', '<small class="text-danger pl-3">', '</small>'); ?>
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="col-md-6">
                             <label for="penjemputan">Titik Penjemputan</label>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i class="fas fa-home"></i></span>
@@ -69,56 +101,72 @@
                 </div>
             </div>
         </div>
-    <!--    <div class="card shadow mb-4">
-             <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary text-center">Detail Pesanan</h6>
-                </div> -->
-    <!--        <div class="card-body">
-                <div class="card-block">
-                    <div class="row">
-                        <div class="col-md-6 text-left">
-                            <b style="font-weight: 800;">Catatan Pemesanan</b><br>
-                        </div>
-                    </div>
 
-                    <hr>
-                    <textarea class="form-control" name="catatan" placeholder="Masukkan Catatan Yang Mungkin Ingin Anda Masukkan"></textarea>
-                </div>
-            </div>
-        </div> -->
-        <div id="destinasi_wrapper" class="row">
 
-        </div>
-        <div class="card shadow mt-5">
-            <!-- <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary text-center">Detail Pesanan</h6>
-                </div> -->
+        <!-- Destinasi wisata -->
+
+        <div class="card shadow mb-4">
             <div class="card-body">
-                <div class="card-block">
-                    <div class="row">
-                        <div class="col-md-6 text-left">
-                            <b style="font-weight: 800;">Destinasi Yang Dipilih</b><br>
+                <b style="font-weight: 800;">Checkout Harga</b><br>
+                <hr>
+
+                <div class="row">
+                    <div class="col" style="max-width: 400px;">
+                        <div class="card">
+
+                            <div class="card-body">
+                                <div class="" style=" box-shadow: 0 6px 6px -6px black;">
+                                    <h5 class="card-title mx-0" style="padding-bottom: 0px;">Pilih Destinasi Anda :</h5>
+                                    <hr>
+                                </div>
+
+                                <div id="destinasi_wrapper" style="overflow: scroll; height: 600px; ">
+                                </div>
+                            </div>
+
+
                         </div>
+
                     </div>
 
-                    <hr>
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>Nama</th>
-                                <th>Harga</th>
-                                <th>Subtotal</th>
-                                <th>Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody id="detail_cart">
+                    <div class="col">
+                        <div class="card mt-5">
+                            <div class="card-body">
+                                <div class="card-block">
+                                    <div class="row">
+                                        <div class="col-md-6 text-left">
+                                            <b style="font-weight: 800;">Detail Pemesanan Anda</b><br>
+                                        </div>
+                                    </div>
 
-                        </tbody>
+                                    <hr>
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Destinasi</th>
+                                                <th>Harga</th>
+                                                <th>Subtotal</th>
+                                                <th>Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="detail_cart">
 
-                    </table>
+                                        </tbody>
+
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <!-- asdklsdlaldklasd -->
+
+
+
+
         <center class="mt-5">
             <button type="reset" class="btn btn-danger">Reset</button>
             <button type="submit" class="btn btn-primary">Simpan</button>
@@ -148,8 +196,32 @@
                     var html = '';
                     var i;
                     for (i = 0; i < data.length; i++) {
-                        html += '<div class = "col-md-6">' +
-                            '<div class="card">' + '<div class="card-body">' + '<h5 class="card-title">' + data[i].tujuan + '</h5>' + '<hr/>' + '<div class="row">' + '<div class="col-md-10">' + '<p class="card-text">' + data[i].harga + '</p>' + '</div>' + '<div class="col-md-2">' + '<a href="javascript:void(0)" onclick="addcart(' + data[i].id_tempat + ',' + "'" + data[i].tujuan + "'" + ',' + "'" + data[i].harga + "'" + ')" class="btn btn-primary btn-sm">' + '<i class="fas fa-check"></i>' + '</a>' + '</div>' + '</div>' + '</div>' + '</div>' + '</div>';
+                        html +=
+
+                            '<div class="col">' +
+                            '<div class="card my-2">' +
+                            '<div class="card-body">' +
+                            '<h5 class="card-title">' +
+                            data[i].tujuan +
+                            '</h5>' +
+                            '<hr/>' +
+                            '<div class="row">' +
+
+                            '<div class="col-md-6">' +
+                            '<p class="card-text">' + "Rp.&nbsp;" +
+                            data[i].harga +
+                            '</p>' +
+                            '</div>' +
+
+                            '<div class="col-md-6">' +
+
+                            '<a href="javascript:void(0)" onclick="addcart(' + data[i].id_tempat + ',' + "'" + data[i].tujuan + "'" + ',' + "'" + data[i].harga + "'" + ')" class="btn btn-outline-primary float-right">' + '<i class="fas fa-plus"></i>' + '</a>' +
+                            '</div>' +
+
+                            '</div>' +
+                            '</div>' +
+                            '</div>' +
+                            '</div>';
                     }
                     $(wrapper).html(html);
                     // console.log(html);
