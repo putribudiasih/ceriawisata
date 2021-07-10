@@ -97,6 +97,7 @@ class Admin extends CI_Controller
 		$data['user'] = $this->db->get_where('tb_user', ['email' => $this->session->userdata('email')])->row_array();
 		$data['trayek'] = $this->Ceriawisata_model->gettempatwisata($id);
 		$data['tempat'] = $this->Ceriawisata_model->getTempat($id);
+		$data['detail_tempat'] = $this->Ceriawisata_model->detailTempat($id);
 
 
 		$this->load->view('templates/header', $data);
@@ -161,6 +162,27 @@ class Admin extends CI_Controller
 		$this->db->insert('tb_trayek', $data);
 
 		redirect('admin/paketwisata');
+	}
+
+	public function getDetailWisata($id)
+	{
+		$data = $this->Ceriawisata_model->detailTempat($id);
+		echo json_encode($data);
+	}
+
+	public function editWisata()
+	{
+		$update = [
+			'tujuan' => htmlspecialchars($this->input->post('nama_tempat', true)),
+			'harga' => htmlspecialchars($this->input->post('harga_tempat', true))
+		];
+
+		$where = array(
+			'id_tempat' => htmlspecialchars($this->input->post('id_tempat', true))
+		);
+		$this->Ceriawisata_model->editWisata($where, $update);
+
+		redirect('Admin/tempatwisata/' . $this->input->post('kode'));
 	}
 
 	//INPUT DATA PESANAN PAKET WISATA USER
@@ -304,6 +326,14 @@ class Admin extends CI_Controller
 		// $news = new 
 		$where = array('id' => $id);
 		$result = $this->Ceriawisata_model->delPaket($where, 'tb_trayek');
+		redirect('Admin/paketWisata/');
+	}
+
+	public function hapusWisata($id)
+	{
+		// $news = new 
+		$where = array('id_tempat' => $id);
+		$result = $this->Ceriawisata_model->delWisata($where, 'tb_tempat');
 		redirect('Admin/paketWisata/');
 	}
 }

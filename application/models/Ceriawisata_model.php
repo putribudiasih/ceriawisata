@@ -64,6 +64,15 @@ class Ceriawisata_model extends CI_Model
 		return $query->result_array();
 	}
 
+	function detailTempat($id)
+	{
+		$this->db->select('*');
+		$this->db->from('tb_tempat');
+		$this->db->where('id_tempat', $id);
+		$query = $this->db->get();
+		return $query->result_array();
+	}
+
 	function jumlah_wisata($id)
 	{
 		$this->db->select('*');
@@ -137,6 +146,17 @@ class Ceriawisata_model extends CI_Model
 	}
 
 	function delPaket($where, $table)
+	{
+		$this->db->where($where);
+		$this->db->delete($table);
+	}
+
+	function editWisata($where, $data)
+	{
+		return $this->db->update('tb_tempat', $data, $where);
+	}
+
+	function delWisata($where, $table)
 	{
 		$this->db->where($where);
 		$this->db->delete($table);

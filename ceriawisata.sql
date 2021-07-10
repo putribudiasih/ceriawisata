@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 07, 2021 at 12:35 PM
+-- Generation Time: Jul 10, 2021 at 09:50 AM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -55,6 +55,9 @@ INSERT INTO `tb_jadwal` (`id_jadwal`, `id_pesanan`, `id_tempat`, `tanggal`, `wak
 CREATE TABLE `tb_pesanan` (
   `id_pesanan` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
+  `nama_pemesan` varchar(200) NOT NULL,
+  `email_pemesan` varchar(200) NOT NULL,
+  `telp_pemesan` varchar(20) NOT NULL,
   `lokasi_berangkat` varchar(255) NOT NULL,
   `jml_pax` int(11) NOT NULL,
   `tgl_mulai` date NOT NULL,
@@ -69,10 +72,10 @@ CREATE TABLE `tb_pesanan` (
 -- Dumping data for table `tb_pesanan`
 --
 
-INSERT INTO `tb_pesanan` (`id_pesanan`, `id_user`, `lokasi_berangkat`, `jml_pax`, `tgl_mulai`, `tgl_selesai`, `trayek`, `total_harga`, `catatan`, `keterangan`) VALUES
-(4, 7, 'Surabaya', 10, '2021-07-02', '2021-07-05', 'jtm', '', 'Catatan Penting', 1),
-(5, 7, 'Banyuwangi', 5, '2021-07-07', '2021-07-10', 'jtm', '', 'Banyuwangi, kecamatan kalibaru', 0),
-(7, 7, 'Bandung', 5, '2021-07-07', '2021-07-10', 'jtg', '200000', 'coba gais', 0);
+INSERT INTO `tb_pesanan` (`id_pesanan`, `id_user`, `nama_pemesan`, `email_pemesan`, `telp_pemesan`, `lokasi_berangkat`, `jml_pax`, `tgl_mulai`, `tgl_selesai`, `trayek`, `total_harga`, `catatan`, `keterangan`) VALUES
+(4, 7, '', '', '', 'Surabaya', 10, '2021-07-02', '2021-07-05', 'jtm', '', 'Catatan Penting', 1),
+(5, 7, '', '', '', 'Banyuwangi', 5, '2021-07-07', '2021-07-10', 'jtm', '', 'Banyuwangi, kecamatan kalibaru', 0),
+(7, 7, '', '', '', 'Bandung', 5, '2021-07-07', '2021-07-10', 'jtg', '200000', 'coba gais', 0);
 
 -- --------------------------------------------------------
 
@@ -92,7 +95,7 @@ CREATE TABLE `tb_tempat` (
 --
 
 INSERT INTO `tb_tempat` (`id_tempat`, `tujuan`, `harga`, `kode`) VALUES
-(1, 'Gunung Bromo', '100000', 'jtm'),
+(1, 'Gunung Bromo', '200000', 'jtm'),
 (2, 'Gunung Ijen', '100000', 'jtm'),
 (3, 'Jawa Timur Park 1,2,3', '100000', 'jtm'),
 (4, 'Wisata Bahari Lamongan', '100000', 'jtm'),
@@ -389,7 +392,7 @@ ALTER TABLE `tb_pesanan`
 -- AUTO_INCREMENT for table `tb_tempat`
 --
 ALTER TABLE `tb_tempat`
-  MODIFY `id_tempat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `id_tempat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT for table `tb_trayek`
