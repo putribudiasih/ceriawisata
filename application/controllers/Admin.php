@@ -336,4 +336,25 @@ class Admin extends CI_Controller
 		$result = $this->Ceriawisata_model->delWisata($where, 'tb_tempat');
 		redirect('Admin/paketWisata/');
 	}
+
+	public function editPesanan()
+	{
+		$update = [
+			'nama_pemesan' => htmlspecialchars($this->input->post('nama_pemesan', true)),
+			'telp_pemesan' => htmlspecialchars($this->input->post('telp_pemesan', true)),
+			'email_pemesan' => htmlspecialchars($this->input->post('email_pemesan', true)),
+			'lokasi_berangkat' => htmlspecialchars($this->input->post('lokasi_berangkat', true)),
+			'trayek' => htmlspecialchars($this->input->post('trayek', true)),
+			'tgl_mulai' => htmlspecialchars($this->input->post('tgl_mulai', true)),
+			'tgl_selesai' => htmlspecialchars($this->input->post('tgl_selesai', true)),
+			'jml_pax' => htmlspecialchars($this->input->post('jml_pax', true))
+		];
+
+		$where = array(
+			'id_pesanan' => htmlspecialchars($this->input->post('id_pesanan', true))
+		);
+		$this->Ceriawisata_model->editPesanan($where, $update);
+
+		redirect('Admin/index/' . $this->input->post('id_pesanan'));
+	}
 }

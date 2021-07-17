@@ -161,4 +161,9 @@ class Ceriawisata_model extends CI_Model
 		$this->db->where($where);
 		$this->db->delete($table);
 	}
+
+	function editPesanan($where, $data)
+	{
+		return $this->db->update('tb_pesanan', $data, $where);
+	}
 }

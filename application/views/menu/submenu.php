@@ -83,6 +83,7 @@
               <?php endforeach; ?>
           </select>
       </div> 
+      <br />
       <div class="form-group">
       <input type="text" class="form-control" id="url" name="url" placeholder="Url submenu">
       </div>
