@@ -78,7 +78,7 @@ class User extends CI_Controller
 		$tgl_selesai = $this->input->post('tgl_selesai');
 		$trayek = $this->input->post('trayek');
 		$total = $this->cart->total();
-
+		$catatan = $this->input->post('catatan');
 
 		$data = array(
 			'id_user' => $id_user,
@@ -90,8 +90,8 @@ class User extends CI_Controller
 			'tgl_mulai' => $tgl_mulai,
 			'tgl_selesai' => $tgl_selesai,
 			'trayek' => $trayek,
-			'total_harga' => $total
-
+			'total_harga' => $total,
+			'catatan' => $catatan
 		);
 
 		// $data['datalokasi'] = $this->Ceriawisata_model->getdatapesanan();

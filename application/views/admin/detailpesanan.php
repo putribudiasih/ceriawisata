@@ -5,7 +5,11 @@
     <h1 class="h3 mb-4 text-gray-800">Detail Pesanan Paket Wisata</h1>
 
     <!-- Detail Pesanan -->
-
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary text-center">Detail Pesanan</h6>
+        </div>
+    </div>
     <!-- 
     <div class="row">
         <div class="col-md-6"> -->
@@ -117,7 +121,23 @@
         </div>
     </div>
 
+    <div class="card shadow mb-4">
+        <!-- <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary text-center">Detail Pesanan</h6>
+                </div> -->
+        <div class="card-body">
+            <div class="card-block">
+                <div class="row">
+                    <div class="col-md-6 text-left">
+                        <b style="font-weight: 800;">Catatan Pemesanan</b><br>
+                    </div>
+                </div>
 
+                <hr>
+                <p><?= $detail_pesanan['catatan'] ?></p>
+            </div>
+        </div>
+    </div>
 
     <div class="mb-md-5">
         <center>

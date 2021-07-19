@@ -277,6 +277,12 @@ class Admin extends CI_Controller
 		echo json_encode($data);
 	}
 
+	public function ambilPesanan($id)
+	{
+		$data = $this->Ceriawisata_model->getPesanan($id);
+		echo json_encode($data);
+	}
+
 	public function submitJadwal()
 	{
 		$data_jadwal = [];
@@ -341,13 +347,8 @@ class Admin extends CI_Controller
 	{
 		$update = [
 			'nama_pemesan' => htmlspecialchars($this->input->post('nama_pemesan', true)),
-			'telp_pemesan' => htmlspecialchars($this->input->post('telp_pemesan', true)),
 			'email_pemesan' => htmlspecialchars($this->input->post('email_pemesan', true)),
-			'lokasi_berangkat' => htmlspecialchars($this->input->post('lokasi_berangkat', true)),
-			'trayek' => htmlspecialchars($this->input->post('trayek', true)),
-			'tgl_mulai' => htmlspecialchars($this->input->post('tgl_mulai', true)),
-			'tgl_selesai' => htmlspecialchars($this->input->post('tgl_selesai', true)),
-			'jml_pax' => htmlspecialchars($this->input->post('jml_pax', true))
+			'telp_pemesan' => htmlspecialchars($this->input->post('telp_pemesan', true))
 		];
 
 		$where = array(
@@ -355,6 +356,6 @@ class Admin extends CI_Controller
 		);
 		$this->Ceriawisata_model->editPesanan($where, $update);
 
-		redirect('Admin/index/' . $this->input->post('id_pesanan'));
+		redirect('Admin');
 	}
 }

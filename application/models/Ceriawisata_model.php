@@ -50,6 +50,17 @@ class Ceriawisata_model extends CI_Model
 		return $query->row_array();
 	}
 
+	function getPesanan($id)
+	{
+		$this->db->select('*');
+		$this->db->from('tb_pesanan');
+		$this->db->join('tb_user', 'tb_user.id_user = tb_pesanan.id_user');
+		$this->db->join('tb_trayek', 'tb_trayek.kode = tb_pesanan.trayek');
+		$this->db->where('id_pesanan', $id);
+		$query = $this->db->get();
+		return $query->result_array();
+	}
+
 	function inputPaketBaru($data)
 	{
 		return $this->db->insert('tb_trayek', $data);
