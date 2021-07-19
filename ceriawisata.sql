@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 10, 2021 at 09:50 AM
--- Server version: 10.1.35-MariaDB
--- PHP Version: 7.2.9
+-- Generation Time: Jul 19, 2021 at 12:37 PM
+-- Server version: 10.1.30-MariaDB
+-- PHP Version: 5.6.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -44,7 +44,11 @@ CREATE TABLE `tb_jadwal` (
 INSERT INTO `tb_jadwal` (`id_jadwal`, `id_pesanan`, `id_tempat`, `tanggal`, `waktu_berangkat`, `waktu_pulang`) VALUES
 (1, 4, 10, '2021-07-01', '16:25:00', '15:00:00'),
 (2, 7, 10, '2021-07-08', '19:34:00', '20:34:00'),
-(3, 7, 14, '2021-07-09', '22:35:00', '23:35:00');
+(3, 7, 14, '2021-07-09', '22:35:00', '23:35:00'),
+(4, 8, 44, '2021-07-23', '10:00:00', '12:00:00'),
+(5, 8, 45, '2021-07-23', '13:00:00', '15:00:00'),
+(6, 8, 46, '2021-07-24', '10:00:00', '14:00:00'),
+(7, 8, 47, '2021-07-25', '10:00:00', '14:00:00');
 
 -- --------------------------------------------------------
 
@@ -64,7 +68,6 @@ CREATE TABLE `tb_pesanan` (
   `tgl_selesai` date NOT NULL,
   `trayek` varchar(50) NOT NULL,
   `total_harga` varchar(100) NOT NULL,
-  `catatan` varchar(255) NOT NULL,
   `keterangan` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -72,10 +75,11 @@ CREATE TABLE `tb_pesanan` (
 -- Dumping data for table `tb_pesanan`
 --
 
-INSERT INTO `tb_pesanan` (`id_pesanan`, `id_user`, `nama_pemesan`, `email_pemesan`, `telp_pemesan`, `lokasi_berangkat`, `jml_pax`, `tgl_mulai`, `tgl_selesai`, `trayek`, `total_harga`, `catatan`, `keterangan`) VALUES
-(4, 7, '', '', '', 'Surabaya', 10, '2021-07-02', '2021-07-05', 'jtm', '', 'Catatan Penting', 1),
-(5, 7, '', '', '', 'Banyuwangi', 5, '2021-07-07', '2021-07-10', 'jtm', '', 'Banyuwangi, kecamatan kalibaru', 0),
-(7, 7, '', '', '', 'Bandung', 5, '2021-07-07', '2021-07-10', 'jtg', '200000', 'coba gais', 0);
+INSERT INTO `tb_pesanan` (`id_pesanan`, `id_user`, `nama_pemesan`, `email_pemesan`, `telp_pemesan`, `lokasi_berangkat`, `jml_pax`, `tgl_mulai`, `tgl_selesai`, `trayek`, `total_harga`, `keterangan`) VALUES
+(4, 7, '', '', '', 'Surabaya', 10, '2021-07-02', '2021-07-05', 'jtm', '', 1),
+(5, 7, '', '', '', 'Banyuwangi', 5, '2021-07-07', '2021-07-10', 'jtm', '', 0),
+(7, 7, '', '', '', 'Bandung', 5, '2021-07-07', '2021-07-10', 'jtg', '200000', 0),
+(8, 4, 'puput', 'putribudiasih18@gmail.com', '085438183245', 'Probolinggo', 10, '2021-07-22', '2021-07-26', 'bl', '400000', 0);
 
 -- --------------------------------------------------------
 
@@ -380,19 +384,19 @@ ALTER TABLE `user_sub_menu`
 -- AUTO_INCREMENT for table `tb_jadwal`
 --
 ALTER TABLE `tb_jadwal`
-  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tb_pesanan`
 --
 ALTER TABLE `tb_pesanan`
-  MODIFY `id_pesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_pesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tb_tempat`
 --
 ALTER TABLE `tb_tempat`
-  MODIFY `id_tempat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `id_tempat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- AUTO_INCREMENT for table `tb_trayek`
