@@ -41,7 +41,7 @@
                         <label>Nama</label>
                     </div>
                     <div class="col-md-8">
-                        <p>: <?= $detail_pesanan['nama'] ?></p>
+                        <p>: <?= $detail_pesanan['nama_pemesan'] ?></p>
                     </div>
                 </div>
                 <div class="row">
@@ -49,7 +49,7 @@
                         <label>No.HP</label>
                     </div>
                     <div class="col-md-8">
-                        <p>: <?= $detail_pesanan['no_telp'] ?></p>
+                        <p>: <?= $detail_pesanan['telp_pemesan'] ?></p>
                     </div>
                 </div>
                 <div class="row">
@@ -57,7 +57,7 @@
                         <label>Email</label>
                     </div>
                     <div class="col-md-8">
-                        <p>: <?= $detail_pesanan['email'] ?></p>
+                        <p>: <?= $detail_pesanan['email_pemesan'] ?></p>
                     </div>
                 </div>
             </div>
@@ -78,18 +78,25 @@
 
                 <hr>
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <label for="penjemputan">Titik Penjemputan</label>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1"><i class="fas fa-home"></i></span>
                             <input type="text" class="form-control" name="penjemputan" aria-describedby="basic-addon1" value="<?= $detail_pesanan['lokasi_berangkat'] ?>" disabled>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <label>Tujuan</label>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1"><i class="fas fa-car"></i></span>
                             <input type="text" class="form-control" aria-describedby="basic-addon1" value="<?= $detail_pesanan['lokasi'] ?>" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label>Total Harga</label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Rp.</span>
+                            <input type="text" class="form-control" aria-describedby="basic-addon1" value="<?= number_format($detail_pesanan['total_harga']) ?>" disabled>
                         </div>
                     </div>
                 </div>
@@ -125,7 +132,7 @@
         <!-- <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-primary text-center">Detail Pesanan</h6>
                 </div> -->
-        
+
     </div>
 
     <div class="mb-md-5">

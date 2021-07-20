@@ -76,6 +76,12 @@
 						<br />
 						<label>No. HP Pemesan</label>
 						<input type="text" class="form-control" id="telp_pemesan" name="telp_pemesan">
+						<br />
+						<label>Tanggal Mulai</label>
+						<input type="date" class="form-control" id="tgl_mulai" name="tgl_mulai">
+						<br />
+						<label>Tanggal Pulang</label>
+						<input type="date" class="form-control" id="tgl_pulang" name="tgl_pulang">
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -133,6 +139,8 @@
 					$('#nama_pemesan').val(data[i].nama_pemesan);
 					$('#email_pemesan').val(data[i].email_pemesan);
 					$('#telp_pemesan').val(data[i].telp_pemesan);
+					$('#tgl_mulai').val(data[i].tgl_mulai);
+					$('#tgl_pulang').val(data[i].tgl_selesai);
 				}
 			}
 		});
