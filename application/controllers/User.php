@@ -110,6 +110,8 @@ class User extends CI_Controller
 			$this->Ceriawisata_model->tambahJadwal($o);
 		}
 
+			
+			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data berhasil dikirim! Tunggu email konfirmasi!</div>');
 		redirect('user/index');
 
 		$this->form_validation->set_rules(
@@ -128,7 +130,7 @@ class User extends CI_Controller
 
 	public function jadwal()
 	{
-		$data['title'] = 'Jadwal Kegiatan';
+		$data['title'] = 'Jadwal';
 		$data['user'] = $this->db->get_where('tb_user', ['email' => $this->session->userdata('email')])->row_array();
 		$data['trayek'] = $this->db->get_where('tb_trayek')->result_array();
 		$data['data_pesanan'] =  $this->Ceriawisata_model->getDataPesanan();
@@ -142,7 +144,7 @@ class User extends CI_Controller
 
 	public function detailJadwal($id)
 	{
-		$data['title'] = 'Jadwal Kegiatan';
+		$data['title'] = 'Jadwal';
 		$data['user'] = $this->db->get_where('tb_user', ['email' => $this->session->userdata('email')])->row_array();
 		$data['trayek'] = $this->db->get_where('tb_trayek')->result_array();
 		$data['data_jadwal'] = $this->Ceriawisata_model->data_jadwal($id);
