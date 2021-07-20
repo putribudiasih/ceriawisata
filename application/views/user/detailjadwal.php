@@ -50,6 +50,7 @@
                                 <p>: <?= $detail_pesanan['lokasi_berangkat'] ?></p>
                             </div>
                         </div>
+
                     </div>
                     <div class="col">
                         <div class="row">
@@ -85,15 +86,21 @@
                                 </p>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
+
+
+
         </div>
     </div>
+
     <div class="card shadow mb-4">
         <div class="card-body">
             <div class="card-block">
                 <div class="col-md-6 text-left">
+                    <b style="font-weight: 800;">Daftar Kegiatan</b><br>
                     Destinasi Wisata : <b style="font-weight: 800;"><?= $detail_pesanan['lokasi'] ?></b><br>
                 </div>
                 <hr />
@@ -105,7 +112,7 @@
                             <th scope="col">Tempat Wisata</th>
                             <th scope="col">Tanggal</th>
                             <th scope="col">Waktu Kegiatan</th>
-                            <th scope="col">Action</th>
+
                         </tr>
                     </thead>
 
@@ -128,10 +135,7 @@
                                     echo ' ' . date('H:i', strtotime($berangkat)) . ' s/d ' . date('H:i', strtotime($pulang)) . ' ';
                                     ?>
                                 </td>
-                                <td>
-                                    <a href="" class="btn btn-sm btn-success" title="Edit"><i class="fas fa-edit"></i></a>
-                                    <a href="<?= base_url('User/hapusJadwal/' . $d['id_jadwal']); ?>" class="btn btn-sm btn-danger" title="Hapus"><i class="fas fa-trash"></i></a>
-                                </td>
+
                             </tr>
                         <?php } ?>
                     </tbody>
@@ -140,6 +144,3 @@
             </div>
         </div>
     </div>
-
-</div>
-</div>

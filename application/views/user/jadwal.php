@@ -24,7 +24,8 @@
                     <td><?= $d['trayek'] ?></td>
                     <td><?= $d['tgl_mulai'] ?></td>
                     <td>
-                        <a href="<?= base_url('User/detailjadwal/') . $d['id_pesanan'] ?>" class="badge badge-warning">Jadwal</a>
+                        <abbr title="Lihat"> <a href="<?= base_url('User/detailjadwal/') . $d['id_pesanan'] ?>" class="btn btn-primary">Lihat Jadwal</a>
+
                     </td>
                 </tr>
             <?php } ?>

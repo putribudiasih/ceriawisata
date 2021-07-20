@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 19, 2021 at 12:37 PM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 5.6.33
+-- Waktu pembuatan: 20 Jul 2021 pada 03.24
+-- Versi server: 10.4.11-MariaDB
+-- Versi PHP: 7.4.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -25,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_jadwal`
+-- Struktur dari tabel `tb_jadwal`
 --
 
 CREATE TABLE `tb_jadwal` (
@@ -38,7 +37,7 @@ CREATE TABLE `tb_jadwal` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_jadwal`
+-- Dumping data untuk tabel `tb_jadwal`
 --
 
 INSERT INTO `tb_jadwal` (`id_jadwal`, `id_pesanan`, `id_tempat`, `tanggal`, `waktu_berangkat`, `waktu_pulang`) VALUES
@@ -48,12 +47,15 @@ INSERT INTO `tb_jadwal` (`id_jadwal`, `id_pesanan`, `id_tempat`, `tanggal`, `wak
 (4, 8, 44, '2021-07-23', '10:00:00', '12:00:00'),
 (5, 8, 45, '2021-07-23', '13:00:00', '15:00:00'),
 (6, 8, 46, '2021-07-24', '10:00:00', '14:00:00'),
-(7, 8, 47, '2021-07-25', '10:00:00', '14:00:00');
+(7, 8, 47, '2021-07-25', '10:00:00', '14:00:00'),
+(8, 9, 1, '2021-07-26', '08:45:00', '00:45:00'),
+(9, 9, 2, '2021-07-27', '08:45:00', '00:45:00'),
+(10, 9, 4, '2021-07-30', '08:45:00', '00:45:00');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_pesanan`
+-- Struktur dari tabel `tb_pesanan`
 --
 
 CREATE TABLE `tb_pesanan` (
@@ -72,19 +74,16 @@ CREATE TABLE `tb_pesanan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_pesanan`
+-- Dumping data untuk tabel `tb_pesanan`
 --
 
 INSERT INTO `tb_pesanan` (`id_pesanan`, `id_user`, `nama_pemesan`, `email_pemesan`, `telp_pemesan`, `lokasi_berangkat`, `jml_pax`, `tgl_mulai`, `tgl_selesai`, `trayek`, `total_harga`, `keterangan`) VALUES
-(4, 7, '', '', '', 'Surabaya', 10, '2021-07-02', '2021-07-05', 'jtm', '', 1),
-(5, 7, '', '', '', 'Banyuwangi', 5, '2021-07-07', '2021-07-10', 'jtm', '', 0),
-(7, 7, '', '', '', 'Bandung', 5, '2021-07-07', '2021-07-10', 'jtg', '200000', 0),
-(8, 4, 'puput', 'putribudiasih18@gmail.com', '085438183245', 'Probolinggo', 10, '2021-07-22', '2021-07-26', 'bl', '400000', 0);
+(9, 11, 'Tester2', 'tester@gmail.com', '081180081180', 'Malang', 10, '2021-07-26', '2021-07-31', 'jtm', '400000', 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_tempat`
+-- Struktur dari tabel `tb_tempat`
 --
 
 CREATE TABLE `tb_tempat` (
@@ -95,13 +94,13 @@ CREATE TABLE `tb_tempat` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_tempat`
+-- Dumping data untuk tabel `tb_tempat`
 --
 
 INSERT INTO `tb_tempat` (`id_tempat`, `tujuan`, `harga`, `kode`) VALUES
 (1, 'Gunung Bromo', '200000', 'jtm'),
 (2, 'Gunung Ijen', '100000', 'jtm'),
-(3, 'Jawa Timur Park 1,2,3', '100000', 'jtm'),
+(3, 'Jawa Timur Park 1 2 3', '100000', 'jtm'),
 (4, 'Wisata Bahari Lamongan', '100000', 'jtm'),
 (5, 'Taman safari Indonesia 2', '100000', 'jtm'),
 (6, 'Telaga Sarangan', '100000', 'jtm'),
@@ -174,7 +173,7 @@ INSERT INTO `tb_tempat` (`id_tempat`, `tujuan`, `harga`, `kode`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_trayek`
+-- Struktur dari tabel `tb_trayek`
 --
 
 CREATE TABLE `tb_trayek` (
@@ -185,7 +184,7 @@ CREATE TABLE `tb_trayek` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_trayek`
+-- Dumping data untuk tabel `tb_trayek`
 --
 
 INSERT INTO `tb_trayek` (`id`, `kode`, `lokasi`, `gambar`) VALUES
@@ -201,7 +200,7 @@ INSERT INTO `tb_trayek` (`id`, `kode`, `lokasi`, `gambar`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_user`
+-- Struktur dari tabel `tb_user`
 --
 
 CREATE TABLE `tb_user` (
@@ -216,7 +215,7 @@ CREATE TABLE `tb_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_user`
+-- Dumping data untuk tabel `tb_user`
 --
 
 INSERT INTO `tb_user` (`id_user`, `nama`, `email`, `no_telp`, `password`, `role_id`, `is_active`, `date_created`) VALUES
@@ -228,7 +227,7 @@ INSERT INTO `tb_user` (`id_user`, `nama`, `email`, `no_telp`, `password`, `role_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_access_menu`
+-- Struktur dari tabel `user_access_menu`
 --
 
 CREATE TABLE `user_access_menu` (
@@ -238,7 +237,7 @@ CREATE TABLE `user_access_menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user_access_menu`
+-- Dumping data untuk tabel `user_access_menu`
 --
 
 INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
@@ -250,7 +249,7 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_menu`
+-- Struktur dari tabel `user_menu`
 --
 
 CREATE TABLE `user_menu` (
@@ -259,7 +258,7 @@ CREATE TABLE `user_menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user_menu`
+-- Dumping data untuk tabel `user_menu`
 --
 
 INSERT INTO `user_menu` (`id`, `menu`) VALUES
@@ -270,7 +269,7 @@ INSERT INTO `user_menu` (`id`, `menu`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_role`
+-- Struktur dari tabel `user_role`
 --
 
 CREATE TABLE `user_role` (
@@ -279,7 +278,7 @@ CREATE TABLE `user_role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user_role`
+-- Dumping data untuk tabel `user_role`
 --
 
 INSERT INTO `user_role` (`id`, `role`) VALUES
@@ -289,7 +288,7 @@ INSERT INTO `user_role` (`id`, `role`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_sub_menu`
+-- Struktur dari tabel `user_sub_menu`
 --
 
 CREATE TABLE `user_sub_menu` (
@@ -302,7 +301,7 @@ CREATE TABLE `user_sub_menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user_sub_menu`
+-- Dumping data untuk tabel `user_sub_menu`
 --
 
 INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active`) VALUES
@@ -321,115 +320,115 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 --
 
 --
--- Indexes for table `tb_jadwal`
+-- Indeks untuk tabel `tb_jadwal`
 --
 ALTER TABLE `tb_jadwal`
   ADD PRIMARY KEY (`id_jadwal`);
 
 --
--- Indexes for table `tb_pesanan`
+-- Indeks untuk tabel `tb_pesanan`
 --
 ALTER TABLE `tb_pesanan`
   ADD PRIMARY KEY (`id_pesanan`);
 
 --
--- Indexes for table `tb_tempat`
+-- Indeks untuk tabel `tb_tempat`
 --
 ALTER TABLE `tb_tempat`
   ADD PRIMARY KEY (`id_tempat`);
 
 --
--- Indexes for table `tb_trayek`
+-- Indeks untuk tabel `tb_trayek`
 --
 ALTER TABLE `tb_trayek`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `kode` (`kode`);
 
 --
--- Indexes for table `tb_user`
+-- Indeks untuk tabel `tb_user`
 --
 ALTER TABLE `tb_user`
   ADD PRIMARY KEY (`id_user`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- Indexes for table `user_access_menu`
+-- Indeks untuk tabel `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user_menu`
+-- Indeks untuk tabel `user_menu`
 --
 ALTER TABLE `user_menu`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user_role`
+-- Indeks untuk tabel `user_role`
 --
 ALTER TABLE `user_role`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user_sub_menu`
+-- Indeks untuk tabel `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `tb_jadwal`
+-- AUTO_INCREMENT untuk tabel `tb_jadwal`
 --
 ALTER TABLE `tb_jadwal`
-  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `tb_pesanan`
+-- AUTO_INCREMENT untuk tabel `tb_pesanan`
 --
 ALTER TABLE `tb_pesanan`
-  MODIFY `id_pesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_pesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `tb_tempat`
+-- AUTO_INCREMENT untuk tabel `tb_tempat`
 --
 ALTER TABLE `tb_tempat`
   MODIFY `id_tempat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
--- AUTO_INCREMENT for table `tb_trayek`
+-- AUTO_INCREMENT untuk tabel `tb_trayek`
 --
 ALTER TABLE `tb_trayek`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `tb_user`
+-- AUTO_INCREMENT untuk tabel `tb_user`
 --
 ALTER TABLE `tb_user`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `user_access_menu`
+-- AUTO_INCREMENT untuk tabel `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `user_menu`
+-- AUTO_INCREMENT untuk tabel `user_menu`
 --
 ALTER TABLE `user_menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `user_role`
+-- AUTO_INCREMENT untuk tabel `user_role`
 --
 ALTER TABLE `user_role`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `user_sub_menu`
+-- AUTO_INCREMENT untuk tabel `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
