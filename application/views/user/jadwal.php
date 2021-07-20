@@ -2,7 +2,7 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">Pesanan Paket Wisata</h1>
+    <h1 class="h3 mb-4 text-gray-800">Jadwal Kegiatan Wisata</h1>
 
     <table class="table table-hover">
         <thead>
@@ -10,7 +10,7 @@
                 <th scope="col">No.</th>
 
                 <!-- debug mode -->
-                <th scope="col">Role</th>
+                <th scope="col">Akun</th>
                 <!-- end debug mode -->
 
                 <th scope="col">Nama</th>
