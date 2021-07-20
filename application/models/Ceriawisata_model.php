@@ -24,6 +24,16 @@ class Ceriawisata_model extends CI_Model
 		$this->db->select('*');
 		$this->db->from('tb_pesanan');
 		$this->db->join('tb_user', 'tb_user.id_user = tb_pesanan.id_user');
+		$this->db->where('tb_pesanan.id_user', $this->session->userdata('id_user'));
+		$query = $this->db->get();
+		return $query->result_array();
+	}
+
+	function getDataPesananAdmin()
+	{
+		$this->db->select('*');
+		$this->db->from('tb_pesanan');
+		$this->db->join('tb_user', 'tb_user.id_user = tb_pesanan.id_user');
 		$query = $this->db->get();
 		return $query->result_array();
 	}

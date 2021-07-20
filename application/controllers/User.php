@@ -1,8 +1,10 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
+
 class User extends CI_Controller
 {
+
 	public function __construct()
 	{
 		parent::__construct();
@@ -42,6 +44,7 @@ class User extends CI_Controller
 		$data['trayek'] = $this->Ceriawisata_model->gettempatwisata($id);
 		$data['tempat'] = $this->Ceriawisata_model->getTempat($id);
 
+
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
 		$this->load->view('templates/topbar', $data);
@@ -52,6 +55,7 @@ class User extends CI_Controller
 	//FORM INPUT PESANAN PAKET WISATA USER
 	public function pesanan()
 	{
+		$this->cart->destroy();
 		$data['title'] = 'Pemesanan Paket';
 		$data['user'] = $this->db->get_where('tb_user', ['email' => $this->session->userdata('email')])->row_array();
 		$data['trayek'] = $this->db->get_where('tb_trayek')->result_array();
@@ -66,6 +70,7 @@ class User extends CI_Controller
 	//INPUT DATA PESANAN PAKET WISATA USER
 	public function inputpesanan()
 	{
+
 		$keranjang = $this->cart->contents();
 
 		$id_user = $this->input->post('id_user');
@@ -78,7 +83,7 @@ class User extends CI_Controller
 		$tgl_selesai = $this->input->post('tgl_selesai');
 		$trayek = $this->input->post('trayek');
 		$total = $this->cart->total();
-		
+
 
 		$data = array(
 			'id_user' => $id_user,
@@ -91,7 +96,6 @@ class User extends CI_Controller
 			'tgl_selesai' => $tgl_selesai,
 			'trayek' => $trayek,
 			'total_harga' => $total
-			
 		);
 
 		// $data['datalokasi'] = $this->Ceriawisata_model->getdatapesanan();
@@ -110,9 +114,8 @@ class User extends CI_Controller
 			$this->Ceriawisata_model->tambahJadwal($o);
 		}
 
-			
-			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> Data berhasil dikirim! Tunggu email konfirmasi!</div>');
-		redirect('user/index');
+
+
 
 		$this->form_validation->set_rules(
 			'nama',
@@ -126,6 +129,20 @@ class User extends CI_Controller
 			'required',
 			['required' => '%s harap dipilih']
 		);
+
+		if ($this->db->affected_rows() > 0) {
+			$this->session->set_flashdata(
+				'msg',
+				'
+			<div class="alert alert-success alert-dismissible">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+			<h4><i class="icon fa fa-check"></i> Data berhasil dikirim, silahkan tunggu email konfirmasi! </h4>
+			</div>
+			'
+			);
+		}
+
+		redirect('user/pesanan');
 	}
 
 	public function jadwal()
@@ -134,6 +151,7 @@ class User extends CI_Controller
 		$data['user'] = $this->db->get_where('tb_user', ['email' => $this->session->userdata('email')])->row_array();
 		$data['trayek'] = $this->db->get_where('tb_trayek')->result_array();
 		$data['data_pesanan'] =  $this->Ceriawisata_model->getDataPesanan();
+		$data['data_pesanan_admin'] =  $this->Ceriawisata_model->getDataPesananAdmin();
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
@@ -170,8 +188,14 @@ class User extends CI_Controller
 		echo json_encode($data);
 	}
 
+	public function hapusKeranjang()
+	{
+		$this->cart->destroy();
+	}
+
 	public function getDestinasi()
 	{
+		// $this->hapusKeranjang();
 		$id = $this->input->post('id');
 		$data = $this->Ceriawisata_model->getDestinasi($id);
 		echo json_encode($data);
@@ -225,6 +249,12 @@ class User extends CI_Controller
 			'qty' => 0,
 		);
 		$this->cart->update($data);
+		echo $this->showCart();
+	}
+
+	public function resetCart()
+	{
+		$this->cart->destroy();
 		echo $this->showCart();
 	}
 }

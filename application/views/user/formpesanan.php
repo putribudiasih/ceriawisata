@@ -4,7 +4,7 @@
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800">Form Pemesanan Paket Wisata</h1>
 
-
+    <?= $this->session->flashdata('msg'); ?>
 
 
     <form action="<?= base_url('User/inputpesanan'); ?>" method="post">
@@ -185,6 +185,12 @@
         $('#trayek').change(function() {
             var id = $(this).val();
             $.ajax({
+                url: "<?= base_url('User/resetCart'); ?>",
+                success: function(data) {
+                    $('#detail_cart').html(data);
+                }
+            });
+            $.ajax({
                 url: "<?php echo site_url('User/getDestinasi'); ?>",
                 method: "POST",
                 data: {
@@ -255,6 +261,15 @@
             data: {
                 row_id: row_id
             },
+            success: function(data) {
+                $('#detail_cart').html(data);
+            }
+        });
+    });
+
+    $(document).on('click', '.reset_cart', function() {
+        $.ajax({
+            url: "<?= base_url('User/resetCart'); ?>",
             success: function(data) {
                 $('#detail_cart').html(data);
             }

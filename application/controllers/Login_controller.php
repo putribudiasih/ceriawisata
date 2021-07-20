@@ -1,7 +1,7 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Login_controller extends CI_Controller 
+class Login_controller extends CI_Controller
 {
 	public function __construct()
 	{
@@ -13,11 +13,11 @@ class Login_controller extends CI_Controller
 	{
 		$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
 		$this->form_validation->set_rules('password', 'Password', 'trim|required');
-		if($this->form_validation->run() == false) {
-		$data['title'] = 'Ceria Wisata Login';
-		$this->load->view('templates/login_header', $data);
-		$this->load->view('auth/login_view');
-		$this->load->view('templates/login_footer');
+		if ($this->form_validation->run() == false) {
+			$data['title'] = 'Ceria Wisata Login';
+			$this->load->view('templates/login_header', $data);
+			$this->load->view('auth/login_view');
+			$this->load->view('templates/login_footer');
 		} else {
 			//validasi sukses
 			$this->_login();
@@ -33,30 +33,29 @@ class Login_controller extends CI_Controller
 		$user = $this->db->get_where('tb_user', ['email' => $email])->row_array();
 
 		//jika user ada
-		if($user) {
+		if ($user) {
 			//jika user aktif
-			if($user['is_active'] == 1) {
+			if ($user['is_active'] == 1) {
 				//cek password
-				if(password_verify($password, $user['password'])) {
+				if (password_verify($password, $user['password'])) {
 					$data = [
+						'id_user' => $user['id_user'],
 						'email' => $user['email'],
 						'role_id' => $user['role_id']
 					];
 					$this->session->set_userdata($data);
-					if($user['role_id'] == 1) {
+					if ($user['role_id'] == 1) {
 						redirect('Admin');
 					} else {
 						redirect('user');
 					}
-					
 				} else {
 					$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> Wrong password!</div>');
 					redirect('Login_controller');
 				}
-
 			} else {
 				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> Email belum teraktivasi</div>');
-			redirect('Login_controller');
+				redirect('Login_controller');
 			}
 		} else {
 			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"> Email is not registered</div>');
@@ -80,7 +79,7 @@ class Login_controller extends CI_Controller
 		$this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]');
 
 
-		if($this->form_validation->run() == false) {
+		if ($this->form_validation->run() == false) {
 			$data['title'] = 'Ceria Wisata Registration';
 			$this->load->view('templates/login_header', $data);
 			$this->load->view('auth/registration_view');
@@ -108,12 +107,11 @@ class Login_controller extends CI_Controller
 		$this->session->unset_userdata('role_id');
 
 		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> You have been logged out!</div>');
-			redirect('Login_controller');
+		redirect('Login_controller');
 	}
 
 	public function blocked()
 	{
 		$this->load->view('auth/blocked');
 	}
-
 }

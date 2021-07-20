@@ -35,9 +35,8 @@
 					</td>
 					<td>
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" id="status" name="status" onclick="myFunction()" <?= $d['keterangan'] == '1' ? 'checked' : '' ?> onchange=" if(this.checked){setStatusDatPesanan(1,'<?= $d['id_pesanan'] ?>')}else{setStatusDatPesanan(0,'<?= $d['id_pesanan'] ?>')}">
-							<p id="online" style="display:none">Aktif</p>
-							<p id="offline" style="display:block">Tidak Aktif</p>
+							<input class="form-check-input" type="checkbox" id="status" name="status" onclick="" <?= $d['keterangan'] == '1' ? 'checked' : '' ?> onchange=" if(this.checked){setStatusDatPesanan(1,'<?= $d['id_pesanan'] ?>')}else{setStatusDatPesanan(0,'<?= $d['id_pesanan'] ?>')}">
+
 						</div>
 					</td>
 				</tr>
@@ -96,20 +95,6 @@
 <!-- <script src="<?= base_url('vendor_temp/sbadmin2/js/sb-admin-2.min.js') ?>"></script> -->
 <script src="<?= base_url('vendor_temp/jquery/jquery.min.js') ?>"></script>
 <script type="text/javascript">
-	function myFunction() {
-		var checkBox = document.getElementById("status");
-		var online = document.getElementById("online");
-		var offline = document.getElementById("offline");
-
-		if (checkBox.checked == true) {
-			online.style.display = "block";
-			offline.style.display = "none";
-		} else {
-			online.style.display = "none";
-			offline.style.display = "block";
-		}
-	}
-
 	function setStatusDatPesanan(status, id) {
 		$.ajax({
 			url: 'admin/updateStatus',
