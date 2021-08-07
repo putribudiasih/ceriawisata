@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Ceriawisata - Index</title>
+    <title>Ceriawisata T&T</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -50,10 +50,10 @@
             <nav class="nav-menu d-none d-lg-block">
                 <ul>
                     <li class="active"><a href="index.html">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#team">Team</a></li>
+                    <li><a href="#about">Tentang kami</a></li>
+                    <li><a href="#services">Layanan</a></li>
+                    <li><a href="#portfolio">Portofolio</a></li>
+                    <li><a href="#team">Tim kami</a></li>
                     <!-- <li class="drop-down"><a href="">Drop Down</a>
                         <ul>
                             <li><a href="#">Drop Down 1</a></li>
@@ -71,7 +71,7 @@
                             <li><a href="#">Drop Down 5</a></li>
                         </ul>
                     </li> -->
-                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#contact">Kontak kami</a></li>
 
                     <li class="get-started"><a href="<?= base_url('Login_controller') ?>">Login</a></li>
                 </ul>
@@ -88,7 +88,7 @@
                 <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1">
                     <h1>Let's Make Your Travel Better</h1>
                     <h2>Ceriawisata adalah salah satu agensi yang menyediakan layanan terbaik untuk perjalanan anda.</h2>
-                    <a href="#about" class="btn-get-started scrollto">Get Started</a>
+                    <a href="#about" class="btn-get-started scrollto">Jelajahi lebih</a>
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2 hero-img">
                     <img src="<?= base_url('vendor_temp/Ninestars/') ?>assets/img/landing.png" class="img-fluid animated" alt="">
@@ -109,11 +109,11 @@
                         <img src="<?= base_url('vendor_temp/Ninestars/') ?>assets/img/about.png" class="img-fluid" alt="" data-aos="zoom-in">
                     </div>
                     <div class="col-lg-6 pt-5 pt-lg-0">
-                        <h3 data-aos="fade-up">Voluptatem dignissimos provident quasi</h3>
+                        <h3 data-aos="fade-up">Ceriawisata Tour & Travel</h3>
                         <p data-aos="fade-up" data-aos-delay="100">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
+                            Sesuai dengan komitmen kami, kami akan selalu memberikan fasilitas-fasilitas terbaik dan fasilitas plus serta pelayanan extra sehingga anda terasa nyaman dalam melakukan wisata.
                         </p>
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
                                 <i class="bx bx-receipt"></i>
                                 <h4>Corporis voluptates sit</h4>
@@ -124,7 +124,7 @@
                                 <h4>Ullamco laboris nisi</h4>
                                 <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 
@@ -136,40 +136,40 @@
             <div class="container">
 
                 <div class="section-title" data-aos="fade-up">
-                    <h2>Services</h2>
-                    <p>Check out the great services we offer</p>
+                    <h2>Layanan</h2>
+                    <p>Kami menyediakan berbagai paket wisata yang menarik untuk anda</p>
                 </div>
 
                 <div class="row">
-                    <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                    <!-- <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
                         <div class="icon-box">
                             <div class="icon"><i class="bx bxl-dribbble"></i></div>
                             <h4 class="title"><a href="">Lorem Ipsum</a></h4>
                             <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate</p>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="col-md-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
                         <div class="icon-box">
-                            <div class="icon"><i class="bx bx-file"></i></div>
-                            <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
-                            <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla</p>
+                        <img src="<?= base_url('assets/img/bag.png'); ?>" class="card-img-top" alt="...">
+                            <h4 class="title"><a href="">Paket Wisata Domestik dan Luar Negeri</a></h4>
+                            <p class="description">Paket wisata ke berbagai destinasi wisata Nusantara dan Luar Negeri. Pada paket wisata ini kami melayani grup besar maupun kecil dengan fasilitas yang istimewa ataupun by request sesuai dengan keinginan customer.</p>
                         </div>
                     </div>
 
-                    <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="col-md-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="300">
                         <div class="icon-box">
-                            <div class="icon"><i class="bx bx-tachometer"></i></div>
-                            <h4 class="title"><a href="">Magni Dolores</a></h4>
-                            <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim</p>
+                        <img src="<?= base_url('assets/img/kerja.png'); ?>" class="card-img-top" alt="...">
+                            <h4 class="title"><a href="">Kunjungan Kerja dan Meeting</a></h4>
+                            <p class="description">Paket ini kami peruntukkan bagi instansi-instansi pemerintah maupun swasta yang ingin melakukan kunjungan kerja dan meeting atau studi banding ke instansi lain diluar daerah yang kami kemas bersama paket wisata.</p>
                         </div>
                     </div>
 
-                    <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="col-md-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="400">
                         <div class="icon-box">
-                            <div class="icon"><i class="bx bx-world"></i></div>
-                            <h4 class="title"><a href="">Nemo Enim</a></h4>
-                            <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum</p>
+                        <img src="<?= base_url('assets/img/study.png'); ?>" class="card-img-top" alt="...">
+                            <h4 class="title"><a href="">Study Tour</a></h4>
+                            <p class="description">Paket ini kami kemas khusus bagi sekolah / perguruan tinggi yang hendak melakukan study ke instansi/perusahaan/lembaga riset di daerah tertentu yang kami kemas bersama paket wisata.</p>
                         </div>
                     </div>
 
@@ -183,17 +183,22 @@
             <div class="container">
 
                 <div class="section-title" data-aos="fade-up">
-                    <h2>Portfolio</h2>
-                    <p>Check out our beautifull portfolio</p>
+                    <h2>Portofolio</h2>
+                    <p>Dokumentasi Ceriawisata Tour & Travel di berbagai destinasi</p>
                 </div>
 
                 <div class="row" data-aos="fade-up" data-aos-delay="100">
                     <div class="col-lg-12">
                         <ul id="portfolio-flters">
-                            <li data-filter="*" class="filter-active">All</li>
-                            <li data-filter=".filter-app">App</li>
-                            <li data-filter=".filter-card">Card</li>
-                            <li data-filter=".filter-web">Web</li>
+                            <li data-filter="*" class="filter-active">Tampilkan Semua</li>
+                            <li data-filter=".filter-app">Jawa Timur</li>
+                            <li data-filter=".filter-card">Jawa Tengah</li>
+                            <li data-filter=".filter-web">Jabar - DKI</li>
+                            <li data-filter=".filter-app">Sumatera</li>
+                            <li data-filter=".filter-card">Bali</li>
+                            <li data-filter=".filter-web">Lombok</li>
+                            <li data-filter=".filter-app">Sulawesi</li>
+                            <li data-filter=".filter-card">Pulau Komodo</li>
                         </ul>
                     </div>
                 </div>
@@ -207,10 +212,7 @@
                                 <a href="<?= base_url('vendor_temp/Ninestars/') ?>assets/img/portfolio/portfolio-1.jpg" data-gall="portfolioGallery" class="venobox" title="App 1"><i class="icofont-plus-circle"></i></a>
                                 <a href="portfolio-details.html" title="More Details"><i class="icofont-link"></i></a>
                             </div>
-                            <div class="portfolio-info">
-                                <h4>App 1</h4>
-                                <p>App</p>
-                            </div>
+                            
                         </div>
                     </div>
 
@@ -221,10 +223,7 @@
                                 <a href="<?= base_url('vendor_temp/Ninestars/') ?>assets/img/portfolio/portfolio-2.jpg" data-gall="portfolioGallery" class="venobox" title="Web 3"><i class="icofont-plus-circle"></i></a>
                                 <a href="portfolio-details.html" title="More Details"><i class="icofont-link"></i></a>
                             </div>
-                            <div class="portfolio-info">
-                                <h4>Web 3</h4>
-                                <p>Web</p>
-                            </div>
+                            
                         </div>
                     </div>
 
@@ -235,10 +234,7 @@
                                 <a href="<?= base_url('vendor_temp/Ninestars/') ?>assets/img/portfolio/portfolio-3.jpg" data-gall="portfolioGallery" class="venobox" title="App 2"><i class="icofont-plus-circle"></i></a>
                                 <a href="portfolio-details.html" title="More Details"><i class="icofont-link"></i></a>
                             </div>
-                            <div class="portfolio-info">
-                                <h4>App 2</h4>
-                                <p>App</p>
-                            </div>
+                            
                         </div>
                     </div>
 
@@ -249,10 +245,7 @@
                                 <a href="<?= base_url('vendor_temp/Ninestars/') ?>assets/img/portfolio/portfolio-4.jpg" data-gall="portfolioGallery" class="venobox" title="Card 2"><i class="icofont-plus-circle"></i></a>
                                 <a href="portfolio-details.html" title="More Details"><i class="icofont-link"></i></a>
                             </div>
-                            <div class="portfolio-info">
-                                <h4>Card 2</h4>
-                                <p>Card</p>
-                            </div>
+                            
                         </div>
                     </div>
 
@@ -263,10 +256,7 @@
                                 <a href="<?= base_url('vendor_temp/Ninestars/') ?>assets/img/portfolio/portfolio-5.jpg" data-gall="portfolioGallery" class="venobox" title="Web 2"><i class="icofont-plus-circle"></i></a>
                                 <a href="portfolio-details.html" title="More Details"><i class="icofont-link"></i></a>
                             </div>
-                            <div class="portfolio-info">
-                                <h4>Web 2</h4>
-                                <p>Web</p>
-                            </div>
+                            
                         </div>
                     </div>
 
@@ -277,10 +267,7 @@
                                 <a href="<?= base_url('vendor_temp/Ninestars/') ?>assets/img/portfolio/portfolio-6.jpg" data-gall="portfolioGallery" class="venobox" title="App 3"><i class="icofont-plus-circle"></i></a>
                                 <a href="portfolio-details.html" title="More Details"><i class="icofont-link"></i></a>
                             </div>
-                            <div class="portfolio-info">
-                                <h4>App 3</h4>
-                                <p>App</p>
-                            </div>
+                            
                         </div>
                     </div>
 
@@ -291,10 +278,7 @@
                                 <a href="<?= base_url('vendor_temp/Ninestars/') ?>assets/img/portfolio/portfolio-7.jpg" data-gall="portfolioGallery" class="venobox" title="Card 1"><i class="icofont-plus-circle"></i></a>
                                 <a href="portfolio-details.html" title="More Details"><i class="icofont-link"></i></a>
                             </div>
-                            <div class="portfolio-info">
-                                <h4>Card 1</h4>
-                                <p>Card</p>
-                            </div>
+                            
                         </div>
                     </div>
 
@@ -305,10 +289,7 @@
                                 <a href="<?= base_url('vendor_temp/Ninestars/') ?>assets/img/portfolio/portfolio-8.jpg" data-gall="portfolioGallery" class="venobox" title="Card 3"><i class="icofont-plus-circle"></i></a>
                                 <a href="portfolio-details.html" title="More Details"><i class="icofont-link"></i></a>
                             </div>
-                            <div class="portfolio-info">
-                                <h4>Card 3</h4>
-                                <p>Card</p>
-                            </div>
+                            
                         </div>
                     </div>
 
@@ -319,10 +300,7 @@
                                 <a href="<?= base_url('vendor_temp/Ninestars/') ?>assets/img/portfolio/portfolio-9.jpg" data-gall="portfolioGallery" class="venobox" title="Web 3"><i class="icofont-plus-circle"></i></a>
                                 <a href="portfolio-details.html" title="More Details"><i class="icofont-link"></i></a>
                             </div>
-                            <div class="portfolio-info">
-                                <h4>Web 3</h4>
-                                <p>Web</p>
-                            </div>
+                            
                         </div>
                     </div>
 
@@ -407,8 +385,8 @@
             <div class="container">
 
                 <div class="section-title" data-aos="fade-up">
-                    <h2>Team</h2>
-                    <p>Our team is always here to help</p>
+                    <h2>Tim kami</h2>
+                    <p>Tim Ceriawisata Tour & Travels</p>
                 </div>
 
                 <div class="row">
@@ -418,8 +396,8 @@
                             <img src="<?= base_url('vendor_temp/Ninestars/') ?>assets/img/team/team-1.jpg" class="img-fluid" alt="">
                             <div class="member-info">
                                 <div class="member-info-content">
-                                    <h4>Walter White</h4>
-                                    <span>Chief Executive Officer</span>
+                                    <h4>Nama Kepala Ceriawisata</h4>
+                                    <span>Kepala Ceriawisata</span>
                                 </div>
                                 <div class="social">
                                     <a href=""><i class="icofont-twitter"></i></a>
@@ -436,8 +414,8 @@
                             <img src="<?= base_url('vendor_temp/Ninestars/') ?>assets/img/team/team-2.jpg" class="img-fluid" alt="">
                             <div class="member-info">
                                 <div class="member-info-content">
-                                    <h4>Sarah Jhonson</h4>
-                                    <span>Product Manager</span>
+                                    <h4>Nama Kepala Marketting</h4>
+                                    <span>Kepala Marketing</span>
                                 </div>
                                 <div class="social">
                                     <a href=""><i class="icofont-twitter"></i></a>
@@ -454,8 +432,8 @@
                             <img src="<?= base_url('vendor_temp/Ninestars/') ?>assets/img/team/team-3.jpg" class="img-fluid" alt="">
                             <div class="member-info">
                                 <div class="member-info-content">
-                                    <h4>William Anderson</h4>
-                                    <span>CTO</span>
+                                    <h4>Nama Kepala Administrasi</h4>
+                                    <span>Kepala Administrasi</span>
                                 </div>
                                 <div class="social">
                                     <a href=""><i class="icofont-twitter"></i></a>
@@ -472,8 +450,8 @@
                             <img src="<?= base_url('vendor_temp/Ninestars/') ?>assets/img/team/team-4.jpg" class="img-fluid" alt="">
                             <div class="member-info">
                                 <div class="member-info-content">
-                                    <h4>Amanda Jepson</h4>
-                                    <span>Accountant</span>
+                                    <h4>Nama Kepala HUMAS</h4>
+                                    <span>Kepala HUMAS</span>
                                 </div>
                                 <div class="social">
                                     <a href=""><i class="icofont-twitter"></i></a>
@@ -495,8 +473,8 @@
             <div class="container">
 
                 <div class="section-title" data-aos="fade-up">
-                    <h2>Clients</h2>
-                    <p>They trusted us</p>
+                    <h2>Partners</h2>
+                    <p>Kami telah bekerja sama dengan berbagai pihak demi pelayanan yang terbaik</p>
                 </div>
 
                 <div class="owl-carousel clients-carousel" data-aos="fade-up" data-aos-delay="100">
@@ -518,8 +496,8 @@
             <div class="container">
 
                 <div class="section-title" data-aos="fade-up">
-                    <h2>Contact Us</h2>
-                    <p>Contact us the get started</p>
+                    <h2>Kontak kami</h2>
+                    <p>Kontak kami untuk informasi lebih lanjut</p>
                 </div>
 
                 <div class="row">
@@ -528,58 +506,25 @@
                         <div class="info">
                             <div class="address">
                                 <i class="icofont-google-map"></i>
-                                <h4>Location:</h4>
-                                <p>A108 Adam Street, New York, NY 535022</p>
+                                <h4>Head Office</h4>
+                                <p>Perum Pucang Indah 3/C.28, Pasuruan, Jawa Timur <br> Telp. (0343) 701.3000.</p>
                             </div>
 
                             <div class="email">
-                                <i class="icofont-envelope"></i>
-                                <h4>Email:</h4>
-                                <p>info@example.com</p>
+                                <i class="icofont-google-map"></i>
+                                <h4>Branch Office</h4>
+                                <p>Jl. Mayjend Sutoyo No.99 Daerah istimewa Yogyakarta <br> Telp. (0274) 661.9335.</p>
+                                
+                                <p>Istana Kuta Galeria Central Park. Broadway 2 No.12B Jl. Patih Jelantik Kuta Bali <br> Telp. (0361) 553.2500.</p>
                             </div>
 
-                            <div class="phone">
-                                <i class="icofont-phone"></i>
-                                <h4>Call:</h4>
-                                <p>+1 5589 55488 55s</p>
-                            </div>
-
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+                            
                         </div>
 
                     </div>
 
                     <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-                        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="name">Your Name</label>
-                                    <input type="text" name="name" class="form-control" id="name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                                    <div class="validate"></div>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="name">Your Email</label>
-                                    <input type="email" class="form-control" name="email" id="email" data-rule="email" data-msg="Please enter a valid email" />
-                                    <div class="validate"></div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="name">Subject</label>
-                                <input type="text" class="form-control" name="subject" id="subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                                <div class="validate"></div>
-                            </div>
-                            <div class="form-group">
-                                <label for="name">Message</label>
-                                <textarea class="form-control" name="message" rows="10" data-rule="required" data-msg="Please write something for us"></textarea>
-                                <div class="validate"></div>
-                            </div>
-                            <div class="mb-3">
-                                <div class="loading">Loading</div>
-                                <div class="error-message"></div>
-                                <div class="sent-message">Your message has been sent. Thank you!</div>
-                            </div>
-                            <div class="text-center"><button type="submit">Send Message</button></div>
-                        </form>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3954.2826606935596!2d112.8932895143249!3d-7.652725377835684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7c5fac8265cef%3A0x1b61af1a10afbcb7!2sCeria%20Wisata%20Tours!5e0!3m2!1sid!2sid!4v1628309174971!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                     </div>
 
                 </div>
@@ -596,10 +541,10 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-6">
-                        <h4>Join Our Newsletter</h4>
-                        <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+                        <h4>Ikuti Perkembangan Ceriawisata</h4>
+                        <p>Kirim email anda untuk informasi lebih lanjut mengenai Ceriawisata Tour & Travel</p>
                         <form action="" method="post">
-                            <input type="email" name="email"><input type="submit" value="Subscribe">
+                            <input type="email" name="email"><input type="submit" value="Kirim">
                         </form>
                     </div>
                 </div>
@@ -610,18 +555,19 @@
             <div class="container">
                 <div class="row">
 
-                    <div class="col-lg-3 col-md-6 footer-contact" data-aos="fade-up" data-aos-delay="100">
-                        <h3>Ninestars</h3>
-                        <p>
-                            A108 Adam Street <br>
-                            New York, NY 535022<br>
-                            United States <br><br>
-                            <strong>Phone:</strong> +1 5589 55488 55<br>
-                            <strong>Email:</strong> info@example.com<br>
+                    <div class=" col-md-6 footer-contact" data-aos="fade-up" data-aos-delay="100">
+                        <h3>Ceriawisata Head Office</h3>
+                        
+                                
+                        Perum Pucang Indah 3/C.28,<br>
+                            Pasuruan,<br>
+                            Jawa Timur. <br><br>
+                            <strong>Phone:</strong> Telp. (0343) 701.3000.<br>
+                            
                         </p>
                     </div>
 
-                    <div class="col-lg-3 col-md-6 footer-links" data-aos="fade-up" data-aos-delay="200">
+                    <!-- <div class="col-lg-3 col-md-6 footer-links" data-aos="fade-up" data-aos-delay="200">
                         <h4>Useful Links</h4>
                         <ul>
                             <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
@@ -641,17 +587,16 @@
                             <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
                             <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
                         </ul>
-                    </div>
+                    </div> -->
 
-                    <div class="col-lg-3 col-md-6 footer-links" data-aos="fade-up" data-aos-delay="400">
-                        <h4>Our Social Networks</h4>
-                        <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
+                    <div class=" col-md-6 footer-links" data-aos="fade-up" data-aos-delay="400">
+                        <h4>Social Media kami</h4>
+                        <p>Ikuti berbagai sosial media kami untuk informasi dan promo menarik Ceriawisata Tour & Travel</p>
                         <div class="social-links mt-3">
                             <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
                             <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
                             <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                            <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                            <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                            
                         </div>
                     </div>
 
@@ -661,14 +606,14 @@
 
         <div class="container py-4">
             <div class="copyright">
-                &copy; Copyright <strong><span>Ninestars</span></strong>. All Rights Reserved
+                &copy; Copyright <strong><span>Ceriawisata Tour & Travel</span></strong>. All Rights Reserved
             </div>
             <div class="credits">
                 <!-- All the links in the footer should remain intact. -->
                 <!-- You can delete the links only if you purchased the pro version. -->
                 <!-- Licensing information: https://bootstrapmade.com/license/ -->
                 <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/ninestars-free-bootstrap-3-theme-for-creative/ -->
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                <!-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> -->
             </div>
         </div>
     </footer><!-- End Footer -->
