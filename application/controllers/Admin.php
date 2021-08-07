@@ -172,9 +172,27 @@ class Admin extends CI_Controller
 
 	public function editWisata()
 	{
+		$config['upload_path']          = 'assets/img/';  // folder upload 
+		$config['allowed_types']        = 'gif|jpg|png'; // jenis file
+		$config['max_size']             = 10000;
+		// $config['max_width']            = 1024;
+		// $config['max_height']           = 768;
+
+		$this->load->library('upload', $config);
+		$this->upload->initialize($config);
+		if (!$this->upload->do_upload('image') && $_FILES['image']['size'] != 0) //sesuai dengan name pada form 
+		{
+			redirect('Admin');
+		}
+
+		$file = $this->upload->data();
+		$image = $_FILES['image']['size'] != 0 ? $file['file_name'] : $this->input->post('image1');
+
 		$update = [
 			'tujuan' => htmlspecialchars($this->input->post('nama_tempat', true)),
-			'harga' => htmlspecialchars($this->input->post('harga_tempat', true))
+			'harga' => htmlspecialchars($this->input->post('harga_tempat', true)),
+			'deskripsi' => htmlspecialchars($this->input->post('deskripsi', true)),
+			'gambar' => $image
 		];
 
 		$where = array(
@@ -359,5 +377,46 @@ class Admin extends CI_Controller
 		$this->Ceriawisata_model->editPesanan($where, $update);
 
 		redirect('Admin');
+	}
+
+	public function getDetailLokasi($id)
+	{
+		$data = $this->Ceriawisata_model->detailLokasi($id);
+		echo json_encode($data);
+	}
+
+	public function editLokasi()
+	{
+		$config['upload_path']          = 'assets/img/';  // folder upload 
+		$config['allowed_types']        = 'gif|jpg|png'; // jenis file
+		$config['max_size']             = 10000;
+		// $config['max_width']            = 1024;
+		// $config['max_height']           = 768;
+
+		$this->load->library('upload', $config);
+		$this->upload->initialize($config);
+		if (!$this->upload->do_upload('image') && $_FILES['image']['size'] != 0) //sesuai dengan name pada form 
+		{
+			redirect('Admin');
+		}
+
+		$file = $this->upload->data();
+		$image = $_FILES['image']['size'] != 0 ? $file['file_name'] : $this->input->post('image1');
+
+		$update = [
+			'kode' => htmlspecialchars($this->input->post('kode_lokasi', true)),
+			'lokasi' => htmlspecialchars($this->input->post('nama_lokasi', true)),
+			'deskripsi' => htmlspecialchars($this->input->post('deskripsi', true)),
+			'gambar' => $image
+		];
+
+		$where = array(
+			'id' => htmlspecialchars($this->input->post('id_trayek', true))
+		);
+		$this->Ceriawisata_model->editLokasi($where, $update);
+		if ($this->db->affected_rows() > 0) {
+			$this->session->set_flashdata('msg', '<div class="alert alert-success" role="alert"> Data berhasil di update.</div>');
+		}
+		redirect('Admin/paketwisata');
 	}
 }

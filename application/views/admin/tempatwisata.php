@@ -19,14 +19,22 @@
 					<div class="row no-gutters">
 						<div class="col-md-8">
 							<div class="card-body">
-								<td>
-									<h5 class="card-title"><?= $t['tujuan']; ?></h5>
-									<hr />
-									<p>Kode Trayek : <?= $t['kode'] ?></p>
-									<p>Harga : Rp. <?= number_format($t['harga']) ?></p>
-								</td>
-								<a href="javascript:void(0)" onclick="coba('<?= $t['id_tempat'] ?>')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal">Edit</a>
-								<a href="<?= base_url('Admin/hapusWisata/' . $t['id_tempat']); ?>" class="btn btn-danger">Hapus</a>
+								<div class="row">
+									<div class="col-md-4">
+										<img src="<?= base_url('assets/img/') . $t['gambar'] ?>" class="img-fluid rounded-start">
+									</div>
+									<div class="col-md-8">
+										<td>
+											<h5 class="card-title"><?= $t['tujuan']; ?></h5>
+											<hr />
+											<p><?= $t['deskripsi'] ?></p>
+											<hr />
+											<p>Harga : Rp. <?= number_format($t['harga']) ?></p>
+										</td>
+										<a href="javascript:void(0)" onclick="coba('<?= $t['id_tempat'] ?>')" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#Modal">Edit</a>
+										<a href="<?= base_url('Admin/hapusWisata/' . $t['id_tempat']); ?>" class="btn btn-sm btn-danger">Hapus</a>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -44,7 +52,7 @@
 
 <!-- Modal -->
 <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="newRoleModalLabel" aria-hidden="true">
-	<div class="modal-dialog" role="document">
+	<div class="modal-dialog modal-lg" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title" id="newRoleModalLabel">Edit Tempat Wisata</h5>
@@ -52,16 +60,31 @@
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
-			<form action="<?= base_url('Admin/editWisata'); ?>" method="post">
+			<form action="<?= base_url('Admin/editWisata'); ?>" enctype="multipart/form-data" method="post">
 				<div class="modal-body">
-					<div class="form-group">
-						<input type="hidden" name="kode" id="kode">
-						<input type="hidden" id="id_tempat" name="id_tempat">
-						<label>Nama Tempat</label>
-						<input type="text" class="form-control" id="nama_tempat" name="nama_tempat">
-						<br />
-						<label>Harga Tempat</label>
-						<input type="text" class="form-control" id="harga_tempat" name="harga_tempat">
+					<div class="row mx-auto">
+						<div class="col-md-4 my-auto" id="preview">
+
+						</div>
+						<div class="col-md-1"></div>
+						<div class="col-md-7">
+							<div class="form-group">
+								<input type="hidden" name="kode" id="kode">
+								<input type="hidden" id="id_tempat" name="id_tempat">
+								<label>Nama Tempat</label>
+								<input type="text" class="form-control" id="nama_tempat" name="nama_tempat">
+								<br />
+								<label>Harga Tempat</label>
+								<input type="text" class="form-control" id="harga_tempat" name="harga_tempat">
+								<br />
+								<label>Deskripsi</label>
+								<textarea class="form-control" id="deskripsi" name="deskripsi"></textarea>
+								<br />
+								<label>Gambar</label>
+								<input type="hidden" name="image1" id="image1">
+								<input type="file" class="form-control" id="image" name="image">
+							</div>
+						</div>
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -88,6 +111,8 @@
 					$('#id_tempat').val(data[i].id_tempat);
 					$('#nama_tempat').val(data[i].tujuan);
 					$('#harga_tempat').val(data[i].harga);
+					$('#deskripsi').val(data[i].deskripsi);
+					$("#preview").html("<img src='<?= base_url(); ?>/assets/img/" + data[i].gambar + "' style='width: 250px;'>");
 				}
 			}
 		});

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 26, 2021 at 07:55 PM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 5.6.33
+-- Generation Time: Aug 06, 2021 at 02:56 PM
+-- Server version: 10.1.35-MariaDB
+-- PHP Version: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -89,6 +89,8 @@ CREATE TABLE `tb_tempat` (
   `id_tempat` int(11) NOT NULL,
   `tujuan` varchar(255) NOT NULL,
   `harga` varchar(50) NOT NULL,
+  `deskripsi` text NOT NULL,
+  `gambar` varchar(250) NOT NULL,
   `kode` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -96,87 +98,87 @@ CREATE TABLE `tb_tempat` (
 -- Dumping data for table `tb_tempat`
 --
 
-INSERT INTO `tb_tempat` (`id_tempat`, `tujuan`, `harga`, `kode`) VALUES
-(1, 'Gunung Bromo', '100000', 'jtm'),
-(2, 'Gunung Ijen', '100000', 'jtm'),
-(3, 'Jawa Timur Park 1 2 3', '100000', 'jtm'),
-(4, 'Wisata Bahari Lamongan', '100000', 'jtm'),
-(5, 'Taman safari Indonesia 2', '100000', 'jtm'),
-(6, 'Telaga Sarangan', '100000', 'jtm'),
-(7, 'Waduk Selorejo', '100000', 'jtm'),
-(8, 'Kota Wisata Batu', '100000', 'jtm'),
-(9, 'Makam Bung Karno', '100000', 'jtm'),
-(10, 'Candi Borobudur', '100000', 'jtg'),
-(11, 'Candi Prambanan', '100000', 'jtg'),
-(12, 'Wisata Merapi', '100000', 'jtg'),
-(13, 'Ketep Pas', '100000', 'jtg'),
-(14, 'Lawang Sewu', '100000', 'jtg'),
-(15, 'Telaga Warna', '100000', 'jtg'),
-(16, 'Jati Jajar', '100000', 'jtg'),
-(17, 'Batu Raden', '100000', 'jtg'),
-(18, 'Parangtritis', '100000', 'jtg'),
-(19, 'Kukup', '100000', 'jtg'),
-(20, 'Krakal', '100000', 'jtg'),
-(21, 'Indrayanti', '100000', 'jtg'),
-(22, 'Goa Pindul', '100000', 'jtg'),
-(23, 'Keraton Yogyakarta', '100000', 'jtg'),
-(24, 'Malioboro', '100000', 'jtg'),
-(25, 'Monas', '100000', 'jbr'),
-(26, 'TMII', '100000', 'jbr'),
-(27, 'Ancol', '100000', 'jbr'),
-(28, 'Dufan', '100000', 'jbr'),
-(29, 'Sea World Indonesia', '100000', 'jbr'),
-(30, 'Pulau Seribu', '100000', 'jbr'),
-(31, 'Taman Buah Mekarsari', '100000', 'jbr'),
-(32, 'Istana Negara', '100000', 'jbr'),
-(33, 'Pangandaran', '100000', 'jbr'),
-(34, 'Puncak Pas', '100000', 'jbr'),
-(35, 'Green Canyon Indonesia', '100000', 'jbr'),
-(36, 'Tangkuban Perahu', '100000', 'jbr'),
-(37, 'Ciater', '100000', 'jbr'),
-(38, 'Cibaduyut', '100000', 'jbr'),
-(39, 'Ciampelas', '100000', 'jbr'),
-(40, 'Danau Toba', '100000', 'smt'),
-(41, 'Bangka', '100000', 'smt'),
-(42, 'Belitong', '100000', 'smt'),
-(43, 'Tanjung Pinang', '100000', 'smt'),
-(44, 'Tanah Lot', '100000', 'bl'),
-(45, 'Danau Bedugul', '100000', 'bl'),
-(46, 'Kintamani', '100000', 'bl'),
-(47, 'GWK', '100000', 'bl'),
-(48, 'Tanjung Benoa Water Sport', '100000', 'bl'),
-(49, 'Kuta', '100000', 'bl'),
-(50, 'Pantai Pandawa', '100000', 'bl'),
-(51, 'Rambitan Sade', '100000', 'lmb'),
-(52, 'Gugusan Gili Gili', '100000', 'lmb'),
-(53, 'Tanjung An', '100000', 'lmb'),
-(54, 'Getap', '100000', 'lmb'),
-(55, 'Banyumulek', '100000', 'lmb'),
-(56, 'Sukerare', '100000', 'lmb'),
-(57, 'Bukit Malimbu', '100000', 'lmb'),
-(58, 'Sendang Gile', '100000', 'lmb'),
-(59, 'Sembalun Bumbung/Sembalun Lawang', '100000', 'lmb'),
-(60, 'Desa Tetebaru', '100000', 'lmb'),
-(61, 'Desa Kota Raja', '100000', 'lmb'),
-(62, 'Pantai Bunaken', '100000', 'slw'),
-(63, 'Tanah Toraja', '100000', 'slw'),
-(64, 'Bantimurung', '100000', 'slw'),
-(65, 'Ramang Ramang', '100000', 'slw'),
-(66, 'Makassar', '100000', 'slw'),
-(67, 'Puncak Waringin', '100000', 'pkm'),
-(68, 'Pulau Komodo', '100000', 'pkm'),
-(69, 'Pulau Rinca', '100000', 'pkm'),
-(70, 'Pantai Pink', '100000', 'pkm'),
-(71, 'Desa Cara', '100000', 'pkm'),
-(72, 'a', '', 'slw'),
-(73, 'b', '', 'slw'),
-(74, 'c', '', 'slw'),
-(75, 'd', '', 'slw'),
-(76, 'e', '', 'slw'),
-(77, 'a', '100000', 'sl'),
-(78, 'b', '100000', 'sl'),
-(80, 'd', '', 'sl'),
-(81, 'e', '', 'sl');
+INSERT INTO `tb_tempat` (`id_tempat`, `tujuan`, `harga`, `deskripsi`, `gambar`, `kode`) VALUES
+(1, 'Gunung Bromo', '100000', 'Lorem is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'A1.JPG', 'jtm'),
+(2, 'Gunung Ijen', '100000', '', '', 'jtm'),
+(3, 'Jawa Timur Park 1 2 3', '100000', '', '', 'jtm'),
+(4, 'Wisata Bahari Lamongan', '100000', '', '', 'jtm'),
+(5, 'Taman safari Indonesia 2', '100000', '', '', 'jtm'),
+(6, 'Telaga Sarangan', '100000', '', '', 'jtm'),
+(7, 'Waduk Selorejo', '100000', '', '', 'jtm'),
+(8, 'Kota Wisata Batu', '100000', '', '', 'jtm'),
+(9, 'Makam Bung Karno', '100000', '', '', 'jtm'),
+(10, 'Candi Borobudur', '100000', '', '', 'jtg'),
+(11, 'Candi Prambanan', '100000', '', '', 'jtg'),
+(12, 'Wisata Merapi', '100000', '', '', 'jtg'),
+(13, 'Ketep Pas', '100000', '', '', 'jtg'),
+(14, 'Lawang Sewu', '100000', '', '', 'jtg'),
+(15, 'Telaga Warna', '100000', '', '', 'jtg'),
+(16, 'Jati Jajar', '100000', '', '', 'jtg'),
+(17, 'Batu Raden', '100000', '', '', 'jtg'),
+(18, 'Parangtritis', '100000', '', '', 'jtg'),
+(19, 'Kukup', '100000', '', '', 'jtg'),
+(20, 'Krakal', '100000', '', '', 'jtg'),
+(21, 'Indrayanti', '100000', '', '', 'jtg'),
+(22, 'Goa Pindul', '100000', '', '', 'jtg'),
+(23, 'Keraton Yogyakarta', '100000', '', '', 'jtg'),
+(24, 'Malioboro', '100000', '', '', 'jtg'),
+(25, 'Monas', '100000', '', '', 'jbr'),
+(26, 'TMII', '100000', '', '', 'jbr'),
+(27, 'Ancol', '100000', '', '', 'jbr'),
+(28, 'Dufan', '100000', '', '', 'jbr'),
+(29, 'Sea World Indonesia', '100000', '', '', 'jbr'),
+(30, 'Pulau Seribu', '100000', '', '', 'jbr'),
+(31, 'Taman Buah Mekarsari', '100000', '', '', 'jbr'),
+(32, 'Istana Negara', '100000', '', '', 'jbr'),
+(33, 'Pangandaran', '100000', '', '', 'jbr'),
+(34, 'Puncak Pas', '100000', '', '', 'jbr'),
+(35, 'Green Canyon Indonesia', '100000', '', '', 'jbr'),
+(36, 'Tangkuban Perahu', '100000', '', '', 'jbr'),
+(37, 'Ciater', '100000', '', '', 'jbr'),
+(38, 'Cibaduyut', '100000', '', '', 'jbr'),
+(39, 'Ciampelas', '100000', '', '', 'jbr'),
+(40, 'Danau Toba', '100000', '', '', 'smt'),
+(41, 'Bangka', '100000', '', '', 'smt'),
+(42, 'Belitong', '100000', '', '', 'smt'),
+(43, 'Tanjung Pinang', '100000', '', '', 'smt'),
+(44, 'Tanah Lot', '100000', '', '', 'bl'),
+(45, 'Danau Bedugul', '100000', '', '', 'bl'),
+(46, 'Kintamani', '100000', '', '', 'bl'),
+(47, 'GWK', '100000', '', '', 'bl'),
+(48, 'Tanjung Benoa Water Sport', '100000', '', '', 'bl'),
+(49, 'Kuta', '100000', '', '', 'bl'),
+(50, 'Pantai Pandawa', '100000', '', '', 'bl'),
+(51, 'Rambitan Sade', '100000', '', '', 'lmb'),
+(52, 'Gugusan Gili Gili', '100000', '', '', 'lmb'),
+(53, 'Tanjung An', '100000', '', '', 'lmb'),
+(54, 'Getap', '100000', '', '', 'lmb'),
+(55, 'Banyumulek', '100000', '', '', 'lmb'),
+(56, 'Sukerare', '100000', '', '', 'lmb'),
+(57, 'Bukit Malimbu', '100000', '', '', 'lmb'),
+(58, 'Sendang Gile', '100000', '', '', 'lmb'),
+(59, 'Sembalun Bumbung/Sembalun Lawang', '100000', '', '', 'lmb'),
+(60, 'Desa Tetebaru', '100000', '', '', 'lmb'),
+(61, 'Desa Kota Raja', '100000', '', '', 'lmb'),
+(62, 'Pantai Bunaken', '100000', '', '', 'slw'),
+(63, 'Tanah Toraja', '100000', '', '', 'slw'),
+(64, 'Bantimurung', '100000', '', '', 'slw'),
+(65, 'Ramang Ramang', '100000', '', '', 'slw'),
+(66, 'Makassar', '100000', '', '', 'slw'),
+(67, 'Puncak Waringin', '100000', '', '', 'pkm'),
+(68, 'Pulau Komodo', '100000', '', '', 'pkm'),
+(69, 'Pulau Rinca', '100000', '', '', 'pkm'),
+(70, 'Pantai Pink', '100000', '', '', 'pkm'),
+(71, 'Desa Cara', '100000', '', '', 'pkm'),
+(72, 'a', '', '', '', 'slw'),
+(73, 'b', '', '', '', 'slw'),
+(74, 'c', '', '', '', 'slw'),
+(75, 'd', '', '', '', 'slw'),
+(76, 'e', '', '', '', 'slw'),
+(77, 'a', '100000', '', '', 'sl'),
+(78, 'b', '100000', '', '', 'sl'),
+(80, 'd', '', '', '', 'sl'),
+(81, 'e', '', '', '', 'sl');
 
 -- --------------------------------------------------------
 
@@ -188,6 +190,7 @@ CREATE TABLE `tb_trayek` (
   `id` int(11) NOT NULL,
   `kode` varchar(255) NOT NULL,
   `lokasi` varchar(255) NOT NULL,
+  `deskripsi` text NOT NULL,
   `gambar` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -195,15 +198,15 @@ CREATE TABLE `tb_trayek` (
 -- Dumping data for table `tb_trayek`
 --
 
-INSERT INTO `tb_trayek` (`id`, `kode`, `lokasi`, `gambar`) VALUES
-(1, 'jtm', 'Jawa Timur', 'Jatim-Jateng.jpg'),
-(2, 'jtg', 'Jawa Tengah', 'Borobudur.jpg'),
-(3, 'jbr', 'Jabar_DKI', 'Jabar-DKI.jpg'),
-(4, 'smt', 'Sumatera', 'Sumatera.jpg'),
-(5, 'bl', 'Bali', 'Bali.jpg'),
-(6, 'lmb', 'Lombok', 'PLombok.jpg'),
-(7, 'slw', 'Sulawesi', 'Toraja.png'),
-(8, 'pkm', 'Pulau Komodo', 'Pulau Komodo.jpg');
+INSERT INTO `tb_trayek` (`id`, `kode`, `lokasi`, `deskripsi`, `gambar`) VALUES
+(1, 'jtm', 'Jawa Timur', 'Lorem is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'A.JPG'),
+(2, 'jtg', 'Jawa Tengah', '', 'Borobudur.jpg'),
+(3, 'jbr', 'Jabar_DKI', '', 'Jabar-DKI.jpg'),
+(4, 'smt', 'Sumatera', '', 'Sumatera.jpg'),
+(5, 'bl', 'Bali', '', 'Bali.jpg'),
+(6, 'lmb', 'Lombok', '', 'PLombok.jpg'),
+(7, 'slw', 'Sulawesi', '', 'Toraja.png'),
+(8, 'pkm', 'Pulau Komodo', '', 'Pulau Komodo.jpg');
 
 -- --------------------------------------------------------
 
@@ -465,7 +468,7 @@ ALTER TABLE `user_sub_menu`
 -- AUTO_INCREMENT for table `user_token`
 --
 ALTER TABLE `user_token`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

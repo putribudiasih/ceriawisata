@@ -187,4 +187,18 @@ class Ceriawisata_model extends CI_Model
 	{
 		return $this->db->update('tb_pesanan', $data, $where);
 	}
+
+	function detailLokasi($id)
+	{
+		$this->db->select('*');
+		$this->db->from('tb_trayek');
+		$this->db->where('id', $id);
+		$query = $this->db->get();
+		return $query->result_array();
+	}
+
+	function editLokasi($where, $data)
+	{
+		return $this->db->update('tb_trayek', $data, $where);
+	}
 }
