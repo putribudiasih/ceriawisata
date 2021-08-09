@@ -238,4 +238,20 @@ class Ceriawisata_model extends CI_Model
 		$query = $this->db->get();
 		return $query->row_array();
 	}
+
+	function getTrayek()
+	{
+		$this->db->select('*');
+		$this->db->from('tb_trayek');
+		$query = $this->db->get();
+		return $query->result_array();
+	}
+
+	function getDestinasiLanding()
+	{
+		$this->db->select('*');
+		$this->db->from('tb_tempat');
+		$query = $this->db->get();
+		return $query->result_array();
+	}
 }

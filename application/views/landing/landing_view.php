@@ -151,7 +151,7 @@
 
                     <div class="col-md-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
                         <div class="icon-box">
-                        <img src="<?= base_url('assets/img/bag.png'); ?>" class="card-img-top" alt="...">
+                            <img src="<?= base_url('assets/img/bag.png'); ?>" class="card-img-top" alt="...">
                             <h4 class="title"><a href="">Paket Wisata Domestik dan Luar Negeri</a></h4>
                             <p class="description">Paket wisata ke berbagai destinasi wisata Nusantara dan Luar Negeri. Pada paket wisata ini kami melayani grup besar maupun kecil dengan fasilitas yang istimewa ataupun by request sesuai dengan keinginan customer.</p>
                         </div>
@@ -159,7 +159,7 @@
 
                     <div class="col-md-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="300">
                         <div class="icon-box">
-                        <img src="<?= base_url('assets/img/kerja.png'); ?>" class="card-img-top" alt="...">
+                            <img src="<?= base_url('assets/img/kerja.png'); ?>" class="card-img-top" alt="...">
                             <h4 class="title"><a href="">Kunjungan Kerja dan Meeting</a></h4>
                             <p class="description">Paket ini kami peruntukkan bagi instansi-instansi pemerintah maupun swasta yang ingin melakukan kunjungan kerja dan meeting atau studi banding ke instansi lain diluar daerah yang kami kemas bersama paket wisata.</p>
                         </div>
@@ -167,7 +167,7 @@
 
                     <div class="col-md-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="400">
                         <div class="icon-box">
-                        <img src="<?= base_url('assets/img/study.png'); ?>" class="card-img-top" alt="...">
+                            <img src="<?= base_url('assets/img/study.png'); ?>" class="card-img-top" alt="...">
                             <h4 class="title"><a href="">Study Tour</a></h4>
                             <p class="description">Paket ini kami kemas khusus bagi sekolah / perguruan tinggi yang hendak melakukan study ke instansi/perusahaan/lembaga riset di daerah tertentu yang kami kemas bersama paket wisata.</p>
                         </div>
@@ -191,31 +191,27 @@
                     <div class="col-lg-12">
                         <ul id="portfolio-flters">
                             <li data-filter="*" class="filter-active">Tampilkan Semua</li>
-                            <li data-filter=".filter-app">Jawa Timur</li>
-                            <li data-filter=".filter-card">Jawa Tengah</li>
-                            <li data-filter=".filter-web">Jabar - DKI</li>
-                            <li data-filter=".filter-app">Sumatera</li>
-                            <li data-filter=".filter-card">Bali</li>
-                            <li data-filter=".filter-web">Lombok</li>
-                            <li data-filter=".filter-app">Sulawesi</li>
-                            <li data-filter=".filter-card">Pulau Komodo</li>
+                            <?php foreach ($trayek as $t) { ?>
+                                <li data-filter=".filter-<?= $t['kode'] ?>"><?= $t['lokasi'] ?></li>
+                            <?php } ?>
                         </ul>
                     </div>
                 </div>
 
                 <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
 
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                        <div class="portfolio-wrap">
-                            <img src="<?= base_url('vendor_temp/Ninestars/') ?>assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
-                            <div class="portfolio-links">
-                                <a href="<?= base_url('vendor_temp/Ninestars/') ?>assets/img/portfolio/portfolio-1.jpg" data-gall="portfolioGallery" class="venobox" title="App 1"><i class="icofont-plus-circle"></i></a>
-                                <a href="portfolio-details.html" title="More Details"><i class="icofont-link"></i></a>
-                            </div>
-                            
-                        </div>
-                    </div>
+                    <?php foreach ($destinasi as $d) { ?>
+                        <div class="col-lg-4 col-md-6 portfolio-item filter-<?= $d['kode'] ?>">
+                            <div class="portfolio-wrap">
+                                <img src="<?= base_url('assets/img/Destinasi/') . $d['gambar'] ?>" class="img-fluid" alt="">
+                                <div class="portfolio-links">
+                                    <a href="<?= base_url('assets/img/Destinasi/') . $d['gambar'] ?>" data-gall="portfolioGallery" class="venobox" title="<?= $d['tujuan'] ?>"><i class="icofont-plus-circle"></i></a>
+                                </div>
 
+                            </div>
+                        </div>
+                    <?php } ?>
+                    <!-- 
                     <div class="col-lg-4 col-md-6 portfolio-item filter-web">
                         <div class="portfolio-wrap">
                             <img src="<?= base_url('vendor_temp/Ninestars/') ?>assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
@@ -223,7 +219,7 @@
                                 <a href="<?= base_url('vendor_temp/Ninestars/') ?>assets/img/portfolio/portfolio-2.jpg" data-gall="portfolioGallery" class="venobox" title="Web 3"><i class="icofont-plus-circle"></i></a>
                                 <a href="portfolio-details.html" title="More Details"><i class="icofont-link"></i></a>
                             </div>
-                            
+
                         </div>
                     </div>
 
@@ -234,7 +230,7 @@
                                 <a href="<?= base_url('vendor_temp/Ninestars/') ?>assets/img/portfolio/portfolio-3.jpg" data-gall="portfolioGallery" class="venobox" title="App 2"><i class="icofont-plus-circle"></i></a>
                                 <a href="portfolio-details.html" title="More Details"><i class="icofont-link"></i></a>
                             </div>
-                            
+
                         </div>
                     </div>
 
@@ -245,7 +241,7 @@
                                 <a href="<?= base_url('vendor_temp/Ninestars/') ?>assets/img/portfolio/portfolio-4.jpg" data-gall="portfolioGallery" class="venobox" title="Card 2"><i class="icofont-plus-circle"></i></a>
                                 <a href="portfolio-details.html" title="More Details"><i class="icofont-link"></i></a>
                             </div>
-                            
+
                         </div>
                     </div>
 
@@ -256,7 +252,7 @@
                                 <a href="<?= base_url('vendor_temp/Ninestars/') ?>assets/img/portfolio/portfolio-5.jpg" data-gall="portfolioGallery" class="venobox" title="Web 2"><i class="icofont-plus-circle"></i></a>
                                 <a href="portfolio-details.html" title="More Details"><i class="icofont-link"></i></a>
                             </div>
-                            
+
                         </div>
                     </div>
 
@@ -267,7 +263,7 @@
                                 <a href="<?= base_url('vendor_temp/Ninestars/') ?>assets/img/portfolio/portfolio-6.jpg" data-gall="portfolioGallery" class="venobox" title="App 3"><i class="icofont-plus-circle"></i></a>
                                 <a href="portfolio-details.html" title="More Details"><i class="icofont-link"></i></a>
                             </div>
-                            
+
                         </div>
                     </div>
 
@@ -278,7 +274,7 @@
                                 <a href="<?= base_url('vendor_temp/Ninestars/') ?>assets/img/portfolio/portfolio-7.jpg" data-gall="portfolioGallery" class="venobox" title="Card 1"><i class="icofont-plus-circle"></i></a>
                                 <a href="portfolio-details.html" title="More Details"><i class="icofont-link"></i></a>
                             </div>
-                            
+
                         </div>
                     </div>
 
@@ -289,7 +285,7 @@
                                 <a href="<?= base_url('vendor_temp/Ninestars/') ?>assets/img/portfolio/portfolio-8.jpg" data-gall="portfolioGallery" class="venobox" title="Card 3"><i class="icofont-plus-circle"></i></a>
                                 <a href="portfolio-details.html" title="More Details"><i class="icofont-link"></i></a>
                             </div>
-                            
+
                         </div>
                     </div>
 
@@ -300,9 +296,9 @@
                                 <a href="<?= base_url('vendor_temp/Ninestars/') ?>assets/img/portfolio/portfolio-9.jpg" data-gall="portfolioGallery" class="venobox" title="Web 3"><i class="icofont-plus-circle"></i></a>
                                 <a href="portfolio-details.html" title="More Details"><i class="icofont-link"></i></a>
                             </div>
-                            
+
                         </div>
-                    </div>
+                    </div> -->
 
                 </div>
 
@@ -514,17 +510,17 @@
                                 <i class="icofont-google-map"></i>
                                 <h4>Branch Office</h4>
                                 <p>Jl. Mayjend Sutoyo No.99 Daerah istimewa Yogyakarta <br> Telp. (0274) 661.9335.</p>
-                                
+
                                 <p>Istana Kuta Galeria Central Park. Broadway 2 No.12B Jl. Patih Jelantik Kuta Bali <br> Telp. (0361) 553.2500.</p>
                             </div>
 
-                            
+
                         </div>
 
                     </div>
 
                     <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3954.2826606935596!2d112.8932895143249!3d-7.652725377835684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7c5fac8265cef%3A0x1b61af1a10afbcb7!2sCeria%20Wisata%20Tours!5e0!3m2!1sid!2sid!4v1628309174971!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3954.2826606935596!2d112.8932895143249!3d-7.652725377835684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7c5fac8265cef%3A0x1b61af1a10afbcb7!2sCeria%20Wisata%20Tours!5e0!3m2!1sid!2sid!4v1628309174971!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                     </div>
 
                 </div>
@@ -557,13 +553,13 @@
 
                     <div class=" col-md-6 footer-contact" data-aos="fade-up" data-aos-delay="100">
                         <h3>Ceriawisata Head Office</h3>
-                        
-                                
+
+
                         Perum Pucang Indah 3/C.28,<br>
-                            Pasuruan,<br>
-                            Jawa Timur. <br><br>
-                            <strong>Phone:</strong> Telp. (0343) 701.3000.<br>
-                            
+                        Pasuruan,<br>
+                        Jawa Timur. <br><br>
+                        <strong>Phone:</strong> Telp. (0343) 701.3000.<br>
+
                         </p>
                     </div>
 
@@ -596,7 +592,7 @@
                             <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
                             <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
                             <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                            
+
                         </div>
                     </div>
 
@@ -632,6 +628,18 @@
 
     <!-- Template Main JS File -->
     <script src="<?= base_url('vendor_temp/Ninestars/') ?>assets/js/main.js"></script>
+
+    <script type="text/javascript">
+        $('#semua').click(function() {
+            $.ajax({
+                url: "<?= base_url('Landing/getDestinasi') ?>",
+                method: "POST",
+                success: function(data) {
+                    console.log(data);
+                }
+            });
+        });
+    </script>
 
 </body>
 

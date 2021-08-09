@@ -21,7 +21,7 @@
 							<div class="card-body">
 								<div class="row">
 									<div class="col-md-4">
-										<img src="<?= base_url('assets/img/') . $t['gambar'] ?>" class="img-fluid rounded-start">
+										<img src="<?= base_url('assets/img/Destinasi/') . $t['gambar'] ?>" class="img-fluid rounded-start">
 									</div>
 									<div class="col-md-8">
 										<td>
@@ -112,7 +112,7 @@
 					$('#nama_tempat').val(data[i].tujuan);
 					$('#harga_tempat').val(data[i].harga);
 					$('#deskripsi').val(data[i].deskripsi);
-					$("#preview").html("<img src='<?= base_url(); ?>/assets/img/" + data[i].gambar + "' style='width: 250px;'>");
+					$("#preview").html("<img src='<?= base_url(); ?>/assets/img/Destinasi/" + data[i].gambar + "' style='width: 250px;'>");
 				}
 			}
 		});
