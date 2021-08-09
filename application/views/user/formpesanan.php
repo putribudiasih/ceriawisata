@@ -21,6 +21,7 @@
                     </div>
                     <hr />
                     <input type="hidden" name="id_user" value="<?= $user['id_user'] ?>">
+                    <input type="hidden" name="total" id="total">
                     <div class="row">
                         <div class="col-md-6">
                             <label for="nama">Nama</label>
@@ -62,19 +63,17 @@
                                 <!-- <div class="error"><?= form_error('Lokasi Berangkat', '<small class="text-danger pl-3">', '</small>'); ?></div> -->
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <label>Tujuan</label>
-                            <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon1"><i class="fas fa-car"></i></span>
-                                <select class="form-control" aria-describedby="basic-addon1" name="trayek" id="trayek" required>
-                                    <option selected disabled>Pilih Daerah Tujuan</option>
-                                    <?php foreach ($trayek as $key) : ?>
-                                        <option value="<?= $key['kode']; ?>"><?= $key['lokasi']; ?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>
-                        </div>
                     </div>
+                </div>
+                <label>Tujuan</label>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-map"></i></span>
+                    <select class="form-control" aria-describedby="basic-addon1" name="trayek" id="trayek" required>
+                        <option selected disabled>Pilih Daerah Tujuan</option>
+                        <?php foreach ($trayek as $key) : ?>
+                            <option value="<?= $key['kode']; ?>"><?= $key['lokasi']; ?></option>
+                        <?php endforeach; ?>
+                    </select>
                 </div>
                 <div class="row">
                     <div class="col-md-4">
@@ -95,8 +94,35 @@
                         <label>Jumlah Pax</label>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
-                            <input type="text" class="form-control" name="jml_pax" aria-describedby="basic-addon1" placeholder="Masukkan Jumlah Penumpang" required>
+                            <input type="text" class="form-control" name="jml_pax" id="jml_pax" aria-describedby="basic-addon1" placeholder="Masukkan Jumlah Penumpang" required>
                         </div>
+                    </div>
+                </div>
+                <div id="bali">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Kendaraan</label>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"><i class="fas fa-car"></i></span>
+                                <select class="form-control" aria-describedby="basic-addon1" name="kendaraan" id="kendaraan">
+                                    <option selected disabled>Pilih Kendaraan</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Hotel</label>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"><i class="fas fa-bed"></i></span>
+                                <select class="form-control" aria-describedby="basic-addon1" name="hotel" id="hotel">
+                                    <option selected disabled>Pilih Hotel</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <label>Total Harga</label>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><i class="fas fa-dollar-sign"></i></span>
+                        <input type="text" class="form-control" name="total_harga" id="total_harga" aria-describedby="basic-addon1" readonly>
                     </div>
                 </div>
             </div>
@@ -105,7 +131,7 @@
 
         <!-- Destinasi wisata -->
 
-        <div class="card shadow mb-4">
+        <div class="card shadow mb-4" id="destinasi">
             <div class="card-body">
                 <b style="font-weight: 800;">Checkout Harga</b><br>
                 <hr>
@@ -143,9 +169,7 @@
                                     <table class="table table-striped">
                                         <thead>
                                             <tr>
-                                                <th>Destinasi</th>
-                                                <th>Harga</th>
-                                                <th>Subtotal</th>
+                                                <th colspan="3">Destinasi</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
@@ -161,7 +185,6 @@
                 </div>
             </div>
         </div>
-
         <!-- asdklsdlaldklasd -->
 
 
@@ -180,10 +203,108 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <script type="text/javascript">
+    // $('#hotel').hide();
+
+    // function pilih(id) {
+    //     $('#check' + id).html('<i class="fas fa-check"></i>');
+    //     document.getElementById("tombol").setAttribute("disabled", "disabled");
+    // }
+
     $(document).ready(function() {
         var wrapper = $("#destinasi_wrapper")
+        $('#kendaraan').change(function() {
+            var id = $(this).val();
+
+            $.ajax({
+                url: "<?php echo site_url('User/getHotel'); ?>",
+                method: "POST",
+                data: {
+                    id: id
+                },
+                async: true,
+                dataType: 'json',
+                success: function(data) {
+                    var html = '';
+                    var i;
+                    html += "<option selected disabled>Pilih Hotel</option>"
+                    for (i = 0; i < data.length; i++) {
+                        html += '<option value="' + data[i].kode_hotel + '">' + data[i].nama_hotel + ' - ' + data[i].harga + ' per orang</option>';
+                    }
+                    $('#hotel').html(html);
+                }
+            });
+        });
+
+        $('#hotel').change(function() {
+            var kode_hotel = $(this).val();
+
+            $.ajax({
+                url: "<?php echo site_url('User/getHarga'); ?>",
+                method: "POST",
+                data: {
+                    kode_hotel: kode_hotel
+                },
+                async: true,
+                dataType: 'json',
+                success: function(data) {
+                    var harga = data.harga;
+                    var jml_pax = $('#jml_pax').val();
+                    var total_harga = harga * jml_pax;
+                    $('#total').val(total_harga);
+                    $('#total_harga').val(new Intl.NumberFormat("id-ID", {
+                        style: "currency",
+                        currency: "IDR"
+                    }).format(total_harga));
+                }
+            });
+        });
+
+        $('#jml_pax').change(function() {
+            var kapasitas = $(this).val();
+            $.ajax({
+                url: "<?php echo site_url('User/getKendaraan'); ?>",
+                method: "POST",
+                data: {
+                    kapasitas: kapasitas
+                },
+                async: true,
+                dataType: 'json',
+                success: function(data) {
+                    var html = '';
+                    var i;
+                    html += "<option selected disabled>Pilih Kendaraan</option>"
+                    for (i = 0; i < data.length; i++) {
+                        html += '<option value="' + data[i].kode_kendaraan + '">' + data[i].nama_kendaraan + ' - ' + data[i].kapasitas + ' Orang</option>';
+                    }
+                    $('#kendaraan').html(html);
+                }
+            });
+        });
+
+        // function getKendaraan(kapasitas) {
+        //     $.ajax({
+        //         url: "<?php echo site_url('User/getKendaraan'); ?>",
+        //         method: "POST",
+        //         data: {
+        //             kapasitas: kapasitas
+        //         },
+        //         async: true,
+        //         dataType: 'json',
+        //         success: function(data) {
+        //             console.log(data);
+        //         }
+        //     })
+        // }
+
         $('#trayek').change(function() {
             var id = $(this).val();
+            if (id == 'bl') {
+                $('#bali').show();
+                // $('#destinasi').hide();
+            } else {
+                $('#bali').hide();
+            }
+
             $.ajax({
                 url: "<?= base_url('User/resetCart'); ?>",
                 success: function(data) {
@@ -207,16 +328,13 @@
                             '<div class="col">' +
                             '<div class="card my-2">' +
                             '<div class="card-body">' +
-                            '<h5 class="card-title">' +
-                            data[i].tujuan +
-                            '</h5>' +
-                            '<hr/>' +
+
                             '<div class="row">' +
 
                             '<div class="col-md-6">' +
-                            '<p class="card-text">' + "Rp.&nbsp;" +
-                            data[i].harga +
-                            '</p>' +
+                            '<h5 class="card-title">' +
+                            data[i].tujuan +
+                            '</h5>' +
                             '</div>' +
 
                             '<div class="col-md-6">' +

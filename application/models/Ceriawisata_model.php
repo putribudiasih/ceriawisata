@@ -55,6 +55,8 @@ class Ceriawisata_model extends CI_Model
 		$this->db->from('tb_pesanan');
 		$this->db->join('tb_user', 'tb_user.id_user = tb_pesanan.id_user');
 		$this->db->join('tb_trayek', 'tb_trayek.kode = tb_pesanan.trayek');
+		// $this->db->join('tb_hotel', 'tb_hotel.kode_hotel = tb_pesanan.hotel');
+		// $this->db->join('tb_kendaraan', 'tb_kendaraan.kode_kendaraan = tb_pesanan.kendaraan');
 		$this->db->where('id_pesanan', $id);
 		$query = $this->db->get();
 		return $query->row_array();
@@ -200,5 +202,40 @@ class Ceriawisata_model extends CI_Model
 	function editLokasi($where, $data)
 	{
 		return $this->db->update('tb_trayek', $data, $where);
+	}
+
+	function getHotel($id)
+	{
+		$this->db->select('*');
+		$this->db->from('tb_hotel');
+		$this->db->where('tb_hotel.kendaraan', $id);
+		$query = $this->db->get();
+		return $query->result_array();
+	}
+
+	function getKendaraan()
+	{
+		$this->db->select('*');
+		$this->db->from('tb_kendaraan');
+		$query = $this->db->get();
+		return $query->result_array();
+	}
+
+	function getKapasitas($kapasitas)
+	{
+		$this->db->select('*');
+		$this->db->from('tb_kendaraan');
+		$this->db->where('kapasitas >=' . $kapasitas);
+		$query = $this->db->get();
+		return $query->result_array();
+	}
+
+	function getHarga($kode_hotel)
+	{
+		$this->db->select('*');
+		$this->db->from('tb_hotel');
+		$this->db->where('kode_hotel', $kode_hotel);
+		$query = $this->db->get();
+		return $query->row_array();
 	}
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 06, 2021 at 02:56 PM
+-- Generation Time: Aug 09, 2021 at 04:09 AM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -21,6 +21,45 @@ SET time_zone = "+00:00";
 --
 -- Database: `ceriawisata`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_hotel`
+--
+
+CREATE TABLE `tb_hotel` (
+  `id_hotel` int(11) NOT NULL,
+  `kode_hotel` varchar(250) NOT NULL,
+  `nama_hotel` varchar(250) NOT NULL,
+  `kendaraan` varchar(250) NOT NULL,
+  `harga` varchar(250) NOT NULL,
+  `hotel_star` varchar(250) NOT NULL,
+  `alamat_hotel` varchar(250) NOT NULL,
+  `gambar` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_hotel`
+--
+
+INSERT INTO `tb_hotel` (`id_hotel`, `kode_hotel`, `nama_hotel`, `kendaraan`, `harga`, `hotel_star`, `alamat_hotel`, `gambar`) VALUES
+(1, 'sunboava', 'Sun Boutique', 'ava', '3200000', '3', 'Sunset Road, Kuta, Bali', 'sunboutique.jpg'),
+(2, 'sunbonova', 'Sun Boutique', 'nova', '3290000', '3', 'Sunset Road, Kuta, Bali', 'sunboutique.jpg'),
+(3, 'sunbohia', 'Sun Boutique', 'hia', '2550000', '3', 'Sunset Road, Kuta, Bali', 'sunboutique.jpg'),
+(4, 'sunbomebus', 'Sun Boutique', 'mebus', '2500000', '3', 'Sunset Road, Kuta, Bali', 'sunboutique.jpg'),
+(5, 'sunboexe30', 'Sun Boutique', 'exe30', '2150000', '3', 'Sunset Road, Kuta, Bali', 'sunboutique.jpg'),
+(6, 'sunboexe34', 'Sun Boutique', 'exe34', '2050000', '3', 'Sunset Road, Kuta, Bali', 'sunboutique.jpg'),
+(7, 'sunboexe38', 'Sun Boutique', 'exe38', '1975000', '3', 'Sunset Road, Kuta, Bali', 'sunboutique.jpg'),
+(8, 'sunboexe42', 'Sun Boutique', 'exe42', '1900000', '3', 'Sunset Road, Kuta, Bali', 'sunboutique.jpg'),
+(9, 'fontaava', 'Fontana Kuta', 'ava', '3500000', '4', 'Jl. Dewi Sri Kuta', 'fontanakuta.png'),
+(10, 'fontanova', 'Fontana Kuta', 'nova', '3510000', '4', 'Jl. Dewi Sri Kuta', 'fontanakuta.png'),
+(11, 'fontahia', 'Fontana Kuta', 'hia', '2750000', '4', 'Jl. Dewi Sri Kuta', 'fontanakuta.png'),
+(12, 'fontamebus', 'Fontana Kuta', 'mebus', '2700000', '4', 'Jl. Dewi Sri Kuta', 'fontanakuta.png'),
+(13, 'fontaexe30', 'Fontana Kuta', 'exe30', '2400000', '4', 'Jl. Dewi Sri Kuta', 'fontanakuta.png'),
+(14, 'fontaexe34', 'Fontana Kuta', 'exe34', '2300000', '4', 'Jl. Dewi Sri Kuta', 'fontanakuta.png'),
+(15, 'fontaexe38', 'Fontana Kuta', 'exe38', '2200000', '4', 'Jl. Dewi Sri Kuta', 'fontanakuta.png'),
+(16, 'fontaexe42', 'Fontana Kuta', 'exe42', '2125000', '4', 'Jl. Dewi Sri Kuta', 'fontanakuta.png');
 
 -- --------------------------------------------------------
 
@@ -48,7 +87,38 @@ INSERT INTO `tb_jadwal` (`id_jadwal`, `id_pesanan`, `id_tempat`, `tanggal`, `wak
 (46, 17, 47, NULL, NULL, NULL),
 (47, 17, 46, NULL, NULL, NULL),
 (48, 18, 44, '2021-07-22', '10:00:00', '13:00:00'),
-(49, 18, 45, '2021-07-23', '10:00:00', '13:00:00');
+(49, 18, 45, '2021-07-23', '10:00:00', '13:00:00'),
+(50, 21, 44, NULL, NULL, NULL),
+(51, 21, 45, NULL, NULL, NULL),
+(55, 24, 44, NULL, NULL, NULL),
+(56, 24, 45, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_kendaraan`
+--
+
+CREATE TABLE `tb_kendaraan` (
+  `id_kendaraan` int(11) NOT NULL,
+  `kode_kendaraan` varchar(250) NOT NULL,
+  `nama_kendaraan` varchar(250) NOT NULL,
+  `kapasitas` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_kendaraan`
+--
+
+INSERT INTO `tb_kendaraan` (`id_kendaraan`, `kode_kendaraan`, `nama_kendaraan`, `kapasitas`) VALUES
+(1, 'ava', 'Avanza', '3'),
+(2, 'nova', 'Innova', '5'),
+(3, 'hia', 'Hiace', '10'),
+(4, 'mebus', 'Medium Bus', '15'),
+(5, 'exe30', '30 Executive', '30'),
+(6, 'exe34', '34 Executive', '34'),
+(7, 'exe38', '38 Executive', '38'),
+(8, 'exe42', '42 Executive', '42');
 
 -- --------------------------------------------------------
 
@@ -64,6 +134,8 @@ CREATE TABLE `tb_pesanan` (
   `telp_pemesan` varchar(20) NOT NULL,
   `lokasi_berangkat` varchar(255) NOT NULL,
   `jml_pax` int(11) NOT NULL,
+  `kendaraan` varchar(200) NOT NULL,
+  `hotel` varchar(200) NOT NULL,
   `tgl_mulai` date NOT NULL,
   `tgl_selesai` date NOT NULL,
   `trayek` varchar(50) NOT NULL,
@@ -75,9 +147,11 @@ CREATE TABLE `tb_pesanan` (
 -- Dumping data for table `tb_pesanan`
 --
 
-INSERT INTO `tb_pesanan` (`id_pesanan`, `id_user`, `nama_pemesan`, `email_pemesan`, `telp_pemesan`, `lokasi_berangkat`, `jml_pax`, `tgl_mulai`, `tgl_selesai`, `trayek`, `total_harga`, `keterangan`) VALUES
-(17, 4, 'Rio Sesono', 'riosesono9@gmail.com', '085438183245', 'Probolinggo', 12, '2021-07-21', '2021-07-24', 'bl', '500000', 0),
-(18, 12, 'Wahyu', 'wahyu@gmail.com', '085438183245', 'jember', 2, '2021-07-22', '2021-07-24', 'bl', '200000', 0);
+INSERT INTO `tb_pesanan` (`id_pesanan`, `id_user`, `nama_pemesan`, `email_pemesan`, `telp_pemesan`, `lokasi_berangkat`, `jml_pax`, `kendaraan`, `hotel`, `tgl_mulai`, `tgl_selesai`, `trayek`, `total_harga`, `keterangan`) VALUES
+(17, 4, 'Rio Sesono', 'riosesono9@gmail.com', '085438183245', 'Probolinggo', 12, '', '', '2021-07-21', '2021-07-24', 'bl', '500000', 0),
+(18, 12, 'Wahyu', 'wahyu@gmail.com', '085438183245', 'jember', 2, '', '', '2021-07-22', '2021-07-24', 'bl', '200000', 0),
+(21, 7, 'Arman Maulana Saputra', 'armanmaulanasaputra15@gmail.com', '081234835352', 'Lumajang', 10, '', '', '2021-08-08', '2021-08-15', 'bl', '200000', 0),
+(24, 7, 'Arman Maulana Saputra', 'armanmaulanasaputra15@gmail.com', '081234835352', 'Lumajang', 10, 'hia', 'sunbohia', '2021-08-02', '2021-08-11', 'bl', '9000000', 0);
 
 -- --------------------------------------------------------
 
@@ -345,10 +419,22 @@ CREATE TABLE `user_token` (
 --
 
 --
+-- Indexes for table `tb_hotel`
+--
+ALTER TABLE `tb_hotel`
+  ADD PRIMARY KEY (`id_hotel`);
+
+--
 -- Indexes for table `tb_jadwal`
 --
 ALTER TABLE `tb_jadwal`
   ADD PRIMARY KEY (`id_jadwal`);
+
+--
+-- Indexes for table `tb_kendaraan`
+--
+ALTER TABLE `tb_kendaraan`
+  ADD PRIMARY KEY (`id_kendaraan`);
 
 --
 -- Indexes for table `tb_pesanan`
@@ -411,16 +497,28 @@ ALTER TABLE `user_token`
 --
 
 --
+-- AUTO_INCREMENT for table `tb_hotel`
+--
+ALTER TABLE `tb_hotel`
+  MODIFY `id_hotel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
 -- AUTO_INCREMENT for table `tb_jadwal`
 --
 ALTER TABLE `tb_jadwal`
-  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+
+--
+-- AUTO_INCREMENT for table `tb_kendaraan`
+--
+ALTER TABLE `tb_kendaraan`
+  MODIFY `id_kendaraan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tb_pesanan`
 --
 ALTER TABLE `tb_pesanan`
-  MODIFY `id_pesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_pesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `tb_tempat`

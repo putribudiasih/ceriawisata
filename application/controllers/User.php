@@ -59,6 +59,7 @@ class User extends CI_Controller
 		$data['title'] = 'Pemesanan Paket';
 		$data['user'] = $this->db->get_where('tb_user', ['email' => $this->session->userdata('email')])->row_array();
 		$data['trayek'] = $this->db->get_where('tb_trayek')->result_array();
+		$data['kendaraan'] = $this->Ceriawisata_model->getKendaraan();
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
@@ -82,8 +83,25 @@ class User extends CI_Controller
 		$tgl_mulai = $this->input->post('tgl_mulai');
 		$tgl_selesai = $this->input->post('tgl_selesai');
 		$trayek = $this->input->post('trayek');
+		$kode_kendaraan = $this->input->post('kendaraan');
+		$kode_hotel = $this->input->post('hotel');
 		$total = $this->cart->total();
 
+		if ($trayek == "bl") {
+			$total = $this->input->post('total');
+			if (count($keranjang) > 5) {
+				$this->session->set_flashdata(
+					'msg',
+					'
+				<div class="alert alert-danger alert-dismissible">
+				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+				<h4>Destinasi Yang Dipilih Lebih Dari 5! </h4>
+				</div>
+				'
+				);
+				redirect('User/pesanan');
+			}
+		}
 
 		$data = array(
 			'id_user' => $id_user,
@@ -95,6 +113,8 @@ class User extends CI_Controller
 			'tgl_mulai' => $tgl_mulai,
 			'tgl_selesai' => $tgl_selesai,
 			'trayek' => $trayek,
+			'kendaraan' => $kode_kendaraan,
+			'hotel' => $kode_hotel,
 			'total_harga' => $total
 		);
 
@@ -110,6 +130,9 @@ class User extends CI_Controller
 			);
 			$order[] = $data;
 		}
+
+
+
 		foreach ($order as $o) {
 			$this->Ceriawisata_model->tambahJadwal($o);
 		}
@@ -221,19 +244,17 @@ class User extends CI_Controller
 			$no++;
 			$output .= '
                 <tr>
-                    <td>' . $items['name'] . '</td>
-                    <td>' . number_format($items['price']) . '</td>
-                    <td>' . number_format($items['subtotal']) . '</td>
+                    <td colspan="3">' . $items['name'] . '</td>
                     <td><button type="button" id="' . $items['rowid'] . '" class="hapus_cart btn btn-danger btn-xs">Batal</button></td>
                 </tr>
             ';
 		}
-		$output .= '
-            <tr>
-                <th colspan="3">Total</th>
-                <th colspan="2">' . 'Rp ' . number_format($this->cart->total()) . '</th>
-            </tr>
-        ';
+		// $output .= '
+		//     <tr>
+		//         <th colspan="3">Total</th>
+		//         <th colspan="2">' . 'Rp ' . number_format($this->cart->total()) . '</th>
+		//     </tr>
+		// ';
 		return $output;
 	}
 
@@ -256,5 +277,27 @@ class User extends CI_Controller
 	{
 		$this->cart->destroy();
 		echo $this->showCart();
+	}
+
+	public function getHotel()
+	{
+		// $this->hapusKeranjang();
+		$id = $this->input->post('id');
+		$data = $this->Ceriawisata_model->getHotel($id);
+		echo json_encode($data);
+	}
+
+	public function getKendaraan()
+	{
+		$kapasitas = $this->input->post('kapasitas');
+		$data = $this->Ceriawisata_model->getKapasitas($kapasitas);
+		echo json_encode($data);
+	}
+
+	public function getHarga()
+	{
+		$kode_hotel = $this->input->post('kode_hotel');
+		$data = $this->Ceriawisata_model->getHarga($kode_hotel);
+		echo json_encode($data);
 	}
 }

@@ -34,7 +34,7 @@
                                 <p>: <?= $detail_pesanan['email_pemesan'] ?></p>
                             </div>
                         </div>
-                        
+
                         <div class="row">
                             <div class="col-md-2">
                                 <label>Lokasi Berangkat</label>
@@ -43,8 +43,16 @@
                                 <p>: <?= $detail_pesanan['lokasi_berangkat'] ?></p>
                             </div>
                         </div>
-
+                        <!-- <div class="row">
+                            <div class="col-md-2">
+                                <label>Nama Kendaraan</label>
+                            </div>
+                            <div class="col-md-8">
+                                <p>: <?= $detail_pesanan['nama_kendaraan'] ?></p>
+                            </div>
+                        </div> -->
                     </div>
+
                     <div class="col">
                         <div class="row">
                             <div class="col-md-2">
@@ -79,7 +87,14 @@
                                 </p>
                             </div>
                         </div>
-
+                        <!-- <div class="row">
+                            <div class="col-md-2">
+                                <label>Nama Hotel</label>
+                            </div>
+                            <div class="col-md-8">
+                                <p>: <?= $detail_pesanan['nama_hotel'] ?></p>
+                            </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -118,14 +133,22 @@
                                 <td>
                                     <?php
                                     $orgDate = $d['tanggal'];
-                                    echo $newDate = date("d/m/Y", strtotime($orgDate));
+                                    if ($orgDate == "") {
+                                        echo "Belum Dijadwalkan";
+                                    } else {
+                                        echo $newDate = date("d/m/Y", strtotime($orgDate));
+                                    }
                                     ?>
                                 </td>
                                 <td>
                                     <?php
                                     $berangkat = $d['waktu_berangkat'];
                                     $pulang = $d['waktu_pulang'];
-                                    echo ' ' . date('H:i', strtotime($berangkat)) . ' s/d ' . date('H:i', strtotime($pulang)) . ' ';
+                                    if ($berangkat == "" && $pulang == "") {
+                                        echo "Belum Dijadwalkan";
+                                    } else {
+                                        echo ' ' . date('H:i', strtotime($berangkat)) . ' s/d ' . date('H:i', strtotime($pulang)) . ' ';
+                                    }
                                     ?>
                                 </td>
 
