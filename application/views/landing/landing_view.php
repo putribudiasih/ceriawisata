@@ -184,7 +184,7 @@
 
                 <div class="section-title" data-aos="fade-up">
                     <h2>Portofolio</h2>
-                    <p>Dokumentasi Ceriawisata Tour & Travel di berbagai destinasi</p>
+                    <p>Destinasi Ceria Wisata Tour & Travel di Berbagai Wilayah</p>
                 </div>
 
                 <div class="row" data-aos="fade-up" data-aos-delay="100">
@@ -389,17 +389,15 @@
 
                     <div class="col-xl-3 col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
                         <div class="member">
-                            <img src="<?= base_url('vendor_temp/Ninestars/') ?>assets/img/team/team-1.jpg" class="img-fluid" alt="">
+                            <img src="<?= base_url('vendor_temp/Ninestars/') ?>assets/img/team/tim3.png" class="img-fluid" alt="">
                             <div class="member-info">
                                 <div class="member-info-content">
-                                    <h4>Nama Kepala Ceriawisata</h4>
-                                    <span>Kepala Ceriawisata</span>
+                                    <h4>Ceria Wisata</h4>
+                                    <span>Tour & Travel</span>
                                 </div>
                                 <div class="social">
-                                    <a href=""><i class="icofont-twitter"></i></a>
                                     <a href=""><i class="icofont-facebook"></i></a>
                                     <a href=""><i class="icofont-instagram"></i></a>
-                                    <a href=""><i class="icofont-linkedin"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -407,17 +405,15 @@
 
                     <div class="col-xl-3 col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
                         <div class="member">
-                            <img src="<?= base_url('vendor_temp/Ninestars/') ?>assets/img/team/team-2.jpg" class="img-fluid" alt="">
+                            <img src="<?= base_url('vendor_temp/Ninestars/') ?>assets/img/team/tim1.png" class="img-fluid" alt="">
                             <div class="member-info">
                                 <div class="member-info-content">
-                                    <h4>Nama Kepala Marketting</h4>
-                                    <span>Kepala Marketing</span>
+                                    <h4>Ceria Wisata</h4>
+                                    <span>Tour & Travel</span>
                                 </div>
                                 <div class="social">
-                                    <a href=""><i class="icofont-twitter"></i></a>
                                     <a href=""><i class="icofont-facebook"></i></a>
                                     <a href=""><i class="icofont-instagram"></i></a>
-                                    <a href=""><i class="icofont-linkedin"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -425,17 +421,15 @@
 
                     <div class="col-xl-3 col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="300">
                         <div class="member">
-                            <img src="<?= base_url('vendor_temp/Ninestars/') ?>assets/img/team/team-3.jpg" class="img-fluid" alt="">
+                            <img src="<?= base_url('vendor_temp/Ninestars/') ?>assets/img/team/tim2.png" class="img-fluid" alt="">
                             <div class="member-info">
                                 <div class="member-info-content">
-                                    <h4>Nama Kepala Administrasi</h4>
-                                    <span>Kepala Administrasi</span>
+                                    <h4>Ceria Wisata</h4>
+                                    <span>Tour & Travel</span>
                                 </div>
                                 <div class="social">
-                                    <a href=""><i class="icofont-twitter"></i></a>
                                     <a href=""><i class="icofont-facebook"></i></a>
                                     <a href=""><i class="icofont-instagram"></i></a>
-                                    <a href=""><i class="icofont-linkedin"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -443,17 +437,15 @@
 
                     <div class="col-xl-3 col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="400">
                         <div class="member">
-                            <img src="<?= base_url('vendor_temp/Ninestars/') ?>assets/img/team/team-4.jpg" class="img-fluid" alt="">
+                            <img src="<?= base_url('vendor_temp/Ninestars/') ?>assets/img/team/tim4.png" class="img-fluid" alt="">
                             <div class="member-info">
                                 <div class="member-info-content">
-                                    <h4>Nama Kepala HUMAS</h4>
-                                    <span>Kepala HUMAS</span>
+                                    <h4>Ceria Wisata</h4>
+                                    <span>Tour & Travel</span>
                                 </div>
                                 <div class="social">
-                                    <a href=""><i class="icofont-twitter"></i></a>
                                     <a href=""><i class="icofont-facebook"></i></a>
                                     <a href=""><i class="icofont-instagram"></i></a>
-                                    <a href=""><i class="icofont-linkedin"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -470,18 +462,16 @@
 
                 <div class="section-title" data-aos="fade-up">
                     <h2>Partners</h2>
-                    <p>Kami telah bekerja sama dengan berbagai pihak demi pelayanan yang terbaik</p>
+                    <p>Perusahaan perusahaan bonafit yang telah menjadi langganan kami</p>
                 </div>
 
                 <div class="owl-carousel clients-carousel" data-aos="fade-up" data-aos-delay="100">
-                    <img src="<?= base_url('vendor_temp/Ninestars/') ?>assets/img/clients/client-1.png" alt="">
-                    <img src="<?= base_url('vendor_temp/Ninestars/') ?>assets/img/clients/client-2.png" alt="">
-                    <img src="<?= base_url('vendor_temp/Ninestars/') ?>assets/img/clients/client-3.png" alt="">
-                    <img src="<?= base_url('vendor_temp/Ninestars/') ?>assets/img/clients/client-4.png" alt="">
-                    <img src="<?= base_url('vendor_temp/Ninestars/') ?>assets/img/clients/client-5.png" alt="">
-                    <img src="<?= base_url('vendor_temp/Ninestars/') ?>assets/img/clients/client-6.png" alt="">
-                    <img src="<?= base_url('vendor_temp/Ninestars/') ?>assets/img/clients/client-7.png" alt="">
-                    <img src="<?= base_url('vendor_temp/Ninestars/') ?>assets/img/clients/client-8.png" alt="">
+                    <img src="<?= base_url('vendor_temp/Ninestars/') ?>assets/img/clients/shangrila.png" alt="">
+                    <img src="<?= base_url('vendor_temp/Ninestars/') ?>assets/img/clients/meiji.png" alt="">
+                    <img src="<?= base_url('vendor_temp/Ninestars/') ?>assets/img/clients/telkomsel.jpg" alt="">
+                    <img src="<?= base_url('vendor_temp/Ninestars/') ?>assets/img/clients/yamaha.jpg" alt="">
+                    <img src="<?= base_url('vendor_temp/Ninestars/') ?>assets/img/clients/nestle.jpg" alt="">
+                    <img src="<?= base_url('vendor_temp/Ninestars/') ?>assets/img/clients/cargill.jpg" alt="">
                 </div>
 
             </div>
@@ -589,7 +579,6 @@
                         <h4>Social Media kami</h4>
                         <p>Ikuti berbagai sosial media kami untuk informasi dan promo menarik Ceriawisata Tour & Travel</p>
                         <div class="social-links mt-3">
-                            <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
                             <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
                             <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
 
