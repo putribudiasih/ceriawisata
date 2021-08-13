@@ -226,14 +226,19 @@ class User extends CI_Controller
 
 	public function tambahCart()
 	{
-		$data = array(
-			'id' => $this->input->post('id_tempat'),
-			'name' => $this->input->post('nama_tempat'),
-			'price' => $this->input->post('harga_tempat'),
-			'qty' => 1
-		);
-		$this->cart->insert($data);
-		echo $this->showCart();
+		$keranjang = $this->cart->contents();
+		if (count($keranjang) < 5) {
+			$data = array(
+				'id' => $this->input->post('id_tempat'),
+				'name' => $this->input->post('nama_tempat'),
+				'price' => $this->input->post('harga_tempat'),
+				'qty' => 1
+			);
+			$this->cart->insert($data);
+			echo $this->showCart();
+		} else {
+			echo $this->showCart();
+		}
 	}
 
 	public function showCart()
