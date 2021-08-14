@@ -55,8 +55,8 @@ class Ceriawisata_model extends CI_Model
 		$this->db->from('tb_pesanan');
 		$this->db->join('tb_user', 'tb_user.id_user = tb_pesanan.id_user');
 		$this->db->join('tb_trayek', 'tb_trayek.kode = tb_pesanan.trayek');
-		// $this->db->join('tb_hotel', 'tb_hotel.kode_hotel = tb_pesanan.hotel');
-		// $this->db->join('tb_kendaraan', 'tb_kendaraan.kode_kendaraan = tb_pesanan.kendaraan');
+		$this->db->join('tb_hotel', 'tb_hotel.kode_hotel = tb_pesanan.hotel');
+		$this->db->join('tb_kendaraan', 'tb_kendaraan.kode_kendaraan = tb_pesanan.kendaraan');
 		$this->db->where('id_pesanan', $id);
 		$query = $this->db->get();
 		return $query->row_array();

@@ -86,22 +86,23 @@ class User extends CI_Controller
 		$kode_kendaraan = $this->input->post('kendaraan');
 		$kode_hotel = $this->input->post('hotel');
 		$total = $this->cart->total();
+		$catatan = $this->input->post('catatan');
 
-		if ($trayek == "bl") {
-			$total = $this->input->post('total');
-			if (count($keranjang) > 5) {
-				$this->session->set_flashdata(
-					'msg',
-					'
-				<div class="alert alert-danger alert-dismissible">
-				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
-				<h4>Destinasi Yang Dipilih Lebih Dari 5! </h4>
-				</div>
-				'
-				);
-				redirect('User/pesanan');
-			}
-		}
+		// if ($trayek == "bl") {
+		// 	$total = $this->input->post('total');
+		// 	if (count($keranjang) > 5) {
+		// 		$this->session->set_flashdata(
+		// 			'msg',
+		// 			'
+		// 		<div class="alert alert-danger alert-dismissible">
+		// 		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+		// 		<h4>Destinasi Yang Dipilih Lebih Dari 5! </h4>
+		// 		</div>
+		// 		'
+		// 		);
+		// 		redirect('User/pesanan');
+		// 	}
+		// }
 
 		$data = array(
 			'id_user' => $id_user,
@@ -115,7 +116,8 @@ class User extends CI_Controller
 			'trayek' => $trayek,
 			'kendaraan' => $kode_kendaraan,
 			'hotel' => $kode_hotel,
-			'total_harga' => $total
+			'total_harga' => $total,
+			'catatan' => $catatan
 		);
 
 		// $data['datalokasi'] = $this->Ceriawisata_model->getdatapesanan();

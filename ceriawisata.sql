@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 09, 2021 at 11:21 AM
+-- Generation Time: Aug 14, 2021 at 10:35 AM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -91,7 +91,14 @@ INSERT INTO `tb_jadwal` (`id_jadwal`, `id_pesanan`, `id_tempat`, `tanggal`, `wak
 (50, 21, 44, NULL, NULL, NULL),
 (51, 21, 45, NULL, NULL, NULL),
 (55, 24, 44, NULL, NULL, NULL),
-(56, 24, 45, NULL, NULL, NULL);
+(56, 24, 45, NULL, NULL, NULL),
+(63, 26, 44, NULL, NULL, NULL),
+(64, 26, 45, NULL, NULL, NULL),
+(65, 26, 46, NULL, NULL, NULL),
+(66, 26, 47, NULL, NULL, NULL),
+(67, 26, 48, NULL, NULL, NULL),
+(68, 27, 44, NULL, NULL, NULL),
+(69, 27, 45, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -140,6 +147,7 @@ CREATE TABLE `tb_pesanan` (
   `tgl_selesai` date NOT NULL,
   `trayek` varchar(50) NOT NULL,
   `total_harga` varchar(100) NOT NULL,
+  `catatan` text NOT NULL,
   `keterangan` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -147,11 +155,12 @@ CREATE TABLE `tb_pesanan` (
 -- Dumping data for table `tb_pesanan`
 --
 
-INSERT INTO `tb_pesanan` (`id_pesanan`, `id_user`, `nama_pemesan`, `email_pemesan`, `telp_pemesan`, `lokasi_berangkat`, `jml_pax`, `kendaraan`, `hotel`, `tgl_mulai`, `tgl_selesai`, `trayek`, `total_harga`, `keterangan`) VALUES
-(17, 4, 'Rio Sesono', 'riosesono9@gmail.com', '085438183245', 'Probolinggo', 12, '', '', '2021-07-21', '2021-07-24', 'bl', '500000', 0),
-(18, 12, 'Wahyu', 'wahyu@gmail.com', '085438183245', 'jember', 2, '', '', '2021-07-22', '2021-07-24', 'bl', '200000', 0),
-(21, 7, 'Arman Maulana Saputra', 'armanmaulanasaputra15@gmail.com', '081234835352', 'Lumajang', 10, '', '', '2021-08-08', '2021-08-15', 'bl', '200000', 0),
-(24, 7, 'Arman Maulana Saputra', 'armanmaulanasaputra15@gmail.com', '081234835352', 'Lumajang', 10, 'hia', 'sunbohia', '2021-08-02', '2021-08-11', 'bl', '9000000', 0);
+INSERT INTO `tb_pesanan` (`id_pesanan`, `id_user`, `nama_pemesan`, `email_pemesan`, `telp_pemesan`, `lokasi_berangkat`, `jml_pax`, `kendaraan`, `hotel`, `tgl_mulai`, `tgl_selesai`, `trayek`, `total_harga`, `catatan`, `keterangan`) VALUES
+(17, 4, 'Rio Sesono', 'riosesono9@gmail.com', '085438183245', 'Probolinggo', 12, 'mebus', 'sunbomebus', '2021-07-21', '2021-07-24', 'bl', '500000', '', 0),
+(18, 12, 'Wahyu', 'wahyu@gmail.com', '085438183245', 'jember', 2, 'ava', 'fontaava', '2021-07-22', '2021-07-24', 'bl', '200000', '', 0),
+(21, 7, 'Arman Maulana Saputra', 'armanmaulanasaputra15@gmail.com', '081234835352', 'Lumajang', 10, 'hia', 'fontahia', '2021-08-08', '2021-08-15', 'bl', '200000', '', 0),
+(24, 7, 'Arman Maulana Saputra', 'armanmaulanasaputra15@gmail.com', '081234835352', 'Lumajang', 10, 'hia', 'sunbohia', '2021-08-02', '2021-08-11', 'bl', '9000000', '', 0),
+(27, 11, 'Arman Maulana Saputra', 'armanmaulanasaputra15@gmail.com', '081234835352', 'Lumajang', 2, 'ava', 'sunboava', '2021-08-01', '2021-08-04', 'bl', '6400000', 'Alergi udang dan cintamu', 0);
 
 -- --------------------------------------------------------
 
@@ -506,7 +515,7 @@ ALTER TABLE `tb_hotel`
 -- AUTO_INCREMENT for table `tb_jadwal`
 --
 ALTER TABLE `tb_jadwal`
-  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- AUTO_INCREMENT for table `tb_kendaraan`
@@ -518,7 +527,7 @@ ALTER TABLE `tb_kendaraan`
 -- AUTO_INCREMENT for table `tb_pesanan`
 --
 ALTER TABLE `tb_pesanan`
-  MODIFY `id_pesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_pesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `tb_tempat`

@@ -93,10 +93,10 @@
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <label>Total Harga</label>
+                        <label>Harga Per Orang</label>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1">Rp.</span>
-                            <input type="text" class="form-control" aria-describedby="basic-addon1" value="<?= number_format($detail_pesanan['total_harga']) ?>" disabled>
+                            <input type="text" class="form-control" aria-describedby="basic-addon1" value="<?= number_format($detail_pesanan['harga']) ?>" disabled>
                         </div>
                     </div>
                 </div>
@@ -123,6 +123,32 @@
                             <input type="text" class="form-control" aria-describedby="basic-addon1" value="<?= $detail_pesanan['jml_pax'] ?>" disabled>
                         </div>
                     </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Kendaraan</label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-car"></i></span>
+                            <input type="text" class="form-control" aria-describedby="basic-addon1" value="<?= $detail_pesanan['nama_kendaraan'] ?>" disabled>
+                        </div>
+                        <label>Hotel</label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-hotel"></i></span>
+                            <input type="text" class="form-control" aria-describedby="basic-addon1" value="<?= $detail_pesanan['nama_hotel'] ?>" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label>Catatan</label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-clipboard"></i></span>
+                            <textarea class="form-control" aria-describedby="basic-addon1" disabled><?= $detail_pesanan['catatan'] ?></textarea>
+                        </div>
+                    </div>
+                </div>
+                <label>Total Harga</label>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-dollar-sign"></i></span>
+                    <input type="text" class="form-control" aria-describedby="basic-addon1" value="<?= number_format($detail_pesanan['total_harga']) ?>" disabled>
                 </div>
             </div>
         </div>
