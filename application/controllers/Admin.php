@@ -387,7 +387,7 @@ class Admin extends CI_Controller
 
 	public function editLokasi()
 	{
-		$config['upload_path']          = 'assets/img/Destinasi/';  // folder upload 
+		$config['upload_path']          = 'assets/img/';  // folder upload 
 		$config['allowed_types']        = 'gif|jpg|png'; // jenis file
 		$config['max_size']             = 10000;
 		// $config['max_width']            = 1024;
