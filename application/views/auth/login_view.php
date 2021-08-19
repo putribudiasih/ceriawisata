@@ -38,6 +38,9 @@
                                     <div class="text-center">
                                         <a class="small" href="<?= base_url(); ?>Login_controller/registration">Buat Akun Baru!</a>
                                     </div>
+                                    <div class="text-center">
+                                        <a class="small" href="<?= base_url(); ?>Landing/index">Kembali ke Halaman Awal</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
