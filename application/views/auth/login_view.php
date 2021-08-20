@@ -41,6 +41,11 @@
                                     <div class="text-center">
                                         <a class="small" href="<?= base_url(); ?>Landing/index">Kembali ke Halaman Awal</a>
                                     </div>
+                                    <div class="text-center">
+                                        <p style="padding-top: 10px;">Role | Username | Password</p>
+                                        <p class="small" style="margin-bottom: 0px;">admin | admin@gmail.com | 123123</p>
+                                        <p class="small" style="margin-bottom: 0px;">user | user@gmail.com | 123123</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
